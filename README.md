@@ -1,4 +1,4 @@
-# Astro Starter Kit: Basics
+# Borko's portfoliio
 
 ```sh
 npm create astro@latest -- --template basics
