@@ -1,0 +1,61 @@
+---
+import Layout from './Layout.astro';
+import ProjectNavigation from '../components/navigation/ProjectNavigation.astro';
+import { trackProjectView } from '../utils/analytics';
+
+interface Props {
+  title: string;
+  description: string;
+  color: string;
+  previousProject?: {
+    title: string;
+    description: string;
+    image: string;
+    href: string;
+    color: string;
+  };
+  nextProject?: {
+    title: string;
+    description: string;
+    image: string;
+    href: string;
+    color: string;
+  };
+}
+
+const { title, description, color, previousProject, nextProject } = Astro.props;
+---
+
+<Layout title={`${title} | UX Portfolio`} description={description}>
+  <article class={`bg-${color}-bg/10`}>
+    <div class="mx-auto max-w-container px-4 py-24 sm:px-6 lg:px-8">
+      <header class="max-w-3xl">
+        <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">{title}</h1>
+        <p class="mt-6 text-xl text-gray-600">{description}</p>
+      </header>
+
+      <div class="mt-16 grid gap-12 lg:grid-cols-3">
+        <div class="prose prose-lg lg:col-span-2">
+          <slot />
+        </div>
+
+        <aside class="space-y-8">
+          <div class="rounded-lg bg-white p-6 shadow-sm">
+            <h2 class="text-lg font-semibold">Project Details</h2>
+            <slot name="project-details" />
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+
+  <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+    <ProjectNavigation previousProject={previousProject} nextProject={nextProject} />
+  </div>
+</Layout>
+
+<script define:vars={{ title }}>
+document.addEventListener('DOMContentLoaded', () => {
+  trackProjectView(title);
+});
+</script>

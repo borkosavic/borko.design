@@ -1,0 +1,35 @@
+---
+import type { Project } from '../types/project';
+
+interface Props {
+  project: Project;
+  isEven: boolean;
+}
+
+const { project, isEven } = Astro.props;
+---
+
+<div class={`w-full py-24 bg-${project.color}-gradient`}>
+  <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+    <div class={`grid gap-12 items-center lg:grid-cols-2 ${isEven ? 'lg:grid-flow-dense' : ''}`}>
+      <div class={`${isEven ? 'lg:col-start-2' : ''}`}>
+        <h3 class="text-3xl font-bold mb-4 text-white">{project.title}</h3>
+        <p class="text-lg text-white/90 mb-6">{project.description}</p>
+        <a 
+          href={project.href} 
+          class={`inline-block px-6 py-3 border-2 border-${project.color}-light rounded-lg 
+                 text-white hover:bg-white hover:text-${project.color}-primary transition-standard`}
+        >
+          View Project
+        </a>
+      </div>
+      <div class={`${isEven ? 'lg:col-start-1' : ''}`}>
+        <img 
+          src={project.image} 
+          alt={project.title}
+          class="rounded-lg shadow-xl w-full aspect-video object-cover"
+        />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+---
+import NavLink from './NavLink.astro';
+import { navItems } from './NavItems';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm shadow-sm">
+  <nav class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <a href="/" class="text-xl font-bold">borko.design</a>
+      
+      <ul class="flex gap-8">
+        {navItems.map(item => (
+          <li>
+            <NavLink {...item} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,45 @@
+---
+interface Props {
+  previousProject?: {
+    title: string;
+    description: string;
+    image: string;
+    href: string;
+    color: string;
+  };
+  nextProject?: {
+    title: string;
+    description: string;
+    image: string;
+    href: string;
+    color: string;
+  };
+}
+
+const { previousProject, nextProject } = Astro.props;
+---
+
+<nav class="grid gap-8 md:grid-cols-2 border-t border-gray-200 py-12">
+  {previousProject && (
+    <a href={previousProject.href} class="group relative flex gap-6 items-center">
+      <div class="w-24 h-24 shrink-0 overflow-hidden rounded-lg">
+        <img src={previousProject.image} alt={previousProject.title} class="h-full w-full object-cover" />
+      </div>
+      <div>
+        <span class="text-sm text-gray-500">Previous Project</span>
+        <p class="font-semibold group-hover:text-gray-600">{previousProject.title}</p>
+      </div>
+    </a>
+  )}
+  {nextProject && (
+    <a href={nextProject.href} class="group relative flex gap-6 items-center justify-end md:ml-auto">
+      <div class="text-right">
+        <span class="text-sm text-gray-500">Next Project</span>
+        <p class="font-semibold group-hover:text-gray-600">{nextProject.title}</p>
+      </div>
+      <div class="w-24 h-24 shrink-0 overflow-hidden rounded-lg">
+        <img src={nextProject.image} alt={nextProject.title} class="h-full w-full object-cover" />
+      </div>
+    </a>
+  )}
+</nav>

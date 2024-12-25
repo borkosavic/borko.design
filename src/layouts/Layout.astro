@@ -1,0 +1,45 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "UX Portfolio showcasing my work and projects" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-white">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: 'Satoshi';
+    src: url('/fonts/Satoshi-Variable.ttf') format('truetype');
+    font-weight: 300 900;
+    font-display: swap;
+  }
+
+  .transition-standard {
+    transition: all 300ms ease-in-out;
+  }
+
+  .content-fade {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
+
+  .content-fade.visible {
+    opacity: 1;
+  }
+</style>
