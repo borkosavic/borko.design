@@ -1,38 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/navigation/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import ProjectSection from '../components/ProjectSection.astro';
 import ContactSection from '../components/ContactSection.astro';
-
-const projects = [
-  {
-    title: 'Belimo Assistant',
-    description: 'AI-powered HVAC system assistant that helps technicians diagnose and solve system issues more efficiently. Built with React and OpenAI.',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200',
-    color: 'belimo',
-    href: '/projects/belimo-assistant'
-  },
-  {
-    title: 'SciProfiles',
-    description: 'Scientific profile management platform enabling researchers to showcase their work and connect with peers worldwide.',
-    image: 'https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80&w=1200',
-    color: 'sciprofiles',
-    href: '/projects/sciprofiles'
-  },
-  {
-    title: 'HomeRules Poker',
-    description: 'Custom poker game rule management system that lets players create and share their own poker variants.',
-    image: 'https://images.unsplash.com/photo-1511193311914-0346f16efe90?auto=format&fit=crop&q=80&w=1200',
-    color: 'homerules',
-    href: '/projects/homerules-poker'
-  }
-];
+import { projects } from '../data/projects';
 ---
-
 <Layout title="UX Portfolio">
-  <Navbar />
-  <main class="pt-16">
+  <main>
     <Hero />
     
     <section id="projects">

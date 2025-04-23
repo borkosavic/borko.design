@@ -2,6 +2,14 @@ export interface Project {
   title: string;
   description: string;
   image: string;
-  color: 'belimo' | 'sciprofiles' | 'homerules' | 'fxtrading' | 'act2access';
-  href: string;
+  color: string;
+  slug: string;
+  timeline?: string;
+  technologies?: string[];
+  content?: {
+    about: string;
+    challenge: string;
+    solution: string;
+    results: string;
+  };
 }

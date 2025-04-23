@@ -11,14 +11,14 @@ interface Props {
     title: string;
     description: string;
     image: string;
-    href: string;
+    slug: string;
     color: string;
   };
   nextProject?: {
     title: string;
     description: string;
     image: string;
-    href: string;
+    slug: string;
     color: string;
   };
 }
@@ -49,9 +49,20 @@ const { title, description, color, previousProject, nextProject } = Astro.props;
     </div>
   </article>
 
-  <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
-    <ProjectNavigation previousProject={previousProject} nextProject={nextProject} />
-  </div>
+  {(previousProject || nextProject) && (
+    <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+      <ProjectNavigation
+        previousProject={previousProject && {
+          ...previousProject,
+          href: `/projects/${previousProject.slug}`
+        }}
+        nextProject={nextProject && {
+          ...nextProject,
+          href: `/projects/${nextProject.slug}`
+        }}
+      />
+    </div>
+  )}
 </Layout>
 
 <script define:vars={{ title }}>

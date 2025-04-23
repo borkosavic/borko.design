@@ -27,48 +27,48 @@ const { project, previousProject, nextProject } = Astro.props;
     <section>
       <h2 class="text-2xl font-bold">About the Project</h2>
       <div class="mt-6 prose prose-lg">
-        {project.content.about}
+        {project.content?.about}
       </div>
     </section>
 
     <section>
       <h2 class="text-2xl font-bold">Challenge</h2>
       <div class="mt-6 prose prose-lg">
-        {project.content.challenge}
+        {project.content?.challenge}
       </div>
     </section>
 
     <section>
       <h2 class="text-2xl font-bold">Solution</h2>
       <div class="mt-6 prose prose-lg">
-        {project.content.solution}
+        {project.content?.solution}
       </div>
     </section>
 
     <section>
       <h2 class="text-2xl font-bold">Results</h2>
       <div class="mt-6 prose prose-lg">
-        {project.content.results}
+        {project.content?.results}
       </div>
     </section>
   </div>
 
   <div slot="project-details" class="space-y-4">
-    <div>
-      <h3 class="font-medium text-gray-900">Role</h3>
-      <p class="mt-1 text-gray-600">{project.role}</p>
-    </div>
-    <div>
-      <h3 class="font-medium text-gray-900">Timeline</h3>
-      <p class="mt-1 text-gray-600">{project.timeline}</p>
-    </div>
-    <div>
-      <h3 class="font-medium text-gray-900">Technologies</h3>
-      <ul class="mt-1 space-y-1 text-gray-600">
-        {project.technologies.map((tech) => (
-          <li>{tech}</li>
-        ))}
-      </ul>
-    </div>
+    {project.timeline && (
+      <div>
+        <h3 class="font-medium text-gray-900">Timeline</h3>
+        <p class="mt-1 text-gray-600">{project.timeline}</p>
+      </div>
+    )}
+    {project.technologies && project.technologies.length > 0 && (
+      <div>
+        <h3 class="font-medium text-gray-900">Technologies</h3>
+        <ul class="mt-1 space-y-1 text-gray-600">
+          {project.technologies.map((tech) => (
+            <li>{tech}</li>
+          ))}
+        </ul>
+      </div>
+    )}
   </div>
 </ProjectLayout>

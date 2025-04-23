@@ -22,15 +22,16 @@ const isHashLink = href.startsWith('#') && href !== '#';
     const element = document.querySelector(target);
     if (!element) return;
 
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
+    window.scrollTo({
+      top: element.getBoundingClientRect().top + window.scrollY - 64, // 64px for navbar height
+      behavior: 'smooth'
     });
   };
 
-  document.querySelectorAll('[data-nav-link="true"]').forEach(link => {
+  const links = document.querySelectorAll<HTMLAnchorElement>('[data-nav-link="true"]');
+  links.forEach(link => {
     link.addEventListener('click', (e) => {
-      const href = (link as HTMLAnchorElement).getAttribute('href');
+      const href = link.getAttribute('href');
       if (href) smoothScroll(e, href);
     });
   });
