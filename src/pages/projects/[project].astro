@@ -1,25 +1,72 @@
 ---
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
-import { projects } from '../../data/projects';
+import { getCollection } from 'astro:content';
 
-export function getStaticPaths() {
-  return projects.map((project, index) => ({
-    params: { project: project.slug },
-    props: {
-      project,
-      previousProject: index > 0 ? projects[index - 1] : undefined,
-      nextProject: index < projects.length - 1 ? projects[index + 1] : undefined,
-    },
-  }));
+interface ProjectFrontmatter {
+  title: string;
+  description: string;
+  slug: string;
+  accent: string;
+  image?: string;
+  tags?: string[];
+  timeline?: string;
+  technologies?: string[];
 }
 
-const { project, previousProject, nextProject } = Astro.props;
+interface ProjectNav {
+  title: string;
+  description: string;
+  slug: string;
+  color: string;
+  image: string;
+}
+
+interface Props {
+  project: ProjectFrontmatter;
+  previousProject?: ProjectNav;
+  nextProject?: ProjectNav;
+  content: string;
+}
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((entry, index) => {
+    const nav = (proj: any) => ({
+      title: proj.data.title,
+      description: proj.data.description,
+      slug: proj.data.slug,
+      color: proj.data.accent,
+      image: proj.data.image ?? ''
+    });
+    return {
+      params: { project: entry.slug },
+      props: {
+        project: entry.data as ProjectFrontmatter,
+        content: entry.body,
+        previousProject: index > 0 ? nav(projects[index - 1]) : undefined,
+        nextProject: index < projects.length - 1 ? nav(projects[index + 1]) : undefined,
+      },
+    };
+  });
+}
+
+const { project, previousProject, nextProject, content } = Astro.props as Props;
+
+// Robust image import for project images
+let imageSrc = '';
+if (project.image) {
+  try {
+    imageSrc = (await import(`../../assets/${project.image}`)).default.src;
+  } catch {
+    imageSrc = '';
+  }
+}
 ---
 
 <ProjectLayout
   title={project.title}
   description={project.description}
-  color={project.color}
+  color={project.accent}
   previousProject={previousProject}
   nextProject={nextProject}
 >
@@ -27,32 +74,19 @@ const { project, previousProject, nextProject } = Astro.props;
     <section>
       <h2 class="text-2xl font-bold">About the Project</h2>
       <div class="mt-6 prose prose-lg">
-        {project.content?.about}
+        {content}
       </div>
-    </section>
-
-    <section>
-      <h2 class="text-2xl font-bold">Challenge</h2>
-      <div class="mt-6 prose prose-lg">
-        {project.content?.challenge}
-      </div>
-    </section>
-
-    <section>
-      <h2 class="text-2xl font-bold">Solution</h2>
-      <div class="mt-6 prose prose-lg">
-        {project.content?.solution}
-      </div>
-    </section>
-
-    <section>
-      <h2 class="text-2xl font-bold">Results</h2>
-      <div class="mt-6 prose prose-lg">
-        {project.content?.results}
-      </div>
+      {project.image && (
+        imageSrc ? (
+          <img src={imageSrc} alt={project.title} class="w-full h-auto rounded-lg shadow-xl mt-8" loading="lazy" />
+        ) : (
+          <div class="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500 mt-8">
+            No Image Found
+          </div>
+        )
+      )}
     </section>
   </div>
-
   <div slot="project-details" class="space-y-4">
     {project.timeline && (
       <div>

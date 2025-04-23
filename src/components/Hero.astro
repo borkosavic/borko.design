@@ -1,4 +1,5 @@
 ---
+import profile from '../assets/profile.jpg';
 ---
 
 <section class="relative overflow-hidden bg-gray-50">
@@ -21,11 +22,20 @@
         </div>
       </div>
       <div class="relative">
-        <img
-          src="/images/profile.jpg"
-          alt="Profile"
-          class="aspect-square rounded-full object-contain shadow-xl"
-        />
+        {profile?.src ? (
+          <img
+            src={profile.src}
+            width={profile.width}
+            height={profile.height}
+            alt="Profile"
+            class="aspect-square rounded-full object-contain shadow-xl"
+            loading="lazy"
+          />
+        ) : (
+          <div class="w-[320px] h-[320px] bg-gray-200 rounded-full flex items-center justify-center text-gray-500">
+            No Image
+          </div>
+        )}
       </div>
     </div>
   </div>

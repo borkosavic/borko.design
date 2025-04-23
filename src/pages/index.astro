@@ -3,7 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import ProjectSection from '../components/ProjectSection.astro';
 import ContactSection from '../components/ContactSection.astro';
-import { projects } from '../data/projects';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
 ---
 <Layout title="UX Portfolio">
   <main>
@@ -11,7 +13,7 @@ import { projects } from '../data/projects';
     
     <section id="projects">
       {projects.map((project, index) => (
-        <ProjectSection project={project} isEven={index % 2 === 1} />
+        <ProjectSection project={project.data} isEven={index % 2 === 1} />
       ))}
     </section>
 

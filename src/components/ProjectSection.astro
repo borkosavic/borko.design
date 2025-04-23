@@ -6,7 +6,7 @@ interface Props {
   isEven: boolean;
 }
 
-const { project, isEven } = Astro.props;
+const { project, isEven }: Props = Astro.props;
 
 const colorClasses = {
   belimo: {
@@ -43,12 +43,21 @@ const colorClasses = {
 
 const colorKey = project.color in colorClasses ? project.color : 'belimo';
 const colors = colorClasses[colorKey];
+
+// Import project image using Astro v5 asset pipeline
+type ImageImport = typeof import('*.jpg');
+let imageSrc = project.image;
+let imageAsset: ImageImport | undefined = undefined;
+try {
+  imageAsset = await import(`../assets/${project.image}`);
+  imageSrc = imageAsset.default.src;
+} catch {}
 ---
 
 <div class={`w-full py-24 ${colors.bg}`}>
   <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
-    <div class={`grid gap-12 items-center lg:grid-cols-2 ${isEven ? 'lg:grid-flow-dense' : ''}`}> 
-      <div class={`${isEven ? 'lg:col-start-2' : ''}`}> 
+    <div class={`grid gap-12 items-center lg:grid-cols-2 ${isEven ? 'lg:grid-flow-dense' : ''}`}>
+      <div class={`${isEven ? 'lg:col-start-2' : ''}`}>
         <h3 class="text-3xl font-bold mb-4 text-white">{project.title}</h3>
         <p class="text-lg text-white/90 mb-6">{project.description}</p>
         <a
@@ -58,11 +67,12 @@ const colors = colorClasses[colorKey];
           View Project
         </a>
       </div>
-      <div class={`${isEven ? 'lg:col-start-1' : ''}`}> 
+      <div class={`${isEven ? 'lg:col-start-1' : ''}`}>
         <img
-          src={project.image}
+          src={imageSrc}
           alt={project.title}
           class="w-full h-auto rounded-lg shadow-xl"
+          loading="lazy"
         />
       </div>
     </div>

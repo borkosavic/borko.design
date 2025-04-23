@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getEntryBySlug } from 'astro:content';
 
 const resumeUrl = '/Borko Savic - Senior UX Designer CV.pdf';
+const about = await getEntryBySlug('about', 'about');
 ---
 
-<Layout title="About Me – Borko Savić">
+<Layout title={about?.data.title || 'About Me – Borko Savić'}>
   <section class="relative bg-gradient-to-br from-blue-50 to-white py-16 md:py-24 section-fade">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
       <div class="flex-1 min-w-0">
@@ -28,52 +30,22 @@ const resumeUrl = '/Borko Savic - Senior UX Designer CV.pdf';
 
   <section class="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8 section-fade">
     <h2 class="text-2xl font-bold mb-4 text-gray-800">About</h2>
-    <p class="prose prose-lg text-gray-700 mb-6">
-      With over <b>10 years of experience</b> designing highly usable and accessible products and design systems, I specialize in bridging the gap between business and development teams. My business education and foundational development knowledge enable me to communicate effectively across disciplines. While much of my work has been in fintech, social networks, and publishing, my expertise spans a variety of industries.
-    </p>
-    <p class="prose prose-lg text-gray-700">
-      I thrive in environments where I can connect the dots between business goals, user needs, and technical feasibility. My approach combines deep research, collaborative prototyping, and hands-on implementation to deliver products that are as delightful as they are effective.
-    </p>
+    <p class="prose prose-lg text-gray-700 mb-6">{about?.data.description}</p>
+    <p class="prose prose-lg text-gray-700">{about?.body}</p>
   </section>
 
   <section class="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8 section-fade">
     <h2 class="text-2xl font-bold mb-6 text-gray-800">Work Experience</h2>
     <div class="space-y-8">
-      <div class="flex gap-4 items-start card-hover bg-white/90 rounded-xl shadow p-5 transition-standard">
-        <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-blue-100"><span class="text-2xl">🌍</span></div>
-        <div>
-          <h3 class="font-semibold text-lg">UX Consultant <span class="text-blue-700">@ Zühlke</span> <span class="text-gray-400 font-normal">2022–2024</span></h3>
-          <p class="text-gray-700">Collaborated closely with developers and project managers to bridge the gap between client needs and the final product for several well-known companies. Designed web, mobile, and desktop apps, and crafted scalable design systems for consistent, usable products across projects. Adapted to diverse industries and delivered user-centered solutions that met both business and user goals.</p>
+      {about?.data.work && about.data.work.map(exp => (
+        <div class="flex gap-4 items-start card-hover bg-white/90 rounded-xl shadow p-5 transition-standard">
+          <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-blue-100"><span class="text-2xl">🌍</span></div>
+          <div>
+            <h3 class="font-semibold text-lg">{exp.role} <span class="text-blue-700">@ {exp.company}</span> <span class="text-gray-400 font-normal">{exp.years}</span></h3>
+            <p class="text-gray-700">{exp.description}</p>
+          </div>
         </div>
-      </div>
-      <div class="flex gap-4 items-start card-hover bg-white/90 rounded-xl shadow p-5 transition-standard">
-        <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-yellow-100"><span class="text-2xl">📚</span></div>
-        <div>
-          <h3 class="font-semibold text-lg">UX/UI Designer <span class="text-yellow-700">@ MDPI</span> <span class="text-gray-400 font-normal">2019–2022</span></h3>
-          <p class="text-gray-700">First UX designer at MDPI. Introduced and demonstrated the value of user experience across the organization. Led the redesign of SciProfiles (20x increase in MAU), established a company-wide design system, and laid the foundation for a user-centered culture adopted by all platforms, ensuring consistency, efficiency, and scalability.</p>
-        </div>
-      </div>
-      <div class="flex gap-4 items-start card-hover bg-white/90 rounded-xl shadow p-5 transition-standard">
-        <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-green-100"><span class="text-2xl">🎮</span></div>
-        <div>
-          <h3 class="font-semibold text-lg">UX Designer <span class="text-green-700">@ RedLark</span> <span class="text-gray-400 font-normal">2017–2019</span></h3>
-          <p class="text-gray-700">Designed an innovative poker game and the industry’s first HTML5 online casino. Unified three backend applications into one system, increasing productivity and reducing maintenance costs. Combined creative storytelling with state-of-the-art game design technologies.</p>
-        </div>
-      </div>
-      <div class="flex gap-4 items-start card-hover bg-white/90 rounded-xl shadow p-5 transition-standard">
-        <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-purple-100"><span class="text-2xl">💼</span></div>
-        <div>
-          <h3 class="font-semibold text-lg">UX/UI Designer <span class="text-purple-700">@ Gowi</span> <span class="text-gray-400 font-normal">2014–2017</span></h3>
-          <p class="text-gray-700">Designed highly complex web applications for corporate UK clients. Initiated a transition to a SPA (Single Page Application) approach, improving app speed by 30% and enhancing user experience.</p>
-        </div>
-      </div>
-      <div class="flex gap-4 items-start card-hover bg-white/90 rounded-xl shadow p-5 transition-standard">
-        <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-pink-100"><span class="text-2xl">📷</span></div>
-        <div>
-          <h3 class="font-semibold text-lg">Web Designer <span class="text-pink-700">@ Nikon</span> <span class="text-gray-400 font-normal">2012–2014</span></h3>
-          <p class="text-gray-700">Designed and maintained e-commerce stores and the main website. Led the development of Nikon Club, a platform created to engage customers and provide exclusive benefits, fostering a loyal community. Combined technical expertise and user-centered design to drive both customer satisfaction and business growth.</p>
-        </div>
-      </div>
+      ))}
     </div>
   </section>
 
