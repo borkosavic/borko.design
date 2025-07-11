@@ -30,7 +30,7 @@
   --project-5-dark: #A5AFDD;
 }
 
-/* Satoshi font (when you add the files) */
+/* Satoshi font  */
 @font-face {
   font-family: 'Satoshi';
   src: url('../fonts/Satoshi-Variable.woff2') format('woff2'),
