@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeRules Poker - Borko Savić</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <!-- Project-specific color configuration -->
+    <style>
+        :root {
+            --accent: var(--project-3-primary);
+            --accent-light: var(--project-3-light);
+            --accent-dark: var(--project-3-dark);
+        }
+    </style>
+    
+    <!-- Configure Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'accent': '#FFE66D',
+                        'accent-light': '#FFED8F',
+                        'accent-dark': '#FFD93D',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-black">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="../" class="font-semibold text-xl">borko.design</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="../#about" class="text-gray-600 hover:text-black transition">About</a>
+                    <a href="../#experience" class="text-gray-600 hover:text-black transition">Experience</a>
+                    <a href="../#projects" class="text-gray-600 hover:text-black transition">Projects</a>
+                    <a href="../#contact" class="text-gray-600 hover:text-black transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-8">
+                <a href="../#projects" class="text-accent hover:text-accent-dark transition">← Back to Projects</a>
+            </div>
+            
+            <div class="mb-8">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4">HomeRules Poker</h1>
+                <p class="text-xl text-gray-600 mb-6">An innovative digital poker game that displays community cards, betting, and chip balances on a shared TV or tablet, while player cards and actions are shown on their individual devices.</p>
+                
+                <div class="flex flex-wrap gap-6 text-sm">
+                    <div><strong>Duration:</strong> 2017 (2 years)</div>
+                    <div><strong>Skills:</strong> UX Design</div>
+                </div>
+            </div>
+            
+            <!-- Hero Image Placeholder -->
+            <div class="h-96 bg-gradient-to-br from-accent to-accent-dark rounded-lg mb-12 flex items-center justify-center">
+                <span class="text-white text-lg">Project Hero Image</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">Project Overview</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        An innovative digital poker game that replaces physical cards and chips with smartphones for private cards and a shared device for community cards.
+                    </p>
+                    <p class="text-lg text-gray-600">
+                        This was by far the most research-intensive project I've ever worked on, with nearly two years of continuous exploration and iteration. Developing completely new game mechanics required extensive user research and testing to ensure poker players would get a better alternative to physical cards or chips.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">My Role</h3>
+                    <ul class="text-gray-600 space-y-2 mb-6">
+                        <li>• Led user research and usability testing to understand player preferences</li>
+                        <li>• Designed game mechanics and interactions that mimic traditional poker gestures</li>
+                        <li>• Created intuitive workflows for the gameplay</li>
+                    </ul>
+                    
+                    <h3 class="text-2xl font-bold mb-4">Key Challenges</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Convincing poker players to adopt digital alternative without losing traditional experience</li>
+                        <li>• Developing entirely new game mechanics for unique multi-device setup</li>
+                        <li>• Balancing innovation with familiar poker conventions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Solution</h2>
+            
+            <div class="space-y-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Natural Gesture Design</h3>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Designed natural gestures like peeking at cards and swiping chips to mimic physical gameplay, maintaining the tactile experience poker players expect.
+                    </p>
+                    <div class="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
+                        <span class="text-gray-500">Gesture Interaction Flow</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Voice-Activated Setup</h3>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Integrated Alexa for voice-activated setup, simplifying the game-start process and reducing technical barriers for players.
+                    </p>
+                    <div class="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
+                        <span class="text-gray-500">Voice Setup Interface</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Extensive Prototyping</h3>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Conducted extensive prototyping and testing to refine mechanics and UX, ensuring the digital experience felt natural and engaging for poker enthusiasts.
+                    </p>
+                    <div class="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
+                        <span class="text-gray-500">Prototype Testing Sessions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Key Findings</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-bold mb-4 text-accent">Poker Players are Getting Old</h3>
+                    <p class="text-gray-600">The traditional poker demographic is aging, creating an opportunity for more accessible digital solutions.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-bold mb-4 text-accent">Keep it Natural</h3>
+                    <p class="text-gray-600">Players strongly prefer interactions that mimic physical poker gestures and behaviors.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-bold mb-4 text-accent">Micro-transactions aren't Micro</h3>
+                    <p class="text-gray-600">Traditional poker players are resistant to small, frequent payments typical in digital games.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Results</h2>
+            
+            <div class="bg-accent/5 p-8 rounded-lg">
+                <h3 class="text-2xl font-bold mb-4 text-accent">Product Development Completed</h3>
+                <p class="text-gray-600 mb-6">
+                    Successfully developed the complete product with innovative multi-device gameplay mechanics and natural gesture interactions that maintained the traditional poker experience while offering digital convenience.
+                </p>
+                <p class="text-gray-600">
+                    Unfortunately, the product was never released to market, but the extensive research and development process provided valuable insights into digital gaming innovation and user experience design for traditional game formats.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fixed Bottom Navigation -->
+    <nav class="fixed bottom-0 w-full bg-white/95 backdrop-blur-sm z-50 border-t border-gray-200 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="sciprofiles.html" class="text-accent hover:text-accent-dark transition font-medium">← SciProfiles</a>
+                <div class="flex space-x-8">
+                    <a href="../#projects" class="text-gray-600 hover:text-black transition font-medium">All Projects</a>
+                </div>
+                <a href="fx-trading-tool.html" class="text-accent hover:text-accent-dark transition font-medium">FX Trading Tool →</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-gray-100 mb-16">
+        <div class="max-w-7xl mx-auto text-center text-gray-600">
+            <p>&copy; 2025 Borko Savić. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
