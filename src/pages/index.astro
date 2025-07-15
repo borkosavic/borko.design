@@ -1,5 +1,5 @@
 ---
-
+import "../styles/global.css";
 ---
 
 <html lang="en">
@@ -8,9 +8,174 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Astroooo</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+	<body class="bg-white text-black">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="body-md text-bold">borko.design</a>
+                <div class="nav-desktop space-x-8">
+                    <a href="/resume" class="body-sm text-muted hover:text-black transition">About Me</a>
+                    <a href="#projects" class="body-sm text-muted hover:text-black transition">Projects</a>
+                    <a href="#contact" class="body-sm text-muted hover:text-black transition">Contact</a>
+                </div>
+                <button class="nav-mobile md:hidden p-2" onclick="toggleMobileNav()">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="nav-mobile hidden md:hidden py-4 border-t border-gray-100 mt-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="/about.html" class="body-sm text-muted hover:text-black transition">About Me</a>
+                    <a href="#projects" class="body-sm text-muted hover:text-black transition">Projects</a>
+                    <a href="#contact" class="body-sm text-muted hover:text-black transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-4">
+        <div class="text-center max-w-4xl">
+            <h1 class="heading-xl mb-8">
+                Senior UX/UI Designer<br>
+                crafting digital experiences
+            </h1>
+            <p class="body-lg text-muted mb-12">
+                Bridging business and development teams through user-centered design
+            </p>
+            <a href="#projects" class="body-sm text-bold hover-underline">
+                View Projects
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="heading-lg mb-8">About Me</h2>
+            <p class="body-lg text-muted mb-6">
+                With over 10 years of experience designing highly usable and accessible products and design systems, I specialize in bridging the gap between business and development teams. My business education and foundational development knowledge enable me to communicate effectively across disciplines.
+            </p>
+            <p class="body-lg text-muted mb-12">
+                While much of my work has been in fintech, social networks, and publishing, my expertise spans a variety of industries.
+            </p>
+            
+            <a href="/about.html" class="body-sm text-bold hover-underline">
+                Learn More About Me
+            </a>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="heading-lg mb-12">Selected Projects</h2>
+            <div class="space-y-12">
+                <a href="projects/belimo-assistant.html" class="group block hover-lift">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <div class="flex-1">
+                            <h3 class="heading-sm text-bold mb-2">Belimo Assistant</h3>
+                            <p class="body-md text-muted">Cross-platform app for HVAC setup, diagnostics, and management</p>
+                        </div>
+                        <div class="body-sm text-subtle mt-2 md:mt-0">
+                            2023
+                        </div>
+                    </div>
+                    <div class="h-64 bg-gradient-to-br from-project-1 to-project-1/80 rounded-lg"></div>
+                </a>
+                
+                <a href="projects/sciprofiles.html" class="group block hover-lift">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <div class="flex-1">
+                            <h3 class="heading-sm text-bold mb-2">SciProfiles</h3>
+                            <p class="body-md text-muted">Social network for researchers, scientists, and academics</p>
+                        </div>
+                        <div class="body-sm text-subtle mt-2 md:mt-0">
+                            2020
+                        </div>
+                    </div>
+                    <div class="h-64 bg-gradient-to-br from-project-2 to-project-2/80 rounded-lg"></div>
+                </a>
+                
+                <a href="projects/homerules-poker.html" class="group block hover-lift">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <div class="flex-1">
+                            <h3 class="heading-sm text-bold mb-2">HomeRules Poker</h3>
+                            <p class="body-md text-muted">Innovative digital poker game with multi-device gameplay</p>
+                        </div>
+                        <div class="body-sm text-subtle mt-2 md:mt-0">
+                            2017
+                        </div>
+                    </div>
+                    <div class="h-64 bg-gradient-to-br from-project-3 to-project-3/80 rounded-lg"></div>
+                </a>
+                
+                <a href="projects/fx-trading-tool.html" class="group block hover-lift">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <div class="flex-1">
+                            <h3 class="heading-sm text-bold mb-2">FX Trading Tool</h3>
+                            <p class="body-md text-muted">Internal HSBC tool for foreign exchange transactions</p>
+                        </div>
+                        <div class="body-sm text-subtle mt-2 md:mt-0">
+                            2021
+                        </div>
+                    </div>
+                    <div class="h-64 bg-gradient-to-br from-project-4 to-project-4/80 rounded-lg"></div>
+                </a>
+                
+                <a href="projects/act2access.html" class="group block hover-lift">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <div class="flex-1">
+                            <h3 class="heading-sm text-bold mb-2">Act2Access</h3>
+                            <p class="body-md text-muted">Content monetization platform for publishers</p>
+                        </div>
+                        <div class="body-sm text-subtle mt-2 md:mt-0">
+                            2017
+                        </div>
+                    </div>
+                    <div class="h-64 bg-gradient-to-br from-project-5 to-project-5/80 rounded-lg"></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="heading-lg mb-8">Get in Touch</h2>
+            <p class="body-lg text-muted mb-12">
+                Let's create something great together
+            </p>
+            <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                    <span class="body-sm text-subtle min-w-[60px]">Email</span>
+                    <a href="mailto:borko.savic@gmail.com" class="body-md text-bold hover-underline">
+                        borko.savic@gmail.com
+                    </a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="body-sm text-subtle min-w-[60px]">LinkedIn</span>
+                    <a href="https://linkedin.com/in/borkosavic" class="body-md text-bold hover-underline">
+                        linkedin.com/in/borkosavic
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-gray-100">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="body-xs text-subtle">&copy; 2025 Borko Savic. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <!-- <script src="assets/js/main.js"></script> -->
+</body>
 </html>
