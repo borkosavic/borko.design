@@ -11,25 +11,44 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Mobile navigation toggle
 function toggleMobileNav() {
     const mobileMenu = document.getElementById('mobile-menu');
-    const isHidden = mobileMenu.classList.contains('hidden');
+    const hamburger = document.querySelector('.hamburger-menu');
     
-    if (isHidden) {
+    // Toggle hamburger animation
+    if (hamburger) {
+        hamburger.classList.toggle('active');
+    }
+    
+    if (mobileMenu.classList.contains('hidden')) {
+        // Show menu
         mobileMenu.classList.remove('hidden');
-        mobileMenu.classList.add('animate-in');
+        // Small delay to ensure display change happens first
+        setTimeout(() => {
+            mobileMenu.classList.add('active');
+        }, 10);
     } else {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.remove('animate-in');
+        // Hide menu
+        mobileMenu.classList.remove('active');
+        // Wait for animation to complete before hiding
+        setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+        }, 300);
     }
 }
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', function(event) {
     const mobileMenu = document.getElementById('mobile-menu');
-    const navButton = document.querySelector('.nav-mobile button');
+    const navButton = document.getElementById('mobile-nav-toggle');
     
     if (mobileMenu && !mobileMenu.contains(event.target) && !navButton?.contains(event.target)) {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.remove('animate-in');
+        const hamburger = document.querySelector('.hamburger-menu');
+        if (hamburger) {
+            hamburger.classList.remove('active');
+        }
+        mobileMenu.classList.remove('active');
+        setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+        }, 300);
     }
 });
 
@@ -37,9 +56,13 @@ document.addEventListener('click', function(event) {
 window.addEventListener('resize', function() {
     if (window.innerWidth >= 768) {
         const mobileMenu = document.getElementById('mobile-menu');
+        const hamburger = document.querySelector('.hamburger-menu');
         if (mobileMenu) {
+            if (hamburger) {
+                hamburger.classList.remove('active');
+            }
+            mobileMenu.classList.remove('active');
             mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('animate-in');
         }
     }
 });
