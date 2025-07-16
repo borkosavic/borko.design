@@ -15,29 +15,6 @@
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
     
-    <!-- Project-specific color configuration -->
-    <style>
-        :root {
-            --accent: var(--project-2-primary);
-            --accent-light: var(--project-2-light);
-            --accent-dark: var(--project-2-dark);
-        }
-    </style>
-    
-    <!-- Configure Tailwind -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'accent': '#4ECDC4',
-                        'accent-light': '#7EDDD6',
-                        'accent-dark': '#2EB8B0',
-                    }
-                }
-            }
-        }
-    </script>
 </head>
 <body class="bg-white text-black">
     <!-- Navigation -->
@@ -48,7 +25,7 @@
                 <div class="hidden md:flex space-x-8">
                     <a href="../projects.html" class="text-sm font-medium text-gray-800 hover:text-gray-900 transition-colors">Projects</a>
                     <a href="../resume.html" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">CV</a>
-                    <a href="../#contact" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                    <a href="../contact.html" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
                 </div>
                 <button id="mobile-nav-toggle" class="md:hidden p-2 relative z-50" onclick="toggleMobileNav()">
                     <div class="hamburger-menu">
@@ -65,7 +42,7 @@
                     <div class="flex-1 flex flex-col justify-center items-center space-y-8">
                         <a href="../projects.html" class="mobile-menu-item text-3xl font-medium text-gray-800 hover:text-gray-900 transition-colors duration-300" onclick="toggleMobileNav()">Projects</a>
                         <a href="../resume.html" class="mobile-menu-item text-3xl font-medium text-gray-700 hover:text-gray-900 transition-colors duration-300" onclick="toggleMobileNav()">CV</a>
-                        <a href="../#contact" class="mobile-menu-item text-3xl font-medium text-gray-700 hover:text-gray-900 transition-colors duration-300" onclick="toggleMobileNav()">Contact</a>
+                        <a href="../contact.html" class="mobile-menu-item text-3xl font-medium text-gray-700 hover:text-gray-900 transition-colors duration-300" onclick="toggleMobileNav()">Contact</a>
                     </div>
                     
                     <!-- Social Icons - Bottom -->
@@ -114,7 +91,7 @@
             </div>
             
             <!-- Hero Image Placeholder -->
-            <div class="h-96 bg-gradient-to-br from-accent to-accent-dark rounded-lg mb-16 flex items-center justify-center">
+            <div class="h-96 bg-gradient-to-br from-sciprofiles-500 to-sciprofiles-700 rounded-lg mb-16 flex items-center justify-center">
                 <span class="text-white body-md">Project Hero Image</span>
             </div>
         </div>
@@ -199,17 +176,17 @@
             
             <div class="grid md:grid-cols-3 gap-16">
                 <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="heading-sm mb-4 text-sciprofiles-600">Diverse User Base</h3>
+                    <h3 class="heading-sm mb-4 text-sciprofiles-500">Diverse User Base</h3>
                     <p class="body-md text-muted">Seven distinct personas required unique user paths and interface considerations.</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="heading-sm mb-4 text-sciprofiles-600">Cultural Differences</h3>
+                    <h3 class="heading-sm mb-4 text-sciprofiles-500">Cultural Differences</h3>
                     <p class="body-md text-muted">Global scientific community brought diverse interaction expectations and preferences.</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="heading-sm mb-4 text-sciprofiles-600">Information Architecture</h3>
+                    <h3 class="heading-sm mb-4 text-sciprofiles-500">Information Architecture</h3>
                     <p class="body-md text-muted">Complex scientific data required careful organization and presentation strategies.</p>
                 </div>
             </div>
@@ -223,17 +200,17 @@
             
             <div class="grid md:grid-cols-2 gap-16">
                 <div class="bg-sciprofiles-500/5 p-8 rounded-lg">
-                    <h3 class="heading-md mb-4 text-sciprofiles-600">20x Growth in MAU</h3>
+                    <h3 class="heading-md mb-4 text-sciprofiles-500">20x Growth in MAU</h3>
                     <p class="body-md text-muted">Monthly active users increased dramatically within one year of the redesign launch.</p>
                 </div>
                 
                 <div class="bg-sciprofiles-500/5 p-8 rounded-lg">
-                    <h3 class="heading-md mb-4 text-sciprofiles-600">Improved Usability</h3>
+                    <h3 class="heading-md mb-4 text-sciprofiles-500">Improved Usability</h3>
                     <p class="body-md text-muted">Enhanced platform usability and satisfaction across all seven user personas.</p>
                 </div>
                 
                 <div class="bg-sciprofiles-500/5 p-8 rounded-lg md:col-span-2">
-                    <h3 class="heading-md mb-4 text-sciprofiles-600">Company-Wide Design System</h3>
+                    <h3 class="heading-md mb-4 text-sciprofiles-500">Company-Wide Design System</h3>
                     <p class="body-md text-muted">The design system was adopted across all MDPI platforms, enhancing development speed and consistency throughout the organization while establishing a foundation for future product development.</p>
                 </div>
             </div>
@@ -244,9 +221,9 @@
     <nav class="fixed bottom-0 w-full bg-white/95 backdrop-blur-sm z-50 border-t border-gray-200 shadow-lg">
         <div class="max-w-4xl mx-auto px-4">
             <div class="relative flex justify-between items-center h-16">
-                <a href="belimo-assistant.html" class="text-sciprofiles-600 hover:text-sciprofiles-700 transition font-medium">← Belimo Assistant</a>
+                <a href="belimo-assistant.html" class="text-sciprofiles-500 hover:text-sciprofiles-700 transition font-medium">← Belimo Assistant</a>
                 <a href="../projects.html" class="absolute left-1/2 transform -translate-x-1/2 text-gray-600 hover:text-black transition font-medium">All Projects</a>
-                <a href="homerules-poker.html" class="text-sciprofiles-600 hover:text-sciprofiles-700 transition font-medium">HomeRules Poker →</a>
+                <a href="homerules-poker.html" class="text-sciprofiles-500 hover:text-sciprofiles-700 transition font-medium">HomeRules Poker →</a>
             </div>
         </div>
     </nav>

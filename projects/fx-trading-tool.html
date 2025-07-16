@@ -15,29 +15,6 @@
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
     
-    <!-- Project-specific color configuration -->
-    <style>
-        :root {
-            --accent: var(--project-4-primary);
-            --accent-light: var(--project-4-light);
-            --accent-dark: var(--project-4-dark);
-        }
-    </style>
-    
-    <!-- Configure Tailwind -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'accent': '#A8E6CF',
-                        'accent-light': '#C4F0DC',
-                        'accent-dark': '#8BD9B8',
-                    }
-                }
-            }
-        }
-    </script>
 </head>
 <body class="bg-white text-black">
     <!-- Navigation -->
@@ -48,7 +25,7 @@
                 <div class="hidden md:flex space-x-8">
                     <a href="../projects.html" class="text-sm font-medium text-gray-800 hover:text-gray-900 transition-colors">Projects</a>
                     <a href="../resume.html" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">CV</a>
-                    <a href="../#contact" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                    <a href="../contact.html" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
                 </div>
                 <button id="mobile-nav-toggle" class="md:hidden p-2 relative z-50" onclick="toggleMobileNav()">
                     <div class="hamburger-menu">
@@ -65,7 +42,7 @@
                     <div class="flex-1 flex flex-col justify-center items-center space-y-8">
                         <a href="../projects.html" class="mobile-menu-item text-3xl font-medium text-gray-800 hover:text-gray-900 transition-colors duration-300" onclick="toggleMobileNav()">Projects</a>
                         <a href="../resume.html" class="mobile-menu-item text-3xl font-medium text-gray-700 hover:text-gray-900 transition-colors duration-300" onclick="toggleMobileNav()">CV</a>
-                        <a href="../#contact" class="mobile-menu-item text-3xl font-medium text-gray-700 hover:text-gray-900 transition-colors duration-300" onclick="toggleMobileNav()">Contact</a>
+                        <a href="../contact.html" class="mobile-menu-item text-3xl font-medium text-gray-700 hover:text-gray-900 transition-colors duration-300" onclick="toggleMobileNav()">Contact</a>
                     </div>
                     
                     <!-- Social Icons - Bottom -->
@@ -110,7 +87,7 @@
             </div>
             
             <!-- Hero Image Placeholder -->
-            <div class="h-96 bg-gradient-to-br from-accent to-accent-dark rounded-lg mb-16 flex items-center justify-center">
+            <div class="h-96 bg-gradient-to-br from-hsbc-500 to-hsbc-700 rounded-lg mb-16 flex items-center justify-center">
                 <span class="text-white body-md">Project Hero Image</span>
             </div>
         </div>
@@ -210,22 +187,22 @@
             
             <div class="grid md:grid-cols-2 gap-16">
                 <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="heading-sm mb-4 text-hsbc-600">Security Requirements</h3>
+                    <h3 class="heading-sm mb-4 text-hsbc-500">Security Requirements</h3>
                     <p class="body-md text-muted">Strict confidentiality and security constraints required careful handling of all design materials and processes.</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="heading-sm mb-4 text-hsbc-600">Design System Limitations</h3>
+                    <h3 class="heading-sm mb-4 text-hsbc-500">Design System Limitations</h3>
                     <p class="body-md text-muted">Limited to pre-approved UI components within HSBC's established design system for compliance and consistency.</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="heading-sm mb-4 text-hsbc-600">User Access</h3>
+                    <h3 class="heading-sm mb-4 text-hsbc-500">User Access</h3>
                     <p class="body-md text-muted">No direct access to end users for testing due to security protocols and confidentiality agreements.</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="heading-sm mb-4 text-hsbc-600">Complex Financial Operations</h3>
+                    <h3 class="heading-sm mb-4 text-hsbc-500">Complex Financial Operations</h3>
                     <p class="body-md text-muted">Had to design for highly complex foreign exchange and bullion trading workflows with multiple approval stages.</p>
                 </div>
             </div>
@@ -239,17 +216,17 @@
             
             <div class="grid md:grid-cols-2 gap-16">
                 <div class="bg-hsbc-500/5 p-8 rounded-lg">
-                    <h3 class="heading-md mb-4 text-hsbc-600">On-Time Delivery</h3>
+                    <h3 class="heading-md mb-4 text-hsbc-500">On-Time Delivery</h3>
                     <p class="body-md text-muted">Successfully delivered the project on time, meeting HSBC's high standards for both usability and security compliance.</p>
                 </div>
                 
                 <div class="bg-hsbc-500/5 p-8 rounded-lg">
-                    <h3 class="heading-md mb-4 text-hsbc-600">Streamlined Workflows</h3>
+                    <h3 class="heading-md mb-4 text-hsbc-500">Streamlined Workflows</h3>
                     <p class="body-md text-muted">Created efficient workflows for private bankers managing high-value transactions, reducing complexity in critical financial operations.</p>
                 </div>
                 
                 <div class="bg-hsbc-500/5 p-8 rounded-lg md:col-span-2">
-                    <h3 class="heading-md mb-4 text-hsbc-600">Security & Compliance</h3>
+                    <h3 class="heading-md mb-4 text-hsbc-500">Security & Compliance</h3>
                     <p class="body-md text-muted">Delivered a solution that met HSBC's rigorous security requirements while providing an intuitive interface for complex financial trading operations, enabling private bankers to serve high-net-worth clients more effectively.</p>
                 </div>
             </div>
@@ -260,9 +237,9 @@
     <nav class="fixed bottom-0 w-full bg-white/95 backdrop-blur-sm z-50 border-t border-gray-200 shadow-lg">
         <div class="max-w-4xl mx-auto px-4">
             <div class="relative flex justify-between items-center h-16">
-                <a href="homerules-poker.html" class="text-hsbc-600 hover:text-hsbc-700 transition font-medium">← HomeRules Poker</a>
+                <a href="homerules-poker.html" class="text-hsbc-500 hover:text-hsbc-700 transition font-medium">← HomeRules Poker</a>
                 <a href="../projects.html" class="absolute left-1/2 transform -translate-x-1/2 text-gray-600 hover:text-black transition font-medium">All Projects</a>
-                <a href="act2access.html" class="text-hsbc-600 hover:text-hsbc-700 transition font-medium">Act2Access →</a>
+                <a href="act2access.html" class="text-hsbc-500 hover:text-hsbc-700 transition font-medium">Act2Access →</a>
             </div>
         </div>
     </nav>

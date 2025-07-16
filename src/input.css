@@ -114,6 +114,77 @@ body {
 
 }
 
+@layer theme {
+  :root {
+    /* Custom project colors */
+    --color-belimo-50: #F8F9FA;
+    --color-belimo-100: #E9ECEF;
+    --color-belimo-200: #DEE2E6;
+    --color-belimo-300: #CED4DA;
+    --color-belimo-400: #6C757D;
+    --color-belimo-500: #333C4D;
+    --color-belimo-600: #2B3441;
+    --color-belimo-700: #232B35;
+    --color-belimo-800: #1A2128;
+    --color-belimo-900: #12181C;
+    
+    --color-sciprofiles-50: #F0F9FF;
+    --color-sciprofiles-100: #E0F2FE;
+    --color-sciprofiles-200: #BAE6FD;
+    --color-sciprofiles-300: #7DD3FC;
+    --color-sciprofiles-400: #38BDF8;
+    --color-sciprofiles-500: #205561;
+    --color-sciprofiles-600: #1B4B54;
+    --color-sciprofiles-700: #164147;
+    --color-sciprofiles-800: #11373A;
+    --color-sciprofiles-900: #0C2D2E;
+    
+    --color-hsbc-50: #FEF2F2;
+    --color-hsbc-100: #FEE2E2;
+    --color-hsbc-200: #FECACA;
+    --color-hsbc-300: #FCA5A5;
+    --color-hsbc-400: #F87171;
+    --color-hsbc-500: #690000;
+    --color-hsbc-600: #5D0000;
+    --color-hsbc-700: #520000;
+    --color-hsbc-800: #470000;
+    --color-hsbc-900: #3C0000;
+    
+    --color-homerules-50: #F0FDF4;
+    --color-homerules-100: #DCFCE7;
+    --color-homerules-200: #BBF7D0;
+    --color-homerules-300: #86EFAC;
+    --color-homerules-400: #4ADE80;
+    --color-homerules-500: #0E4B3A;
+    --color-homerules-600: #0C4233;
+    --color-homerules-700: #0A392C;
+    --color-homerules-800: #083025;
+    --color-homerules-900: #06271E;
+    
+    --color-act2access-50: #F0F9FF;
+    --color-act2access-100: #E0F2FE;
+    --color-act2access-200: #BAE6FD;
+    --color-act2access-300: #7DD3FC;
+    --color-act2access-400: #38BDF8;
+    --color-act2access-500: #003D69;
+    --color-act2access-600: #00375E;
+    --color-act2access-700: #003153;
+    --color-act2access-800: #002B48;
+    --color-act2access-900: #00253D;
+    
+    --color-rho-50: #EFF6FF;
+    --color-rho-100: #DBEAFE;
+    --color-rho-200: #BFDBFE;
+    --color-rho-300: #93C5FD;
+    --color-rho-400: #60A5FA;
+    --color-rho-500: #3B82F6;
+    --color-rho-600: #2563EB;
+    --color-rho-700: #1D4ED8;
+    --color-rho-800: #1E40AF;
+    --color-rho-900: #1E3A8A;
+  }
+}
+
 @layer components {
   .underline-animate {
     @apply relative;
