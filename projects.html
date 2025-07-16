@@ -16,16 +16,16 @@
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-white text-black">
+<body class="bg-white text-black page-enter">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
         <div class="max-w-4xl mx-auto px-4">
             <div class="flex justify-between items-center h-16">
                 <a href="/" class="text-base font-medium text-gray-900">borko.design</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="projects.html" class="text-sm font-medium text-gray-800 hover:text-gray-900 transition-colors">Projects</a>
-                    <a href="resume.html" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">CV</a>
-                    <a href="contact.html" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                    <a href="projects.html" class="nav-link current text-sm font-medium text-gray-800 hover:text-gray-900 focus-elegant">Projects</a>
+                    <a href="resume.html" class="nav-link text-sm font-medium text-gray-600 hover:text-gray-900 focus-elegant">CV</a>
+                    <a href="contact.html" class="nav-link text-sm font-medium text-gray-600 hover:text-gray-900 focus-elegant">Contact</a>
                 </div>
                 <button id="mobile-nav-toggle" class="md:hidden p-2 relative z-50" onclick="toggleMobileNav()">
                     <div class="hamburger-menu">
@@ -67,7 +67,7 @@
     <section class="pt-24 pb-16 px-4">
         <div class="max-w-4xl mx-auto">
             <div class="mb-12">
-                <a href="/" class="text-small font-medium text-gray-500 hover:text-gray-800 transition-colors">← Back to Home</a>
+                <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-800 transition-colors">← Back to Home</a>
             </div>
             
             <div class="mb-16">
@@ -85,15 +85,15 @@
             <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
                 
                 <!-- Rho - Expense Rules -->
-                <a href="projects/rho-expense-rules.html" class="group block">
+                <a href="projects/rho-expense-rules.html" class="project-card group block focus-elegant">
                     <div class="mb-6">
-                        <div class="h-80 bg-gradient-to-br from-rho-500 to-rho-700 rounded-lg shadow-sm group-hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1 flex items-center justify-center">
+                        <div class="project-image h-80 bg-gradient-to-br from-rho-500 to-rho-700 rounded-lg shadow-sm overflow-hidden flex items-center justify-center">
                             <span class="text-white text-lg font-medium">Rho - Expense Rules</span>
                         </div>
                     </div>
                     <div class="space-y-3">
                         <div class="flex items-start justify-between">
-                            <h3 class="group-hover:text-gray-600 transition-colors">Rho - Expense Rules</h3>
+                            <h3 class="project-title group-hover:text-gray-600 transition-colors">Rho - Expense Rules</h3>
                             <span class="text-small text-gray-400">2024</span>
                         </div>
                         <p class="text-body text-gray-600">Fintech platform for managing corporate expenses with intelligent rule-based automation and real-time spending controls.</p>
@@ -240,7 +240,7 @@
             <p class="text-large mb-12">
                 Let's discuss your project and create something great together.
             </p>
-            <a href="contact.html" class="text-sm font-medium text-gray-700 underline-animate">
+            <a href="contact.html" class="btn-primary text-lg font-medium text-gray-700 underline-animate focus-elegant">
                 Get in Touch
             </a>
         </div>
@@ -281,6 +281,30 @@
             }
         }
     </script>
+    
+    <!-- Scroll Animation Script -->
+    <script>
+        // Scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        // Apply scroll animations to project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.classList.add('scroll-animate');
+            observer.observe(card);
+        });
+    </script>
+    
     <!-- Custom JavaScript -->
     <script src="assets/js/main.js"></script>
 </body>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blinking Smiley</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f7f7f7;
+      margin: 0;
+    }
+    .smiley {
+      width: 128px;
+      height: 128px;
+      transition: opacity 0.2s;
+      opacity: 1;
+      will-change: opacity;
+    }
+    .blink {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <img src="assets/images/bd.svg" alt="Smiley" class="smiley" id="smiley">
+  <script>
+    function randomDelay(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+    const smiley = document.getElementById('smiley');
+    function blink() {
+      smiley.classList.add('blink');
+      setTimeout(() => {
+        smiley.classList.remove('blink');
+        setTimeout(blink, randomDelay(1200, 4000));
+      }, 180 + Math.random() * 120); // blink duration 180-300ms
+    }
+    setTimeout(blink, randomDelay(1000, 3000));
+  </script>
+</body>
+</html> 

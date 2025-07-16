@@ -48,7 +48,7 @@ body {
 
   /* Body text hierarchy with better contrast */
   .text-hero {
-    @apply text-xl md:text-2xl font-light leading-relaxed text-gray-700;
+    @apply text-xl md:text-2xl font-stretch-50% leading-relaxed text-gray-900;
   }
   
   .text-large {
@@ -193,12 +193,138 @@ body {
   
   .underline-animate::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-current;
+    @apply absolute left-0 w-0 h-0.5 bg-current;
+    bottom: -3px;
+    /* left: -8px; */
+    right: -18px;
     transition: width 0.3s ease-in-out;
   }
   
   .underline-animate:hover::after {
     @apply w-full;
+  }
+
+  /* Enhanced Navigation Microinteractions */
+  .nav-link {
+    @apply relative transition-all duration-300 ease-out;
+  }
+  
+  .nav-link::before {
+    content: '';
+    @apply absolute -inset-x-2 -inset-y-1 bg-gray-100 rounded-md opacity-0 -z-10;
+    transition: opacity 0.2s ease-out;
+  }
+  
+  .nav-link:hover::before {
+    @apply opacity-100;
+  }
+  
+  /* Current/Active Navigation State */
+  .nav-link.current {
+    @apply text-gray-900 font-medium;
+  }
+  
+  .nav-link.current::before {
+    @apply opacity-100 bg-gray-200;
+  }
+  
+  .nav-link.current::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-full h-0.5 bg-gray-900;
+  }
+
+  /* Project Card Hover Effects */
+  .project-card {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .project-card:hover {
+    transform: scale(1.01);
+  }
+  
+  .project-card .project-image {
+    @apply transition-all duration-500 ease-out;
+  }
+  
+  .project-card:hover .project-image {
+    transform: scale(1.05);
+  }
+  
+  .project-card .project-title {
+    @apply transition-colors duration-300 ease-out;
+  }
+  
+  .project-card:hover .project-title {
+    @apply text-gray-900;
+  }
+
+  /* Button Enhancements */
+  .btn-primary {
+    @apply relative overflow-hidden transition-all duration-300 ease-out;
+  }
+  
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease-out, opacity 0.3s ease-out;
+  }
+  
+  .btn-primary:hover::before {
+    @apply opacity-20;
+    transform: translateX(100%);
+  }
+
+  /* Social Icon Interactions */
+  .social-icon {
+    @apply transition-all duration-300 ease-out;
+    transform: rotate(0deg);
+  }
+  
+  .social-icon:hover {
+    transform: rotate(5deg);
+  }
+  
+  .social-icon:active {
+    transform: rotate(0deg);
+  }
+
+  /* Subtle Loading Animation */
+  .page-enter {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Focus States */
+  .focus-elegant:focus {
+    @apply outline-none ring-2 ring-gray-300 ring-offset-2;
+    transition: all 0.2s ease-out;
+  }
+  
+  .focus-elegant:focus-visible {
+    @apply ring-gray-400;
+  }
+
+  /* Scroll Animation */
+  .scroll-animate {
+    @apply transition-all duration-700 ease-out;
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  
+  .scroll-animate.in-view {
+    transform: translateY(0);
+    opacity: 1;
   }
 
   .hamburger-menu {

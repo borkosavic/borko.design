@@ -5,32 +5,7 @@
 
 /* Custom CSS variables for colors */
 :root {
-  /* Global colors */
-  --color-background: #ffffff;
-  --color-text: #000000;
-  --color-text-muted: #6b7280;
-  
-  /* Project color palettes */
-  --project-1-primary: #FF6B6B;
-  --project-1-light: #FF8787;
-  --project-1-dark: #EE5A5A;
-  
-  --project-2-primary: #4ECDC4;
-  --project-2-light: #6DD5CE;
-  --project-2-dark: #3EBDB4;
-  
-  --project-3-primary: #FFE66D;
-  --project-3-light: #FFF394;
-  --project-3-dark: #FFD93D;
-  
-  --project-4-primary: #A8E6CF;
-  --project-4-light: #C3F0DC;
-  --project-4-dark: #7FD8BE;
-  
-  --project-5-primary: #C7CEEA;
-  --project-5-light: #E2E6F7;
-  --project-5-dark: #A5AFDD;
-}
+
 
 /* Satoshi font  */
 @font-face {

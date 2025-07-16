@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redrawn b Blink</title>
+  <style>
+    body {
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .b-svg {
+      width: 220px;
+      height: 220px;
+      display: block;
+    }
+    .eye {
+      transform-origin: 70px 110px;
+      transition: transform 0.18s;
+    }
+    .blink .eye {
+      transform: scaleY(0.05);
+    }
+  </style>
+</head>
+<body>
+  <svg class="b-svg" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Draw the b as a solid shape -->
+    <rect x="30" y="10" width="30" height="200" fill="black"/>
+    <ellipse cx="110" cy="110" rx="70" ry="90" fill="black"/>
+    <!-- The eye (counter) as a separate ellipse -->
+    <ellipse class="eye" cx="70" cy="110" rx="40" ry="45" fill="white"/>
+  </svg>
+  <script>
+    const svg = document.querySelector('.b-svg');
+    function randomDelay(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+    function blink() {
+      svg.classList.add('blink');
+      setTimeout(() => {
+        svg.classList.remove('blink');
+        setTimeout(blink, randomDelay(1200, 4000));
+      }, 180 + Math.random() * 120);
+    }
+    setTimeout(blink, randomDelay(1000, 3000));
+  </script>
+</body>
+</html> 
