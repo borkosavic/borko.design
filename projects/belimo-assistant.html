@@ -18,26 +18,11 @@
     <!-- Project-specific color configuration -->
     <style>
         :root {
-            --accent: var(--project-1-primary);
-            --accent-light: var(--project-1-light);
-            --accent-dark: var(--project-1-dark);
+            --accent: #333C4D;
+            --accent-light: #6C757D;
+            --accent-dark: #232B35;
         }
     </style>
-    
-    <!-- Configure Tailwind -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'accent': '#FF6B6B',
-                        'accent-light': '#FF9999',
-                        'accent-dark': '#FF4444',
-                    }
-                }
-            }
-        }
-    </script>
 </head>
 <body class="bg-white text-black">
     <!-- Navigation -->
@@ -199,17 +184,17 @@
             
             <div class="grid md:grid-cols-3 gap-16">
                 <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="heading-sm mb-4 text-accent">Environmental Constraints</h3>
+                    <h3 class="heading-sm mb-4 text-belimo-600">Environmental Constraints</h3>
                     <p class="body-md text-muted">Users often work in challenging environments where traditional interaction patterns may not apply.</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="heading-sm mb-4 text-accent">Need for Rapid Iteration</h3>
+                    <h3 class="heading-sm mb-4 text-belimo-600">Need for Rapid Iteration</h3>
                     <p class="body-md text-muted">The technical complexity required frequent testing and refinement of user flows.</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="heading-sm mb-4 text-accent">Interaction Differences</h3>
+                    <h3 class="heading-sm mb-4 text-belimo-600">Interaction Differences</h3>
                     <p class="body-md text-muted">Different devices and connection methods required unique interaction considerations.</p>
                 </div>
             </div>
@@ -222,18 +207,18 @@
             <h2 class="heading-lg mb-8">Results</h2>
             
             <div class="grid md:grid-cols-2 gap-16">
-                <div class="bg-accent/5 p-8 rounded-lg">
-                    <h3 class="heading-md mb-4 text-accent">2x Faster Design Process</h3>
+                <div class="bg-belimo-500/5 p-8 rounded-lg">
+                    <h3 class="heading-md mb-4 text-belimo-600">2x Faster Design Process</h3>
                     <p class="body-md text-muted">The new Figma-based design system significantly accelerated the design workflow and reduced iteration time.</p>
                 </div>
                 
-                <div class="bg-accent/5 p-8 rounded-lg">
-                    <h3 class="heading-md mb-4 text-accent">Streamlined Collaboration</h3>
+                <div class="bg-belimo-500/5 p-8 rounded-lg">
+                    <h3 class="heading-md mb-4 text-belimo-600">Streamlined Collaboration</h3>
                     <p class="body-md text-muted">Centralized collaboration in Figma improved communication between design, development, and QA teams.</p>
                 </div>
                 
-                <div class="bg-accent/5 p-8 rounded-lg md:col-span-2">
-                    <h3 class="heading-md mb-4 text-accent">Seamless User Experience</h3>
+                <div class="bg-belimo-500/5 p-8 rounded-lg md:col-span-2">
+                    <h3 class="heading-md mb-4 text-belimo-600">Seamless User Experience</h3>
                     <p class="body-md text-muted">Despite the technical complexity of supporting multiple platforms and connection methods, we delivered a consistent and intuitive user experience that met the needs of expert users in challenging field conditions.</p>
                 </div>
             </div>
@@ -244,9 +229,9 @@
     <nav class="fixed bottom-0 w-full bg-white/95 backdrop-blur-sm z-50 border-t border-gray-200 shadow-lg">
         <div class="max-w-4xl mx-auto px-4">
             <div class="relative flex justify-between items-center h-16">
-                <a href="act2access.html" class="text-accent hover:text-accent-dark transition font-medium">← Act2Access</a>
+                <a href="act2access.html" class="text-belimo-600 hover:text-belimo-700 transition font-medium">← Act2Access</a>
                 <a href="../projects.html" class="absolute left-1/2 transform -translate-x-1/2 text-gray-600 hover:text-black transition font-medium">All Projects</a>
-                <a href="sciprofiles.html" class="text-accent hover:text-accent-dark transition font-medium">SciProfiles →</a>
+                <a href="sciprofiles.html" class="text-belimo-600 hover:text-belimo-700 transition font-medium">SciProfiles →</a>
             </div>
         </div>
     </nav>
