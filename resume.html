@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Borko Savić</title>
+    <meta name="description" content="Learn more about Borko Savić - Senior UX/UI Designer with 10+ years of experience">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+</head>
+<body class="bg-white text-black">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="text-base font-semibold">borko.design</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="resume.html" class="text-sm text-gray-900 hover:text-black transition-colors">Resume</a>
+                    <a href="#projects" class="text-sm text-gray-900 hover:text-black transition-colors">Projects</a>
+                    <a href="#contact" class="text-sm text-gray-600 hover:text-black transition-colors">Contact</a>
+                </div>
+                <button class="md:hidden p-2" onclick="toggleMobileNav()">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden fixed top-0 left-0 w-screen h-screen bg-white z-50">
+                <div class="h-full w-full flex flex-col justify-between items-center px-4 py-8">
+                    <!-- Close button -->
+                    <div class="w-full flex justify-end">
+                        <button onclick="toggleMobileNav()" class="p-2">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Navigation Items - Centered -->
+                    <div class="flex-1 flex flex-col justify-center items-center space-y-8">
+                        <a href="/resume.html" class="text-3xl text-gray-600 hover:text-black transition-colors" onclick="toggleMobileNav()">Resume</a>
+                        <a href="#projects" class="text-3xl text-gray-600 hover:text-black transition-colors" onclick="toggleMobileNav()">Projects</a>
+                        <a href="#contact" class="text-3xl text-gray-600 hover:text-black transition-colors" onclick="toggleMobileNav()">Contact</a>
+                    </div>
+                    
+                    <!-- Social Icons - Bottom -->
+                    <div class="flex space-x-6 pb-4">
+                        <a href="mailto:borko.savic@gmail.com" class="text-gray-600 hover:text-black transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/in/borkosavic" class="text-gray-600 hover:text-black transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-12">
+                <a href="/" class="text-sm text-gray-600 hover:text-black transition-colors">← Back to Home</a>
+            </div>
+            
+            <div class="mb-16">
+                <h1>About Me</h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-6">
+                    With over 10 years of experience designing highly usable and accessible products and design systems, I specialize in bridging the gap between business and development teams. My business education and foundational development knowledge enable me to communicate effectively across disciplines.
+                </p>
+                <p class="text-lg md:text-xl text-gray-600">
+                    While much of my work has been in fintech, social networks, and publishing, my expertise spans a variety of industries.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">Work Experience</h2>
+            
+            <div class="space-y-10">
+                <!-- Zühlke -->
+                <div class="pb-8 border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl md:text-2xl font-semibold mb-2">UX Consultant</h3>
+                            <p class="text-base font-semibold mb-1">Zühlke</p>
+                            <p class="text-sm text-gray-600">Global Innovation Service Provider</p>
+                        </div>
+                        <div class="text-sm text-gray-400 mt-2 md:mt-0">
+                            2022-2024
+                        </div>
+                    </div>
+                    <p class="text-base text-gray-600 mb-3">
+                        Zühlke is a global innovation service provider headquartered in Switzerland, with over 1,600 employees across Europe and Asia, specialized in software engineering, product design, and digital transformation.
+                    </p>
+                    <p class="text-base">
+                        Bridged client needs with technical implementation across multiple high-profile projects. Collaborated with cross-functional teams to deliver innovative digital solutions. Specialized in complex enterprise applications and design systems.
+                    </p>
+                </div>
+                
+                <!-- MDPI -->
+                <div class="pb-8 border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl md:text-2xl font-semibold mb-2">UX/UI Designer</h3>
+                            <p class="text-base font-semibold mb-1">MDPI</p>
+                            <p class="text-sm text-gray-600">Academic Publisher</p>
+                        </div>
+                        <div class="text-sm text-gray-400 mt-2 md:mt-0">
+                            2019-2022
+                        </div>
+                    </div>
+                    <p class="text-base text-gray-600 mb-3">
+                        MDPI is a Swiss-based academic publisher with a global team of over 6,000 employees and editors. As the first UX designer at MDPI, I introduced and demonstrated the value of user experience across the organization.
+                    </p>
+                    <p class="text-base">
+                        <span class="font-semibold">Led SciProfiles redesign</span> - 20x increase in monthly active users. Established UX practice from ground up in a 6,000+ person organization. Created scalable design systems for academic publishing platform.
+                    </p>
+                </div>
+                
+                <!-- RedLark -->
+                <div class="pb-8 border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl md:text-2xl font-semibold mb-2">UX Designer</h3>
+                            <p class="text-base font-semibold mb-1">RedLark</p>
+                            <p class="text-sm text-gray-600">Gaming Studio Startup</p>
+                        </div>
+                        <div class="text-sm text-gray-400 mt-2 md:mt-0">
+                            2017-2019
+                        </div>
+                    </div>
+                    <p class="text-base text-gray-600 mb-3">
+                        Redlark is a gaming studio startup focused on creating immersive and innovative gaming experiences in the competitive online casino market.
+                    </p>
+                    <p class="text-base">
+                        <span class="font-semibold">Designed industry's first HTML5 online casino</span> - set new market standards. Created innovative poker game through extensive research and game design expertise. Pioneered user experience in emerging gaming technologies.
+                    </p>
+                </div>
+                
+                <!-- Gowi -->
+                <div class="pb-8 border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl md:text-2xl font-semibold mb-2">UX/UI Designer</h3>
+                            <p class="text-base font-semibold mb-1">Gowi</p>
+                            <p class="text-sm text-gray-600">Software Development Company</p>
+                        </div>
+                        <div class="text-sm text-gray-400 mt-2 md:mt-0">
+                            2014-2017
+                        </div>
+                    </div>
+                    <p class="text-base text-gray-600 mb-3">
+                        Gowi is a Serbian software development and consulting company with 80+ employees, specializing in web and mobile applications for corporate clients.
+                    </p>
+                    <p class="text-base">
+                        <span class="font-semibold">Initiated SPA transition</span> - improved application speed by 30%. Designed highly complex web applications for UK corporate clients. Established modern development practices and design workflows.
+                    </p>
+                </div>
+                
+                <!-- Nikon -->
+                <div class="pb-8">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl md:text-2xl font-semibold mb-2">Web Designer</h3>
+                            <p class="text-base font-semibold mb-1">Nikon</p>
+                            <p class="text-sm text-gray-600">Global Imaging Leader</p>
+                        </div>
+                        <div class="text-sm text-gray-400 mt-2 md:mt-0">
+                            2012-2014
+                        </div>
+                    </div>
+                    <p class="text-base text-gray-600 mb-3">
+                        The Serbian branch of Nikon, a global leader in imaging and optical products headquartered in Japan, serving professional and consumer markets worldwide.
+                    </p>
+                    <p class="text-base">
+                        Designed and maintained multiple e-commerce stores with consistent branding. <span class="font-semibold">Led development of Nikon Club</span> - community platform for photographers. Ensured seamless user experience across all digital touchpoints.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">Education</h2>
+            
+            <div class="space-y-8">
+                <div class="pb-6 border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-2">
+                        <h3 class="text-xl md:text-2xl font-semibold">Bachelor of Arts (BA) in Business Administration and Economics</h3>
+                        <span class="text-sm text-gray-400 mt-1 md:mt-0">2004-2008</span>
+                    </div>
+                    <p class="text-base font-semibold">The University of Sheffield</p>
+                </div>
+                
+                <div class="pb-6">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-2">
+                        <h3 class="text-xl md:text-2xl font-semibold">Robotics and Flexible Automation</h3>
+                        <span class="text-sm text-gray-400 mt-1 md:mt-0">1999-2003</span>
+                    </div>
+                    <p class="text-base font-semibold">Belgrade Polytechnic</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">Get in Touch</h2>
+            <p class="text-lg md:text-xl text-gray-600 mb-8">
+                Let's create something great together
+            </p>
+            <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                    <span class="text-sm text-gray-400 min-w-[60px]">Email</span>
+                    <a href="mailto:borko.savic@gmail.com" class="text-base font-semibold hover:text-gray-600 transition-colors">
+                        borko.savic@gmail.com
+                    </a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm text-gray-400 min-w-[60px]">Phone</span>
+                    <a href="tel:+381655476424" class="text-base font-semibold hover:text-gray-600 transition-colors">
+                        +381655476424
+                    </a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm text-gray-400 min-w-[60px]">LinkedIn</span>
+                    <a href="https://linkedin.com/in/borkosavic" class="text-base font-semibold hover:text-gray-600 transition-colors">
+                        linkedin.com/in/borkosavic
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto text-center text-gray-600">
+            <p class="text-xs">&copy; 2025 Borko Savić. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

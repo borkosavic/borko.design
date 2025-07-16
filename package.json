@@ -1,0 +1,13 @@
+{
+  "name": "borko-design-portfolio",
+  "version": "1.0.0",
+  "description": "UX Design Portfolio",
+  "type": "module",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./assets/css/style.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./assets/css/style.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.1.11"
+  }
+}
