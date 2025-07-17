@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borko Savić - Senior UX/UI Designer</title>
+    <title>borko.design</title>
     <meta name="description" content="Senior UX/UI Designer with 10+ years of experience designing usable and accessible products">
     
     <!-- includes -->
@@ -19,13 +19,13 @@
     <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
         <div class="max-w-4xl mx-auto px-4">
             <div class="flex justify-between items-center h-16">
-                <a href="/" class="text-base font-medium text-gray-900 current">borko.design</a>
+                <a href="/" class="text-xl font-medium text-gray-900 current">borko.design</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="projects.html" class="nav-link text-sm font-medium text-gray-600 hover:text-gray-900 focus-elegant">Projects</a>
-                    <a href="resume.html" class="nav-link text-sm font-medium text-gray-600 hover:text-gray-900 focus-elegant">CV</a>
-                    <a href="contact.html" class="nav-link text-sm font-medium text-gray-600 hover:text-gray-900 focus-elegant">Contact</a>
+                    <a href="projects.html" class="nav-link text-lg font-medium underline-animate text-gray-600 hover:text-gray-900 focus-elegant">Projects</a>
+                    <a href="resume.html" class="nav-link text-lg font-medium underline-animate text-gray-600 hover:text-gray-900 focus-elegant">CV</a>
+                    <a href="contact.html" class="nav-link text-lg font-medium underline-animate text-gray-600 hover:text-gray-900 focus-elegant">Contact</a>
                 </div>
-                <button id="mobile-nav-toggle" class="md:hidden p-2 relative z-50" onclick="toggleMobileNav()">
+                <button id="mobile-nav-toggle" class="md:hidden p-2 relative z-50">
                     <div class="hamburger-menu">
                         <span class="hamburger-line"></span>
                         <span class="hamburger-line"></span>
@@ -38,9 +38,9 @@
                 <div class="h-full w-full flex flex-col justify-center items-center px-4 py-8">
                     <!-- Navigation Items - Centered -->
                     <div class="flex-1 flex flex-col justify-center items-center space-y-8">
-                        <a href="projects.html" class="mobile-menu-item text-3xl font-medium text-gray-800 hover:text-gray-900 transition-colors duration-300" onclick="toggleMobileNav()">Projects</a>
-                        <a href="resume.html" class="mobile-menu-item text-3xl font-medium text-gray-800 hover:text-gray-900 transition-colors duration-300" onclick="toggleMobileNav()">CV</a>
-                        <a href="contact.html" class="mobile-menu-item text-3xl font-medium text-gray-800 hover:text-gray-900 transition-colors duration-300" onclick="toggleMobileNav()">Contact</a>
+                        <a href="projects.html" class="mobile-menu-item text-3xl font-medium text-gray-800 hover:text-gray-900 transition-colors duration-300">Projects</a>
+                        <a href="resume.html" class="mobile-menu-item text-3xl font-medium text-gray-800 hover:text-gray-900 transition-colors duration-300">CV</a>
+                        <a href="contact.html" class="mobile-menu-item text-3xl font-medium text-gray-800 hover:text-gray-900 transition-colors duration-300">Contact</a>
                     </div>
                     
                     <!-- Social Icons - Bottom -->
@@ -70,7 +70,7 @@
             <p class="text-hero mb-12 text-left">
                 I’m a senior UX Designer with more than 10 years of experience creating <strong class="font-medium">highly usable</strong> and accessible <strong class="font-medium">products and design systems</strong>, often bridging the gap between business and development.
             </p>
-            <a href="projects.html" class="text-lg font-medium text-gray-700 underline-animate">
+            <a href="projects.html" class="text-xl font-semibold text-gray-700 underline-animate">
                 View Projects
             </a>
         </div>
@@ -79,15 +79,15 @@
     <!-- About Section -->
     <section id="about" class="py-20 px-4">
         <div class="max-w-4xl mx-auto">
-            <h2 class="mb-8">About Me</h2>
-            <p class="text-large mb-6">
+            <h2 class="mb-8 text-gray-700">About Me</h2>
+            <p class="text-hero mb-6">
                 With over 10 years of experience designing and accessible products and design systems, I specialize in bridging the gap between business and development teams. My business education and foundational development knowledge enable me to communicate effectively across disciplines.
             </p>
-            <p class="text-large mb-12">
+            <p class="text-hero mb-12">
                 While much of my work has been in fintech, social networks, and publishing, my expertise spans a variety of industries.
             </p>
             
-            <a href="/resume.html" class="text-lg font-medium text-gray-700 underline-animate">
+            <a href="/resume.html" class="text-xl font-semibold text-gray-700 underline-animate">
                 View CV
             </a>
         </div>
@@ -210,31 +210,7 @@
         </div>
     </footer>
 
-    <!-- Mobile Menu Toggle Script -->
-    <script>
-        function toggleMobileNav() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const hamburger = document.querySelector('.hamburger-menu');
-            
-            // Toggle hamburger animation
-            hamburger.classList.toggle('active');
-            
-            if (mobileMenu.classList.contains('hidden')) {
-                // Show menu
-                mobileMenu.classList.remove('hidden');
-                // Small delay to ensure display change happens first
-                setTimeout(() => {
-                    mobileMenu.classList.add('active');
-                }, 10);
-            } else {
-                // Hide menu
-                mobileMenu.classList.remove('active');
-                // Wait for animation to complete before hiding
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                }, 300);
-            }
-        }
-    </script>
+    <!-- Custom JavaScript -->
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

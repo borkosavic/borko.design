@@ -12,7 +12,8 @@
 body {
   font-family: 'Satoshi', sans-serif;
   font-weight: 400;
-  line-height: 1.5;
+  font-size: 1.4rem;
+  line-height: 1.35;
   color: text-gray-950;
   background-color: bg-white;
 }
@@ -27,7 +28,7 @@ body {
   }
   
   h2 {
-    @apply text-4xl md:text-5xl font-semibold leading-tight text-gray-900;
+    @apply text-4xl md:text-5xl font-bold leading-tight text-gray-900;
   }
   
   h3 {
@@ -48,11 +49,11 @@ body {
 
   /* Body text hierarchy with better contrast */
   .text-hero {
-    @apply text-xl md:text-2xl font-stretch-50% leading-relaxed text-gray-900;
+    @apply text-lg font-normal md:text-2xl font-stretch-50% leading-relaxed text-gray-900;
   }
   
   .text-large {
-    @apply text-lg md:text-2xl font-light leading-relaxed text-gray-900;
+    @apply text-lg md:text-2xl font-light  text-gray-900;
   }
   
   .text-body {
@@ -204,34 +205,12 @@ body {
     @apply w-full;
   }
 
-  /* Enhanced Navigation Microinteractions */
-  .nav-link {
-    @apply relative transition-all duration-300 ease-out;
-  }
-  
-  .nav-link::before {
-    content: '';
-    @apply absolute -inset-x-2 -inset-y-1 bg-gray-100 rounded-md opacity-0 -z-10;
-    transition: opacity 0.2s ease-out;
-  }
-  
-  .nav-link:hover::before {
-    @apply opacity-100;
-  }
   
   /* Current/Active Navigation State */
   .nav-link.current {
-    @apply text-gray-900 font-medium;
+    @apply font-bold;
   }
   
-  .nav-link.current::before {
-    @apply opacity-100 bg-gray-200;
-  }
-  
-  .nav-link.current::after {
-    content: '';
-    @apply absolute -bottom-1 left-0 w-full h-0.5 bg-gray-900;
-  }
 
   /* Project Card Hover Effects */
   .project-card {
