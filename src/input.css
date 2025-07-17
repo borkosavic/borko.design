@@ -52,7 +52,7 @@ body {
   }
   
   .text-large {
-    @apply text-lg md:text-xl font-light leading-relaxed text-gray-600;
+    @apply text-lg md:text-2xl font-light leading-relaxed text-gray-900;
   }
   
   .text-body {
