@@ -18,11 +18,11 @@
     <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
         <div class="max-w-4xl mx-auto px-4">
             <div class="flex justify-between items-center h-16">
-                <a href="/" class="text-base font-medium text-gray-900">borko.design</a>
+                <a href="/" class="site-title">borko.design</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="projects.html" class="nav-link text-sm font-medium text-gray-600 hover:text-gray-900 focus-elegant">Projects</a>
-                    <a href="resume.html" class="nav-link current text-sm font-medium text-gray-900 hover:text-gray-950 focus-elegant">CV</a>
-                    <a href="contact.html" class="nav-link text-sm font-medium text-gray-600 hover:text-gray-900 focus-elegant">Contact</a>
+                    <a href="projects.html" class="nav-link nav-text hover:text-gray-900 focus-elegant">Projects</a>
+                    <a href="resume.html" class="nav-link current nav-text-current hover:text-gray-950 focus-elegant">CV</a>
+                    <a href="contact.html" class="nav-link nav-text hover:text-gray-900 focus-elegant">Contact</a>
                 </div>
                 <button class="md:hidden p-2" onclick="toggleMobileNav()">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,16 +71,16 @@
     <section class="pt-24 pb-16 px-4">
         <div class="max-w-4xl mx-auto">
             <div class="mb-12">
-                <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-800 transition-colors">← Back to Home</a>
+                <a href="/" class="body-text font-medium text-gray-500 hover:text-gray-800 transition-colors">← Back to Home</a>
             </div>
             
             <div class="mb-16">
-                <h1>CV</h1>
-                <p class="text-large mb-6">
-                    With over 10 years of experience designing highly usable and accessible products and design systems, I specialize in bridging the gap between business and development teams. My business education and foundational development knowledge enable me to communicate effectively across disciplines.
+                <h1 class="resume-title mb-8">CV</h1>
+                <p class="resume-body-large text-gray-600 mb-6">
+                    With over 10 years of experience designing <strong>highly usable</strong> and <strong>accessible products</strong> and <strong>design systems</strong>, I specialize in bridging the gap between business and development teams. My <strong>business education</strong> and foundational <strong>development knowledge</strong> enable me to communicate effectively across disciplines.
                 </p>
-                <p class="text-large">
-                    While much of my work has been in fintech, social networks, and publishing, my expertise spans a variety of industries.
+                <p class="resume-body-large text-gray-600">
+                    While much of my work has been in <strong>fintech, social networks, and publishing</strong>, my expertise spans a variety of industries.
                 </p>
             </div>
         </div>
@@ -89,26 +89,46 @@
     <!-- Work Experience Section -->
     <section id="experience" class="py-20 px-4">
         <div class="max-w-4xl mx-auto">
-            <h2 class="mb-12">Work Experience</h2>
+            <h2 class="resume-section-heading-large mb-12">Work Experience</h2>
             
             <div class="space-y-10">
+                <!-- Rho -->
+                <div class="pb-8 border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <div class="flex-1">
+                            <h3 class="resume-job-title-large mb-2">UX Consultant</h3>
+                            <p class="resume-company text-gray-800 mb-1">Rho</p>
+                            <p class="resume-company-subtitle">Modern Financial Platform</p>
+                        </div>
+                        <div class="resume-meta mt-2 md:mt-0">
+                            2025–present
+                        </div>
+                    </div>
+                    <p class="resume-description-medium mb-3">
+                        Rho is a modern financial platform built to help businesses manage their finances, combining corporate cards, banking, expense management, and more into one unified product.
+                    </p>
+                    <p class="resume-body">
+                        Collaborate with cross-functional teams to <strong>improve the reimbursement flow</strong> and deliver seamless experiences across web and mobile platforms. Focus on <strong>simplifying complex financial processes</strong> for startups and SMBs by applying UX best practices, streamlining user flows, and aligning design with product strategy.
+                    </p>
+                </div>
+                
                 <!-- Zühlke -->
                 <div class="pb-8 border-b border-gray-200">
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                         <div class="flex-1">
-                            <h3 class="mb-2">UX Consultant</h3>
-                            <p class="text-body font-medium text-gray-800 mb-1">Zühlke</p>
-                            <p class="text-small text-gray-500">Global Innovation Service Provider</p>
+                            <h3 class="resume-job-title-large mb-2">UX Consultant</h3>
+                            <p class="resume-company text-gray-800 mb-1">Zühlke</p>
+                            <p class="resume-company-subtitle">Global Innovation Service Provider</p>
                         </div>
-                        <div class="text-small text-gray-400 mt-2 md:mt-0">
-                            2022-2024
+                        <div class="resume-meta mt-2 md:mt-0">
+                            2022–2025
                         </div>
                     </div>
-                    <p class="text-body text-gray-500 mb-3">
+                    <p class="resume-description-medium mb-3">
                         Zühlke is a global innovation service provider headquartered in Switzerland, with over 1,600 employees across Europe and Asia, specialized in software engineering, product design, and digital transformation.
                     </p>
-                    <p class="text-body">
-                        Bridged client needs with technical implementation across multiple high-profile projects. Collaborated with cross-functional teams to deliver innovative digital solutions. Specialized in complex enterprise applications and design systems.
+                    <p class="resume-body">
+                        Collaborated closely with developers and project managers to bridge the gap between client needs and the final product for several well-known companies. Role involved <strong>designing several web, mobile, and desktop applications</strong>, as well as <strong>crafting scalable design systems</strong> to ensure consistency and usability across projects. <strong>Delivered user-centered solutions</strong> that meet <strong>both business and user goals</strong>.
                     </p>
                 </div>
                 
@@ -116,19 +136,19 @@
                 <div class="pb-8 border-b border-gray-200">
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                         <div class="flex-1">
-                            <h3 class="text-xl md:text-2xl font-semibold mb-2">UX/UI Designer</h3>
-                            <p class="text-base font-medium text-gray-800 mb-1">MDPI</p>
-                            <p class="text-sm text-gray-600">Academic Publisher</p>
+                            <h3 class="resume-job-title-large mb-2">UX/UI Designer</h3>
+                            <p class="resume-company text-gray-800 mb-1">MDPI</p>
+                            <p class="resume-company-subtitle">Academic Publisher</p>
                         </div>
-                        <div class="text-sm text-gray-400 mt-2 md:mt-0">
-                            2019-2022
+                        <div class="resume-meta mt-2 md:mt-0">
+                            2019–2022
                         </div>
                     </div>
-                    <p class="text-base text-gray-600 mb-3">
-                        MDPI is a Swiss-based academic publisher with a global team of over 6,000 employees and editors. As the first UX designer at MDPI, I introduced and demonstrated the value of user experience across the organization.
+                    <p class="resume-description-medium mb-3">
+                        MDPI is a Swiss-based academic publisher with a global team of over 6,000 employees and editors. It offers open-access journals across various scientific disciplines, supporting researchers and institutions worldwide in advancing cutting-edge discoveries.
                     </p>
-                    <p class="text-base">
-                        <span class="font-semibold">Led SciProfiles redesign</span> - 20x increase in monthly active users. Established UX practice from ground up in a 6,000+ person organization. Created scalable design systems for academic publishing platform.
+                    <p class="resume-body">
+                        As the first UX designer at MDPI, I introduced and demonstrated the value of user experience across the organization. Led the <strong>redesign of SciProfiles</strong>, resulting in a remarkable <strong>20x increase in monthly active users</strong>. <strong>Established a company-wide design system</strong> adopted by all platforms, ensuring consistency, efficiency, and scalability. Laid the <strong>foundation for a user-centered culture</strong> that continues to shape product development and innovation at MDPI.
                     </p>
                 </div>
                 
@@ -136,19 +156,19 @@
                 <div class="pb-8 border-b border-gray-200">
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                         <div class="flex-1">
-                            <h3 class="text-xl md:text-2xl font-semibold mb-2">UX Designer</h3>
-                            <p class="text-base font-medium text-gray-800 mb-1">RedLark</p>
-                            <p class="text-sm text-gray-600">Gaming Studio Startup</p>
+                            <h3 class="resume-job-title-large mb-2">UX Designer</h3>
+                            <p class="resume-company text-gray-800 mb-1">RedLark</p>
+                            <p class="resume-company-subtitle">Gaming Studio Startup</p>
                         </div>
-                        <div class="text-sm text-gray-400 mt-2 md:mt-0">
-                            2017-2019
+                        <div class="resume-meta mt-2 md:mt-0">
+                            2017–2019
                         </div>
                     </div>
-                    <p class="text-base text-gray-600 mb-3">
-                        Redlark is a gaming studio startup focused on creating immersive and innovative gaming experiences in the competitive online casino market.
+                    <p class="resume-description-medium mb-3">
+                        RedLark is a gaming studio startup focused on creating immersive and innovative gaming experiences. The team collaborates on both indie and large-scale projects, combining creative storytelling with state-of-the-art game design technologies.
                     </p>
-                    <p class="text-base">
-                        <span class="font-semibold">Designed industry's first HTML5 online casino</span> - set new market standards. Created innovative poker game through extensive research and game design expertise. Pioneered user experience in emerging gaming technologies.
+                    <p class="resume-body">
+                        <strong>Designed an innovative poker game</strong> through <strong>extensive research and game design expertise</strong>. Also <strong>designed the industry's first-ever HTML5 online casino</strong>, setting new standards in a competitive market. Additionally, streamlined operations by combining three different backend applications into a unified system, <strong>significantly increasing productivity</strong> and <strong>reducing maintenance costs</strong>.
                     </p>
                 </div>
                 
@@ -156,19 +176,19 @@
                 <div class="pb-8 border-b border-gray-200">
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                         <div class="flex-1">
-                            <h3 class="mb-2">UX/UI Designer</h3>
-                            <p class="text-body font-medium text-gray-800 mb-1">Gowi</p>
-                            <p class="text-small text-gray-500">Software Development Company</p>
+                            <h3 class="resume-job-title-large mb-2">UX/UI Designer</h3>
+                            <p class="resume-company text-gray-800 mb-1">Gowi</p>
+                            <p class="resume-company-subtitle">Software Development Company</p>
                         </div>
-                        <div class="text-small text-gray-400 mt-2 md:mt-0">
-                            2014-2017
+                        <div class="resume-meta mt-2 md:mt-0">
+                            2014–2017
                         </div>
                     </div>
-                    <p class="text-body text-gray-500 mb-3">
-                        Gowi is a Serbian software development and consulting company with 80+ employees, specializing in web and mobile applications for corporate clients.
+                    <p class="resume-description-medium mb-3">
+                        Gowi is a Serbian software development and consulting company with 80+ employees, specializing in web and mobile applications. Gowi serves clients primarily from the UK, delivering solutions for industries such as finance, legal and infrastructure.
                     </p>
-                    <p class="text-body">
-                        <span class="font-semibold">Initiated SPA transition</span> - improved application speed by 30%. Designed highly complex web applications for UK corporate clients. Established modern development practices and design workflows.
+                    <p class="resume-body">
+                        Focused on designing <strong>highly complex web applications</strong> for corporate clients from UK. <strong>Initiated a transition to a SPA</strong> (Single Page Application) approach, which improved application speed by 30%, significantly enhancing user experience.
                     </p>
                 </div>
                 
@@ -176,19 +196,19 @@
                 <div class="pb-8">
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                         <div class="flex-1">
-                            <h3 class="mb-2">Web Designer</h3>
-                            <p class="text-body font-medium text-gray-800 mb-1">Nikon</p>
-                            <p class="text-small text-gray-500">Global Imaging Leader</p>
+                            <h3 class="resume-job-title-large mb-2">Web Designer</h3>
+                            <p class="resume-company text-gray-800 mb-1">Nikon</p>
+                            <p class="resume-company-subtitle">Global Imaging Leader</p>
                         </div>
-                        <div class="text-small text-gray-400 mt-2 md:mt-0">
-                            2012-2014
+                        <div class="resume-meta mt-2 md:mt-0">
+                            2012–2014
                         </div>
                     </div>
-                    <p class="text-body text-gray-500 mb-3">
-                        The Serbian branch of Nikon, a global leader in imaging and optical products headquartered in Japan, serving professional and consumer markets worldwide.
+                    <p class="resume-description-medium mb-3">
+                        The Serbian branch of Nikon, a global leader in imaging and optical products headquartered in Japan. Nikon Serbia operates within the consumer electronics industry, providing cutting-edge cameras, lenses, and photography solutions for professionals and hobbyists.
                     </p>
-                    <p class="text-body">
-                        Designed and maintained multiple e-commerce stores with consistent branding. <span class="font-semibold">Led development of Nikon Club</span> - community platform for photographers. Ensured seamless user experience across all digital touchpoints.
+                    <p class="resume-body">
+                        <strong>Designed and maintained multiple e-commerce stores</strong> and the company's main website, ensuring a seamless user experience and consistent branding. Also <strong>led the development of Nikon Club</strong>, a platform created to <strong>engage customers and provide exclusive benefits</strong>, fostering a loyal community. Work combined technical expertise and user-centered design to drive both customer satisfaction and business growth.
                     </p>
                 </div>
             </div>
@@ -198,23 +218,23 @@
     <!-- Education Section -->
     <section id="education" class="py-20 px-4 bg-gray-50">
         <div class="max-w-4xl mx-auto">
-            <h2 class="mb-12">Education</h2>
+            <h2 class="resume-section-heading-large mb-12">Education</h2>
             
             <div class="space-y-8">
                 <div class="pb-6 border-b border-gray-200">
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-2">
-                        <h3>Bachelor of Arts (BA) in Business Administration and Economics</h3>
-                        <span class="text-small text-gray-400 mt-1 md:mt-0">2004-2008</span>
+                        <h3 class="resume-education-title-large">Bachelor of Arts (BA) in Business Administration and Economics</h3>
+                        <span class="resume-meta mt-1 md:mt-0">2004-2008</span>
                     </div>
-                    <p class="text-body font-medium text-gray-700">The University of Sheffield</p>
+                    <p class="resume-education-school-large">The University of Sheffield</p>
                 </div>
                 
                 <div class="pb-6">
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-2">
-                        <h3>Robotics and Flexible Automation</h3>
-                        <span class="text-small text-gray-400 mt-1 md:mt-0">1999-2003</span>
+                        <h3 class="resume-education-title-large">Robotics and Flexible Automation</h3>
+                        <span class="resume-meta mt-1 md:mt-0">1999-2003</span>
                     </div>
-                    <p class="text-body font-medium text-gray-700">Belgrade Polytechnic</p>
+                    <p class="resume-education-school-large">Belgrade Polytechnic</p>
                 </div>
             </div>
         </div>
@@ -223,26 +243,26 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-4">
         <div class="max-w-4xl mx-auto">
-            <h2 class="mb-12">Get in Touch</h2>
-            <p class="text-large mb-8">
+            <h2 class="resume-section-heading-large mb-12">Get in Touch</h2>
+            <p class="resume-body-large text-gray-600 mb-8">
                 Let's create something great together
             </p>
             <div class="space-y-4">
                 <div class="flex items-center gap-4">
-                    <span class="text-small text-gray-400 min-w-[60px]">Email</span>
-                    <a href="mailto:borko.savic@gmail.com" class="text-body font-medium text-gray-700 hover:text-gray-900 transition-colors">
+                    <span class="resume-meta min-w-[60px]">Email</span>
+                    <a href="mailto:borko.savic@gmail.com" class="resume-contact-large text-gray-700 hover:text-gray-900 transition-colors">
                         borko.savic@gmail.com
                     </a>
                 </div>
                 <div class="flex items-center gap-4">
-                    <span class="text-small text-gray-400 min-w-[60px]">Phone</span>
-                    <a href="tel:+381655476424" class="text-body font-medium text-gray-700 hover:text-gray-900 transition-colors">
+                    <span class="resume-meta min-w-[60px]">Phone</span>
+                    <a href="tel:+381655476424" class="resume-contact-large text-gray-700 hover:text-gray-900 transition-colors">
                         +381655476424
                     </a>
                 </div>
                 <div class="flex items-center gap-4">
-                    <span class="text-small text-gray-400 min-w-[60px]">LinkedIn</span>
-                    <a href="https://linkedin.com/in/borkosavic" class="text-body font-medium text-gray-700 hover:text-gray-900 transition-colors">
+                    <span class="resume-meta min-w-[60px]">LinkedIn</span>
+                    <a href="https://linkedin.com/in/borkosavic" class="resume-contact-large text-gray-700 hover:text-gray-900 transition-colors">
                         linkedin.com/in/borkosavic
                     </a>
                 </div>
@@ -253,7 +273,7 @@
     <!-- Footer -->
     <footer class="py-8 px-4 border-t border-gray-100">
         <div class="max-w-4xl mx-auto text-center text-gray-600">
-            <p class="text-xs">&copy; 2025 Borko Savić. All rights reserved.</p>
+            <p class="resume-meta-small">&copy; 2025 Borko Savić. All rights reserved.</p>
         </div>
     </footer>
 
