@@ -282,28 +282,6 @@
         }
     </script>
     
-    <!-- Scroll Animation Script -->
-    <script>
-        // Scroll-triggered animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
-                }
-            });
-        }, observerOptions);
-
-        // Apply scroll animations to project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.classList.add('scroll-animate');
-            observer.observe(card);
-        });
-    </script>
     
     <!-- Custom JavaScript -->
     <script src="assets/js/main.js"></script>
