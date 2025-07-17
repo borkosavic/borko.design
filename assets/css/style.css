@@ -1246,11 +1246,6 @@
       grid-column: span 3 / span 3;
     }
   }
-  .md\:col-span-4 {
-    @media (width >= 48rem) {
-      grid-column: span 4 / span 4;
-    }
-  }
   .md\:col-span-8 {
     @media (width >= 48rem) {
       grid-column: span 8 / span 8;
@@ -1344,11 +1339,6 @@
       padding: calc(var(--spacing) * 12);
     }
   }
-  .md\:pt-16 {
-    @media (width >= 48rem) {
-      padding-top: calc(var(--spacing) * 16);
-    }
-  }
   .md\:text-right {
     @media (width >= 48rem) {
       text-align: right;
@@ -1413,8 +1403,8 @@ body {
   font-weight: 400;
   font-size: 1.4rem;
   line-height: 1.35;
-  color: text-gray-950;
-  background-color: bg-white;
+  color: #030712;
+  background-color: #ffffff;
 }
 @layer base {
   h1 {
@@ -1741,42 +1731,6 @@ body {
   .nav-link.current {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
-  }
-  .project-card {
-    transition-property: all;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-    --tw-duration: 300ms;
-    transition-duration: 300ms;
-    --tw-ease: var(--ease-out);
-    transition-timing-function: var(--ease-out);
-  }
-  .project-card:hover {
-    transform: scale(1.01);
-  }
-  .project-card .project-image {
-    transition-property: all;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-    --tw-duration: 500ms;
-    transition-duration: 500ms;
-    --tw-ease: var(--ease-out);
-    transition-timing-function: var(--ease-out);
-  }
-  .project-card:hover .project-image {
-    transform: scale(1.05);
-  }
-  .project-card .project-title {
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-    --tw-duration: 300ms;
-    transition-duration: 300ms;
-    --tw-ease: var(--ease-out);
-    transition-timing-function: var(--ease-out);
-  }
-  .project-card:hover .project-title {
-    color: var(--color-gray-900);
   }
   .btn-primary {
     position: relative;

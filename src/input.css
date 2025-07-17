@@ -1,5 +1,5 @@
+/* Tailwind CSS base */
 @import "tailwindcss";
-
 /* Satoshi Font */
 @font-face {
   font-family: 'Satoshi';
@@ -14,15 +14,12 @@ body {
   font-weight: 400;
   font-size: 1.4rem;
   line-height: 1.35;
-  color: text-gray-950;
-  background-color: bg-white;
+  color: #030712;
+  background-color: #ffffff;
 }
 
-@tailwindcss tailwindcss/preflight;
-@tailwindcss utilities;
-
 @layer base {
-  /* Typography Scale - Refined UX portfolio aesthetic */
+  /* Typography Scale  */
   h1 {
     @apply text-6xl md:text-7xl lg:text-8xl font-bold leading-tight text-gray-900;
   }
@@ -47,7 +44,7 @@ body {
     @apply text-base md:text-lg font-normal leading-relaxed text-gray-600;
   }
 
-  /* Body text hierarchy with better contrast */
+  /* Typography */
   .text-hero {
     @apply text-lg font-normal md:text-2xl font-stretch-50% leading-relaxed text-gray-900;
   }
@@ -212,30 +209,6 @@ body {
   }
   
 
-  /* Project Card Hover Effects */
-  .project-card {
-    @apply transition-all duration-300 ease-out;
-  }
-  
-  .project-card:hover {
-    transform: scale(1.01);
-  }
-  
-  .project-card .project-image {
-    @apply transition-all duration-500 ease-out;
-  }
-  
-  .project-card:hover .project-image {
-    transform: scale(1.05);
-  }
-  
-  .project-card .project-title {
-    @apply transition-colors duration-300 ease-out;
-  }
-  
-  .project-card:hover .project-title {
-    @apply text-gray-900;
-  }
 
   /* Button Enhancements */
   .btn-primary {
