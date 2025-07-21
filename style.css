@@ -331,6 +331,28 @@
   --color-accent: #BF360C;
   --color-border: #D4C4B0;
 }
+.theme-switcher {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--color-bg-alt);
+  border: 2px solid var(--color-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.theme-switcher:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
 html {
   font-family: var(--font-family-satoshi);
   scroll-behavior: smooth;
@@ -529,6 +551,29 @@ body {
   }
   background-color: var(--color-bg-base);
   border-color: var(--color-border);
+  position: relative;
+}
+.project-card::after {
+  content: 'Click to explore';
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: var(--color-accent);
+  color: var(--color-bg-base);
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .project-card:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .card-content {
   padding: calc(var(--spacing) * 6);
@@ -803,6 +848,102 @@ body {
 }
 .modal-body {
   padding: calc(var(--spacing) * 6);
+}
+.resume-section {
+  margin-bottom: calc(var(--spacing) * 8);
+}
+.resume-section h3 {
+  margin-bottom: calc(var(--spacing) * 4);
+  font-size: var(--text-xl);
+  line-height: var(--tw-leading, var(--text-xl--line-height));
+  --tw-font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-main);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.5rem;
+}
+.resume-item {
+  margin-bottom: calc(var(--spacing) * 4);
+}
+.resume-item h4 {
+  --tw-font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-main);
+}
+.resume-meta {
+  margin-top: calc(var(--spacing) * 1);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+  color: var(--color-text-subtle);
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: calc(var(--spacing) * 6);
+  @media (width >= 48rem) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.skill-category h4 {
+  margin-bottom: calc(var(--spacing) * 2);
+  --tw-font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-main);
+}
+.skill-category ul {
+  list-style-type: none;
+  :where(& > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 1) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-y-reverse)));
+  }
+}
+.skill-category li {
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+  color: var(--color-text-subtle);
+  padding-left: 1rem;
+  position: relative;
+}
+.skill-category li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+.contact-info p {
+  margin-bottom: calc(var(--spacing) * 2);
+  color: var(--color-text-main);
+}
+.contact-info a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-duration-default) var(--transition-timing-function-default);
+}
+.contact-info a:hover {
+  opacity: 0.8;
+}
+.resume-actions {
+  margin-top: calc(var(--spacing) * 8);
+  padding-top: calc(var(--spacing) * 6);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+.download-btn {
+  display: inline-block;
+  border-radius: var(--radius-lg);
+  padding-inline: calc(var(--spacing) * 6);
+  padding-block: calc(var(--spacing) * 3);
+  --tw-font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-medium);
+  background-color: var(--color-accent);
+  color: var(--color-bg-base);
+  text-decoration: none;
+  transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+}
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 .title {
   font-size: var(--text-2xl);
