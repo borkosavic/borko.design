@@ -35,10 +35,10 @@ The project is starting from scratch - no HTML, CSS, or JavaScript files exist y
 - [ ] 1.0 Setup Project Foundation & Design System Implementation
   - [x] 1.1 Create basic HTML5 structure with semantic elements (nav, main, section, article)
   - [x] 1.2 Set up TailwindCSS v4.11 cli with custom configuration
-  - [x] 1.3 Import Satoshi font from /src/fonts
+  - [x] 1.3 Import Satoshi font from /src/fonts (CORRECTED: recreated missing satoshi.css file with proper @font-face)
   - [x] 1.4 Create CSS custom properties for design system tokens (bg-base, text-main, accent, etc.)
-  - [ ] 1.5 Establish semantic CSS classes (.project-card, .title, .metadata) with @apply methodology
-  - [ ] 1.6 Set up 12-column fluid grid system with 1280px max-width container
+  - [x] 1.5 Establish semantic CSS classes (.project-card, .title, .metadata) with @apply methodology
+  - [x] 1.6 Set up 12-column fluid grid system with full-width container (CORRECTED: removed 1280px constraint for full-width design)
   - [ ] 1.7 Implement mobile-first responsive padding (1rem mobile, 2rem desktop)
 
 - [ ] 2.0 Build Core Navigation & Layout Structure

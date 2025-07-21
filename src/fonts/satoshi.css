@@ -2,8 +2,8 @@
 
 @font-face {
   font-family: 'Satoshi';
-  src: url('./Satoshi-Variable.woff2') format('woff2-variations'),
-       url('./Satoshi-Variable.woff') format('woff');
+  src: url('./src/fonts/Satoshi-Variable.woff2') format('woff2-variations'),
+       url('./src/fonts/Satoshi-Variable.woff') format('woff');
   font-weight: 300 900;
   font-style: normal;
   font-display: swap;

@@ -14,6 +14,13 @@
   --font-size-body: 1rem;
   --font-size-small: 0.875rem;
   
+  /* Define custom text sizes */
+  --text-h1: 2.75rem;
+  --text-h2: 1.875rem;  
+  --text-h3: 1.25rem;
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  
   /* Font Weights */
   --font-weight-regular: 400;
   --font-weight-medium: 500;
@@ -101,10 +108,11 @@ body {
   box-sizing: border-box;
 }
 
-/* Semantic Component Classes (will be expanded with @apply in next task) */
+/* Semantic Component Classes using @apply */
+
+/* Container - Layout foundation (full width) */
 .container {
-  max-width: var(--max-width-container);
-  margin: 0 auto;
+  @apply w-full mx-auto;
   padding: var(--padding-mobile);
 }
 
@@ -114,16 +122,284 @@ body {
   }
 }
 
-.project-card {
-  /* Will be expanded with Tailwind utilities */
+/* 12-Column Grid System */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
 }
 
+@media (min-width: 768px) {
+  .grid-12 {
+    gap: 2rem;
+  }
+}
+
+/* Grid utilities are provided by Tailwind - use col-span-1 through col-span-12, col-span-full */
+/* Also available: sm:col-span-*, md:col-span-*, lg:col-span-* for responsive layouts */
+
+/* Container Variants for different layouts */
+.container-fluid {
+  @apply w-full mx-auto;
+  padding: var(--padding-mobile);
+}
+
+@media (min-width: 768px) {
+  .container-fluid {
+    padding: var(--padding-desktop);
+  }
+}
+
+.container-narrow {
+  @apply w-full max-w-4xl mx-auto;
+  padding: var(--padding-mobile);
+}
+
+@media (min-width: 768px) {
+  .container-narrow {
+    padding: var(--padding-desktop);
+  }
+}
+
+/* Grid variants that can be combined with containers */
+.grid-12-fluid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .grid-12-fluid {
+    gap: 2rem;
+  }
+}
+
+/* Project page specific layout (1/2 width as specified in requirements) */
+.project-layout {
+  @apply w-full mx-auto;
+  padding: var(--padding-mobile);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .project-layout {
+    padding: var(--padding-desktop);
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .project-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.project-text {
+  /* Left column for project pages */
+}
+
+.project-media {
+  /* Right column for project pages - images or blank */
+}
+
+/* Navigation Components */
+.nav-bar {
+  @apply sticky top-0 z-50 backdrop-blur-sm border-b border-gray-200/20;
+}
+
+.nav-container {
+  @apply container flex items-center justify-between py-4;
+}
+
+.nav-link {
+  @apply text-sm font-medium transition-all duration-500 ease-in-out;
+  @apply hover:text-[var(--color-accent)] focus:text-[var(--color-accent)];
+  @apply cursor-pointer;
+}
+
+/* Typography Components */
+.hero-title {
+  @apply text-5xl font-bold leading-tight tracking-tight;
+  @apply text-[var(--color-text-main)];
+}
+
+.hero-subtitle {
+  @apply text-xl font-medium text-[var(--color-text-subtle)] mt-2;
+}
+
+.hero-description {
+  @apply text-base text-[var(--color-text-subtle)] mt-4 leading-relaxed max-w-2xl;
+}
+
+.section-title {
+  @apply text-3xl font-semibold text-[var(--color-text-main)] mb-8;
+}
+
+/* Project Card Components */
+.project-card {
+  @apply cursor-pointer rounded-lg overflow-hidden;
+  @apply border transition-all duration-500;
+  @apply hover:shadow-lg;
+  background-color: var(--color-bg-base);
+  border-color: var(--color-border);
+}
+
+.card-content {
+  @apply p-6;
+}
+
+.card-title {
+  @apply text-xl font-semibold mb-2 transition-colors duration-300;
+  color: var(--color-text-main);
+}
+
+.project-card:hover .card-title {
+  color: var(--color-accent);
+}
+
+.card-metadata {
+  @apply text-sm mb-4 transition-colors duration-300;
+  color: var(--color-text-subtle);
+}
+
+.project-card:hover .card-metadata {
+  color: var(--color-text-main);
+}
+
+.card-preview {
+  @apply mt-4 rounded-md overflow-hidden;
+}
+
+.preview-image {
+  @apply w-full h-48 object-cover transition-transform duration-500;
+}
+
+.project-card:hover .preview-image {
+  @apply scale-105;
+}
+
+/* Layout Components */
+.hero-section {
+  @apply py-20 text-center bg-[var(--color-bg-base)];
+}
+
+.hero-container {
+  @apply container;
+}
+
+.hero-content {
+  @apply max-w-4xl mx-auto;
+}
+
+.hero-image {
+  @apply w-32 h-32 rounded-full mx-auto mb-6 object-cover;
+  @apply ring-4 ring-[var(--color-accent)]/20;
+}
+
+.work-section {
+  @apply py-16 bg-[var(--color-bg-alt)];
+}
+
+.section-container {
+  @apply container;
+}
+
+.projects-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.about-section {
+  @apply py-16 bg-[var(--color-bg-base)];
+}
+
+.about-content {
+  @apply max-w-4xl mx-auto;
+}
+
+.about-text {
+  @apply space-y-6;
+}
+
+.about-paragraph {
+  @apply text-base text-[var(--color-text-main)] leading-relaxed;
+}
+
+.about-skills {
+  @apply mt-8;
+}
+
+.skills-title {
+  @apply text-xl font-medium text-[var(--color-text-main)] mb-4;
+}
+
+.skills-list {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-2;
+}
+
+.skills-list li {
+  @apply text-base text-[var(--color-text-subtle)] py-1;
+  @apply before:content-['•'] before:text-[var(--color-accent)] before:mr-2;
+}
+
+/* Modal Components */
+.resume-modal {
+  @apply fixed inset-0 z-50 hidden;
+  @apply bg-black/50 backdrop-blur-sm;
+}
+
+.resume-modal.open {
+  @apply block;
+}
+
+.modal-overlay {
+  @apply absolute inset-0;
+}
+
+.modal-content {
+  @apply relative bg-[var(--color-bg-base)] rounded-lg shadow-xl;
+  @apply max-w-2xl mx-auto my-8 max-h-[90vh] overflow-y-auto;
+  @apply transform translate-y-full transition-transform duration-300;
+}
+
+.resume-modal.open .modal-content {
+  @apply translate-y-0;
+}
+
+.modal-header {
+  @apply flex items-center justify-between p-6 border-b border-[var(--color-border)];
+}
+
+.modal-title {
+  @apply text-2xl font-semibold text-[var(--color-text-main)];
+}
+
+.modal-close {
+  @apply w-8 h-8 rounded-full hover:bg-[var(--color-bg-alt)] transition-colors;
+  @apply flex items-center justify-center text-[var(--color-text-subtle)];
+  @apply hover:text-[var(--color-text-main)] cursor-pointer;
+}
+
+.modal-body {
+  @apply p-6;
+}
+
+/* Utility Classes */
 .title {
-  /* Will be expanded with Tailwind utilities */  
+  @apply text-2xl font-semibold text-[var(--color-text-main)];
 }
 
 .metadata {
-  /* Will be expanded with Tailwind utilities */
+  @apply text-sm text-[var(--color-text-subtle)];
+}
+
+/* Animation Utilities */
+.transition-all {
+  @apply transition-all duration-500 ease-in-out;
 }
 
 /* Accessibility */
