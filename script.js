@@ -174,17 +174,28 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hide main sections
         document.querySelector('main').style.display = 'none';
         
-        // Create and show case study content
+        // Show case study container
         const caseStudyContainer = document.querySelector('.case-studies');
-        caseStudyContainer.innerHTML = generateCaseStudyHTML(projectId);
         caseStudyContainer.style.display = 'block';
         caseStudyContainer.setAttribute('aria-hidden', 'false');
         
-        // Add close functionality
-        const closeButton = caseStudyContainer.querySelector('.case-study-close');
-        if (closeButton) {
-            closeButton.addEventListener('click', closeCaseStudy);
+        // Hide all case studies
+        const allCaseStudies = caseStudyContainer.querySelectorAll('.case-study');
+        allCaseStudies.forEach(study => {
+            study.style.display = 'none';
+        });
+        
+        // Show the selected case study
+        const selectedCaseStudy = caseStudyContainer.querySelector(`[data-project="${projectId}"]`);
+        if (selectedCaseStudy) {
+            selectedCaseStudy.style.display = 'block';
         }
+        
+        // Add close functionality to all close buttons
+        const closeButtons = caseStudyContainer.querySelectorAll('.case-study-close');
+        closeButtons.forEach(button => {
+            button.addEventListener('click', closeCaseStudy);
+        });
         
         // Update navigation for case study view
         updateNavForCaseStudy();
