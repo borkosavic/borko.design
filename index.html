@@ -216,28 +216,59 @@
             
             <div class="case-study-content">
                 <section class="context">
-                    <h2>Context & Challenge</h2>
-                    <p>Researchers around the world were trying to navigate the platform which felt more like a maze than a resource. MDPI is an open-access publisher that created SciProfiles as an online space for the scientific community to connect, exchange ideas and cooperate. When I joined, the UX/UI was being handled by developers, with occasional input from graphic designers. The goal was to completely revamp SciProfiles - not just to make it more user-friendly but also to demonstrate the value of UX design as a practice.</p>
+                    <h2>What is it about</h2>
+                    <p>Researchers around the world were trying to navigate the platform which felt more like a maze than a resource. How did this occur? MDPI is an open-access publisher that prides itself on offering fast and transparent publishing services for peer-reviewed journals across various fields like science, technology, and medicine. One of their initiatives, SciProfiles, was created as an online space for the scientific community to connect, exchange ideas and cooperate. Platform is not profitable itself, but the idea is to keep the users within MDPI ecosystem.</p>
+                    <p>When I joined, the UX/UI was being handled by developers, with occasional input from graphic designers. The goal for the project was to completely revamp SciProfiles - not just to make it more user-friendly but also to demonstrate the value of UX design as a practice by showing how much of a difference it could make.</p>
                 </section>
                 
                 <section class="discovery">
-                    <h2>Discovery & Research</h2>
-                    <p>I facilitated all kinds of user research - focus groups, user interviews, card sorting exercises as well as stakeholder interviews. SciProfiles has a highly diverse user base, encompassing seven distinct personas: regular users focused on casual networking, authors searching for co-authors, researchers looking for papers to cite, and editors seeking peer reviewers. The biggest challenge was the messy Information Architecture - one developer joked, "I can't even find a feature I coded last week!" Card sorting exercises with three different groups resulted in a homogeneous information architecture that was vastly different from what we started with.</p>
+                    <h2>What did I do?</h2>
+                    <p>I was the only designer in a project-based team of developers and managers. I had a close collaboration with stakeholders too.</p>
+                    <h3>Research</h3>
+                    <p>Fascilitated all the kinds of user research - focus groups, user interviews, card sorting exercise as well as a lot of stakeholder interviews.</p>
+                    <h3>Design System</h3>
+                    <p>SciProfiles was using several UI components from a PHP framework it's built on - I've completely rehauled it in cooperation with dev team.</p>
+                    <h3>UX/UI Design</h3>
+                    <p>As a sole designer, I owned the whole process and all the deliverables - from initial sketches, wireframes and user flows to the implementation</p>
+                    <h3>Testing</h3>
+                    <p>I facilitated user testing (on prototypes and after implementation) and helped with the QA process</p>
                 </section>
                 
                 <section class="process">
-                    <h2>Design Process</h2>
-                    <p>I was the only designer in a project-based team of developers and managers. I started by diving into research activities and running a card sorting exercise. With no clear timeline, I juggled research while laying groundwork for a design system to provide developers with implementable material. Once I had solid understanding of the platform, users, and business needs, I worked with stakeholders to set tactical goals and define a timeline. We adopted design sprints to quickly test ideas and deliver successful ones. This cycle of brainstorming, testing, and iterating kept us busy for almost a year.</p>
+                    <h2>How did it all happen?</h2>
+                    <p>I started by diving into the project and running research activities. The biggest gripe was the messy Information Architecture - one developer joked, "I can't even find a feature I coded last week!" So, I kicked things off with a card sorting exercise. With no clear timeline in place, I juggled research and began laying the groundwork for a design system to provide developers with material they could start implementing.</p>
+                    <p>Once I had a solid understanding of the platform, users, and business needs, I worked with stakeholders to set tactical goals and define a timeline. We adopted design sprints to quickly test ideas and deliver the successful ones. With so many features to tackle, this cycle of brainstorming, testing, and iterating kept us busy for almost a year.</p>
+                    <h3>Research</h3>
+                    <p>SciProfiles has a highly diverse user base, encompassing seven distinct personas, each with unique ways of using the platform. Regular users focused on casual networking, some authors searched for co-authors, others were searching for research papers they could cite, and editors sought out peer reviewers. This variety resulted in a wide range of user paths to accommodate.</p>
+                    <h4>Key Findings</h4>
+                    <h5>Diverse User Base</h5>
+                    <p>There were a lot of different user flows we identified, however with good information architecture and careful planing we managed to merged some of them without much disruption.</p>
+                    <h5>Cultural Differences</h5>
+                    <p>Testing with users from various geographical and cultural groups yielded interesting findings. Even though some trends suggests removing colours from UI, majority of users preferred colour-coding for different elements.</p>
+                    <h5>Information Arhitecture</h5>
+                    <p>Card sorting exercise with three different groups resulted in a homogenous information architecture that was vastly different from the one we started with</p>
                 </section>
                 
                 <section class="solution">
-                    <h2>Solution & Design</h2>
-                    <p>Two major challenges emerged: First, the mobile-first approach was initially rejected due to "survivor bias" - stakeholders claimed mobile wasn't important since few users browsed mobile (because minimum supported width was 768px). We mitigated this by using atomic design principles in our design system and Figma's auto-layout features. After a year-long desktop redesign, mobile and tablet versions were ready in less than a month. Second, information density was crucial for the scientific community's strict display requirements. Through careful ideation and user testing, we found that expert users didn't mind density if it increased usability. We balanced information density with legibility rather than pursuing visual minimalism.</p>
+                    <h2>Problem</h2>
+                    <p>First version of the SciProfiles was desktop-only and as we had to gradually swap modules during the redesign it was decided to create fully redesigned desktop version first and then adapt it for mobile and tablet breakpoint. I did suggest the mobile-first approach, but it would take more development resources and due to "survivor bias" some stakeholders claimed that mobile version is not that important as there weren't many users browsing from their mobile devices. This was, of course, true as we the minimal supported width was 768px.</p>
+                    <h2>Solution</h2>
+                    <p>The work on mobile version of platform started only after the whole redesign was released. This is in contrast with the best practices, but we managed to mitigate most of the drawbacks. With careful planning and utilisation of atomic design principles in the design system alongside with auto-layout features in Figma, design and development for smaller screens turned out to be easier than anticipated - after a year-long work on the desktop version, mobile and tablet version were ready in less than a month.</p>
+                    <h2>Problem</h2>
+                    <p>Information overload posed a significant challenge for many of SciProfiles' features. The scientific community adheres to strict set of rules regarding what information must be displayed and the order in which it should appear. As a result, both user and publication pages and modules often felt overcrowded with mandatory details. After all, since MDPI's core business is publishing, ensuring legibility was top priority. Balancing sufficient white space with optimal screen utilization was a major design challenge.</p>
+                    <h2>Solution</h2>
+                    <p>To address the issue, we invested significant effort into ideation and experimentation, exploring layouts that balanced information density with usability. While the solution wasn't entirely aesthetic, careful adjustments allowed us to present the necessary information more effectively. User testing played a crucial role, confirming that users didn't mind the increased density as they prioritized access to detailed data over visual minimalism and . By focusing on functionality and legibility, we mitigated the problem and delivered a design that met user and business needs.</p>
                 </section>
                 
                 <section class="impact">
-                    <h2>Impact & Results</h2>
-                    <p>The redesign was a tremendous success, achieving 20x growth in monthly active users - from 5,000 to 100,000 within one year. The design system was adopted across MDPI's platforms, enhancing development speed and consistency. User satisfaction improved across all seven personas. Key learnings: solid design systems and planning increase delivery speed while lowering complexity; expert users prioritize functionality over visual minimalism; and comprehensive user testing can reveal completely unexpected insights.</p>
+                    <h2>What's the outcome?</h2>
+                    <p>The redesign proved to be a great success, boosting 20x increase in monthly active users - from 5k to 20k.</p>
+                    <h3>What did I learn?</h3>
+                    <ul>
+                        <li>Solid design system and planning proved to be beneficial to increased speed and lowered complexity of deliveries</li>
+                        <li>Expert users don't mind clutter if it increases the usability</li>
+                        <li>For the first time ever I was getting user testing results that I really haven't anticipated at all</li>
+                    </ul>
                 </section>
             </div>
         </article>
@@ -248,35 +279,46 @@
                 <button class="case-study-close" aria-label="Close case study">←</button>
                 <div class="case-study-hero">
                     <h1 class="hero-title">Act2Access</h1>
-                    <p class="hero-subtitle">Startup • Ad-tech Platform • 2023</p>
-                    <p class="hero-description">A startup solution helping publishers monetize ad-blocked content through surveys and A/B tests, balancing user engagement with revenue generation.</p>
+                    <p class="hero-subtitle">Startup • 2023</p>
+                    <p class="hero-description">Act2Access was a startup aimed at helping publishers with monetisation by providing premium content to users who blocked the ads - if they choose to complete a survey or take a part in A/B test, thus providing valuable information to the advertiser.</p>
                 </div>
             </header>
             
             <div class="case-study-content">
                 <section class="context">
-                    <h2>Context & Challenge</h2>
-                    <p>Act2Access was a startup aimed at helping publishers with monetization by providing premium content to users who blocked ads. The platform offered alternatives like completing surveys or participating in A/B tests, providing valuable insights to publishers while granting users access to content. The challenge was creating a replacement for internet advertising that would offer users the possibility to view premium content even when using ad blockers, while ensuring publishers could still generate revenue and gather valuable user insights.</p>
+                    <h2>What is it about</h2>
+                    <p>Act2Access is an replacement for internet advertising which would offer users possibility to view the premium content even when they use ad blocker. The platform offers alternatives like completing surveys or participating in A/B tests, providing valuable insights to publishers while granting users access to the content . As this was an MVP, I worked closely with stakeholders to design and test prototypes that seamlessly integrated interactive content into various publishing platforms. By validating features with internal users through focus groups and user testing, we delivered a solution that balanced user engagement with revenue generation.</p>
                 </section>
                 
                 <section class="discovery">
-                    <h2>Discovery & Research</h2>
-                    <p>As the only designer on the project, I worked closely with stakeholders through interviews to understand both the user-facing and back-office systems. I needed to learn about how campaigns were created, run, and reported. All potential users were internal customers, which meant I could reach them anytime for research and testing. This internal access made research and user testing more straightforward than typical projects. I conducted focus groups and user testing with internal users to validate MVP features and refine the user experience.</p>
+                    <h2>What did I do?</h2>
+                    <p>I was the only designer on the project. We had to create several types of surveys and A/B test which would fit into a standard ad space, and the backend system used for creating the campaigns.</p>
+                    <h3>UI Components</h3>
+                    <p>It was only few styles and components, so I wouldn't call it a "design system", but nevertheless - I've done it before I moved to the design.</p>
+                    <h3>Stakeholder interviews</h3>
+                    <p>Surveys were pretty straight forward, but I had a lot to learn abut the back-office system - how the campaigns were created, run and reported.</p>
+                    <h3>UI/UX Design</h3>
+                    <p>As a sole designer, I owned the whole process and all the deliverables - from initial sketches, wireframes and user flows to the implementation</p>
+                    <h3>Testing</h3>
+                    <p>I facilitated user testing (on prototypes and after implementation) and helped with the QA process</p>
                 </section>
                 
                 <section class="process">
-                    <h2>Design Process</h2>
-                    <p>This was a small project with minimal planning involved - we moved straight to execution. After getting acquainted with the product and goals, I quickly drafted the UI elements needed and started ideating both the user-facing surveys and the back-office system. I created UI components and workflows for both users and publishers, designing interactive prototypes that could integrate into various publishing platforms. The process involved rapid iteration with stakeholders to quickly get a first version running, then improving it to a satisfactory level through continuous testing and refinement.</p>
+                    <h2>How did it all happen?</h2>
+                    <p>This was a small project so there was not much planning involved - it was straight up to execution. All the potential users of the system were internal customers which meant that I could reach them any time, so even the research and user testing were not a huge challenge. After I got acquainted with the product and the goals, I quickly drafted the UI elements I needed and started ideating both the surveys and back-office. In collaboration with stakeholders we quickly had a first version running, so the only thing remaining was to improve it to a satisfactory level.</p>
                 </section>
                 
                 <section class="solution">
-                    <h2>Solution & Design</h2>
-                    <p>I designed several types of surveys and A/B tests that would fit into standard ad spaces, along with the backend system for creating campaigns. While it was only a few styles and components - not quite a full "design system" - I established consistent UI patterns before moving to detailed design. The solution balanced user engagement with revenue generation by providing seamless alternatives to traditional advertising. I delivered a scalable framework designed for compatibility across various publishing platforms, ensuring future platform expansion was possible.</p>
+                    <h2>What's the outcome?</h2>
+                    <p>The whole system was successfully created and tested, but unfortunately it was not released (yet). This was one of "proof of concept" experiments which didn't find the way to the market. It's not one of the projects that I'm most proud of either by the quality either by the amount of work I've put into, but I nevertheless decided to include it in portfolio to showcase variety of work I've done in my career.</p>
+                    <h3>What did I learn?</h3>
+                    <ul>
+                        <li>Even though the project is successfully executed, it doesn't mean that it will go live :)</li>
+                    </ul>
                 </section>
                 
                 <section class="impact">
-                    <h2>Impact & Results</h2>
-                    <p>The system was successfully created and tested with positive feedback from publishers. We established a foundation for continued platform growth and provided publishers with actionable insights while maintaining user satisfaction. However, this was ultimately a "proof of concept" experiment that didn't find its way to market. Key learning: even when a project is successfully executed, it doesn't guarantee it will go live. While not the most complex project in terms of scope, it showcased the variety of work and rapid MVP development capabilities in the startup environment.</p>
+                    
                 </section>
             </div>
         </article>
@@ -288,34 +330,68 @@
                 <div class="case-study-hero">
                     <h1 class="hero-title">Belimo Assistant</h1>
                     <p class="hero-subtitle">Belimo • Industrial IoT • 2022-2023</p>
-                    <p class="hero-description">A cross-platform HVAC setup, diagnostics, and management app supporting three OSs, three device types, and seven connection methods with streamlined user experience.</p>
+                    <p class="hero-description">A cross-platform app for HVAC setup, diagnostics, and management across multiple devices and connection protocols.</p>
                 </div>
             </header>
             
             <div class="case-study-content">
                 <section class="context">
-                    <h2>Context & Challenge</h2>
-                    <p>Imagine a technician in a service corridor, trying to configure an HVAC valve via smartphone. Belimo Assistant was created to solve these exact challenges - bringing efficiency to professionals worldwide. It replaced three separate apps that were used for the same purpose. By connecting to Belimo devices via cable, internet, Bluetooth, or NFC, the app enables users to configure and monitor performance parameters, diagnose issues, and adjust settings directly from PC, smartphone, or tablet. The main objective was to quickly design and develop a multi-platform app for commissioning and maintenance of Belimo products, as the preceding apps had reached end of life.</p>
+                    <h2>What is it about</h2>
+                    <p>Imagine a technician in a service corridor, trying to configure a HVAC valve via smartphone. Belimo Assistant was made to solve these exact challenges - bringing efficiency to the hands of professionals around the world It replaced three separate apps that were used for the same purpose. By connecting to Belimo devices via cable, internet, Bluetooth, or NFC, the app enables users to configure and monitor performance parameters, diagnose issues, and adjust settings directly from their PC, smartphone, or tablet. Main objective was to quickly design and develop a multi-platform app that would enable commissioning and maintenance of Belimo products around the world, as the preceding apps have reached the end of life (and support).</p>
                 </section>
                 
                 <section class="discovery">
-                    <h2>Discovery & Research</h2>
-                    <p>The primary users were Belimo employees and subcontractors, including HVAC setup, commissioning, and maintenance professionals. They were expert users, accustomed to technical workflows but often limited by environmental challenges like restricted visibility and physical access to devices. While stakeholders provided basic user flows, I supplemented this with real-device testing to identify pain points. Key findings revealed environmental constraints affecting usability, need for rapid iteration due to fragmented tools slowing down prototyping, and interaction differences across wired, Bluetooth, and NFC connections.</p>
+                    <h2>What did I do?</h2>
+                    <p>In the first half of the project I served as the sole designer, overseeing the entire design process and setting the foundation for a scalable design system. In the second half, two additional UX/UI designers joined the project.</p>
+                    <h3>Migration to figma</h3>
+                    <p>Belimo used several different tools for design, handoff and documentation. In order to streamline process, we chose Figma as the single source of truth.</p>
+                    <h3>Design System</h3>
+                    <p>Created a robust design system using brand guidelines and several existing components as a starting point. Also, assisted developers with implementation in Flutter.</p>
+                    <h3>UX/UI Design</h3>
+                    <p>The whole "Design Thinking" process - research the users needs, define them, create ideas, prototype and finally test them.</p>
+                    <h3>Cooperation with developers and QA</h3>
+                    <p>Adopting the new development framework while ensuring compatibility across a wide range of devices and connection types presented various challenges, which required close collaboration to successfully overcome.</p>
                 </section>
                 
                 <section class="process">
-                    <h2>Design Process</h2>
-                    <p>I started as the sole designer, later joined by two additional UX/UI designers. Initially, I focused on understanding project goals through stakeholder interviews, which proved most insightful despite extensive documentation. Early on, I noticed inefficiencies in fragmented design tools (Adobe XD, Photoshop, Illustrator, Confluence, Zeplin, Jira) and proposed Figma as the single source of truth. Using design tokens and atomic design principles, I migrated the entire system to Figma, leveraging auto layout, nested components, and variables. I simultaneously built a robust design system while brainstorming features and tackling complex connection methods through interactive prototypes.</p>
+                    <h2>How did it all happen?</h2>
+                    <p>I started by understanding the project's goals and audience. While there was plenty of documentation, stakeholder interviews proved to be the most insightful.</p>
+                    <p>Early on, I noticed inefficiencies in design, handoff, and communication tools, so I streamlined them during the defining stage. Though we couldn't track improvement as this team didn't use the old approach, the job was done on time and everyone agreed that it was much faster way to cooperate.</p>
+                    <p>In the ideation phase, we brainstormed app features, tackling challenges like complex connection methods and lengthy workflows on mobile. I simultaneously built a robust design system, enabling quick Figma prototypes with production-ready components. These examples eliminated guesswork during stakeholder meetings.</p>
+                    <h2>Research</h2>
+                    <p>The primary users were Belimo employees and subcontractors, including HVAC setup, commissioning, and maintenance professionals. They were expert users, accustomed to technical workflows but often limited by environmental challenges. Given that stakeholders were highly knowledgeable about the product and its context, basic user flows were already outlined. I supplemented this with real-device testing to identify pain points and environmental challenges faced by users.</p>
+                    <h3>Key Findings</h3>
+                    <h4>Environmental constraints</h4>
+                    <p>HVAC professionals often operate in less-than-ideal environments (e.g., limited visibility, restricted physical access to devices).</p>
+                    <h4>Need for rapid iteration</h4>
+                    <p>Existing tools and processes were slowing down prototyping, testing and communication with stakeholders.</p>
+                    <h4>Interaction differences</h4>
+                    <p>Users had varying experiences depending on whether they were working with wired, Bluetooth, or NFC-connected devices.</p>
                 </section>
                 
                 <section class="solution">
-                    <h2>Solution & Design</h2>
-                    <p>I addressed two major challenges: First, tool fragmentation was solved by centralizing everything in Figma, which was adopted across all seven ongoing projects. This enabled faster iterations, leaner communication, and interactive prototypes on real devices. Second, connection complexity across multiple platforms and seven connection methods was addressed through careful error categorization. I designed for "unhappy paths," reducing user-required actions for connection errors from 80% to 20%. For NFC alignment issues, I used the device shape as a visual hint in the top bar and implemented haptic feedback patterns since users often couldn't see the screen while positioning their phone.</p>
+                    <h2>Problem</h2>
+                    <p>At the beginning of the project, the design toolkit was fragmented, with a handful of UI elements distributed across Adobe XD, Photoshop, and Illustrator files. Documentation was maintained in Confluence, and developer handoff was done in Zeplin while the comments were given in Jira. There was no prototyping during the design phase - UAT version of the app was used as a prototype. To achieve the desired speed and efficiency, we needed to streamline the workflow.</p>
+                    <h2>Solution</h2>
+                    <p>I proposed Figma as the primary design tool and single source of truth, a suggestion quickly adopted not only for the Belimo Assistant but for all seven ongoing projects across three software vendors.</p>
+                    <p>Leveraging design tokens and atomic design principles, I completed the remaining components and migrated the entire system to Figma. By utilising features like auto layout, nested components, component properties, and variables, I significantly improved design speed and efficiency. Close collaboration with the development team ensured consistent naming conventions, properties, and element hierarchy, streamlining implementation.</p>
+                    <p>Centralising visuals, comments, and developer handoff in Figma enabled faster iterations and leaner communication while interactive prototypes on real devices reduced unnecessary development effort and improved the quality of UX work.</p>
+                    <h2>Problem</h2>
+                    <p>With support for three operating systems across mobile, tablet, and PC, and seven different connection methods, users faced a range of potential errors during the connection process. While we aimed to minimize differences in user flows across platforms, this wasn't always feasible. The primary challenge was the connection process itself - whether via internet, Bluetooth, USB cable, UTP cable, powered or unpowered NFC, or Bluetooth adapters. Each method had its own potential for failure or glitches during communication. Our goal was to reduce user frustration by ensuring seamless automatic reconnections and reliable data readout/write processes.</p>
+                    <h2>Solution</h2>
+                    <p>Design for the "unhappy paths" during connection time was a challenge. However with careful planing and separation of errors into few categories based on the level of disruption, user actions were required for only 20% of connection errors compared to the initial state, significantly improving the user experience.</p>
+                    <p>Users had particular problem with aligning the NFC chip on their phone with the one in the Belimo device so I used the shape of the device as a top bar in order to give them a visual hint how to position the phone. Also, research has shown that in most cases users are not able see the screen while holding phone next to device so we used different haptic feedback patterns to notify them about any changes in the app.</p>
                 </section>
                 
                 <section class="impact">
-                    <h2>Impact & Results</h2>
-                    <p>Successfully delivered the project on schedule, merging three apps into one while introducing new connection methods. Achieved 2x faster design process and streamlined iterations with centralized Figma collaboration. Reduced user-facing connection issues by 80% through automated error handling. The Figma-based design system was adopted across all Belimo projects with three software vendors. Key learnings: transitioning design systems to new platforms requires strategic planning but significantly enhances efficiency; real-world testing is invaluable in complex working environments; and environmental usage context can dramatically impact overall usability.</p>
+                    <h2>What's the outcome?</h2>
+                    <p>Our team managed to successfully deliver the project on schedule successfully merging functionalities of three apps into one and introducing new connection methods. This timely delivery was a significant achievement for us.</p>
+                    <h3>What did I learn?</h3>
+                    <ul>
+                        <li>Transitioning a design system to a new platform requires strategic planning but can significantly enhance efficiency and scalability.</li>
+                        <li>Real-world testing is invaluable for identifying design improvements in complex working environments.</li>
+                        <li>Environment in which the application is used can have dramatic impact on the overall usability</li>
+                    </ul>
                 </section>
             </div>
         </article>
@@ -326,35 +402,47 @@
                 <button class="case-study-close" aria-label="Close case study">←</button>
                 <div class="case-study-hero">
                     <h1 class="hero-title">FX Trading Tool</h1>
-                    <p class="hero-subtitle">HSBC • Financial Services • 2022</p>
-                    <p class="hero-description">An internal trading tool for HSBC private bankers facilitating complex currency exchanges for high-net-worth clients, designed within strict banking security constraints.</p>
+                    <p class="hero-subtitle">HSBC • 2022</p>
+                    <p class="hero-description">This is an internal tool used by Singapore and Hong-Kong branches of HSBC Bank. It's used by private bankers to facilitate foreign currency exchange on behalf of the high-ranking clients.</p>
                 </div>
             </header>
             
             <div class="case-study-content">
                 <section class="context">
-                    <h2>Context & Challenge</h2>
-                    <p>HSBC Bank's premium clients have dedicated private bankers who use this tool to execute currency exchanges on behalf of high-ranking clients. These transactions go beyond standard exchanges, involving complex parameters like futures, spot, and forward rates, with options for ultra-high-net-worth clients to purchase bullion. This project presented unique challenges: working in a highly secure banking environment, with limited UI components and no direct access to real users. I included this project because of the demanding constraints that made the UX process both challenging and intriguing.</p>
+                    <h2>What is it about</h2>
+                    <p>HSBC Bank's premium clients have dedicated private bankers who use this tool to execute currency exchanges upon request. These transactions go beyond standard exchanges, involving complex parameters like futures, spot, and forward rates, with an additional option for ultra-high-net-worth clients to purchase bullion. While I can't share visuals due to confidentiality, I included this project in my portfolio because of the unique challenges it posed. Working in a highly secure banking environment, with limited UI components and no direct access to real users, made the UX process both demanding and intriguing.</p>
                 </section>
                 
                 <section class="discovery">
-                    <h2>Discovery & Research</h2>
-                    <p>As the only designer on the project, I communicated exclusively with stakeholders who were highly knowledgeable about the product and its usage. Through stakeholder interviews, I gained understanding of users and their working environment, but I also had to learn extensively about complex financial products. I often served as the translator between business requirements and the development team, being the only person with an economics background. The research phase involved understanding both user needs and intricate financial workflows without direct user access.</p>
+                    <h2>What did I do?</h2>
+                    <p>I was the only designer on the project. I was communicating exclusively with stakeholders who were very knowledgeable about the product and it's usage.</p>
+                    <h3>Research</h3>
+                    <p>I got a pretty good idea about who are the users and in which environment are they using the product from stakeholder interviews, but I also had to learn a lot about the product itself.</p>
+                    <h3>Collaboration</h3>
+                    <p>As I was the only person from the development team with some background in economics, I was often the one who was "translating" the business requirements to the colleagues.</p>
+                    <h3>Sketching</h3>
+                    <p>Before the UI design, we were using an HSBC's internal sketching tool for quick drafts.</p>
+                    <h3>UI Design</h3>
+                    <p>Using the HSBC's UI elements, I designed the approved screens in Sketch. Figma or any other cloud-based tool was not allowed.</p>
                 </section>
                 
                 <section class="process">
-                    <h2>Design Process</h2>
-                    <p>When onboarded, I received a super-secure laptop without internet connection for all work. I approached design in micro increments - presenting yesterday's work in daily meetings while getting assigned next tasks. Despite having two-week sprints, most design work was done daily, solving one small problem after another and incrementally building sketches and later visual design. I used HSBC's internal sketching tool for quick drafts before moving to UI design in Sketch (cloud-based tools like Figma were prohibited). The process required strict adherence to pre-approved UI components and security guidelines.</p>
+                    <h2>How did it all happen?</h2>
+                    <p>When I was onboarded, I got a super-secure laptop without internet connection from which all the work was done. After I got a grasp of the product, I started the design in micro increments - I presented the yesterday's work in daily meetings and where I also got assigned what to do next. We did have two week sprints, but most of the design work was done on a daily basis, solving one small problem after another and incrementally building up the sketches and later visual design for implementation.</p>
                 </section>
                 
                 <section class="solution">
-                    <h2>Solution & Design</h2>
-                    <p>Working within HSBC's strict design system, I designed user flows and wireframes for the trading interface using only pre-approved UI components. The solution leveraged HSBC's design system to ensure consistency and compliance while streamlining complex workflows for private bankers managing high-value transactions. I delivered detailed prototypes and comprehensive design documentation for implementation, ensuring every interaction met banking security standards. The constraint of limited UI components actually removed guesswork and improved development speed, though it limited design innovation.</p>
+                    <h2>What's the outcome?</h2>
+                    <p>The app was successfully developed and delivered on schedule. As with all internal HSBC tools, it adhered to strict guidelines and used pre-approved UI components from their design system, leaving little room for UI experimentation. This made it one of the most unusual projects I've ever worked on.</p>
+                    <h3>What did I learn?</h3>
+                    <ul>
+                        <li>A lot about the banking sector - both about the products and different development procedures.</li>
+                        <li>Strict adherence to guidelines limits the innovation but by taking the guesswork out it vastly improves the speed of development</li>
+                    </ul>
                 </section>
                 
                 <section class="impact">
-                    <h2>Impact & Results</h2>
-                    <p>Successfully delivered the project on time, meeting HSBC's high standards for usability and security. Streamlined workflows for private bankers managing complex high-value transactions involving futures, spot, and forward rates. The app was developed and delivered on schedule, adhering to strict banking guidelines. Key learnings: gained extensive knowledge about banking sector products and development procedures; strict guideline adherence limits innovation but vastly improves development speed by removing guesswork; working under extreme security constraints requires different UX methodologies but can still deliver effective solutions.</p>
+                    
                 </section>
             </div>
         </article>
@@ -366,34 +454,60 @@
                 <div class="case-study-hero">
                     <h1 class="hero-title">HomeRules Poker</h1>
                     <p class="hero-subtitle">Gaming Startup • 2021-2022</p>
-                    <p class="hero-description">An innovative digital poker game replacing physical cards with smartphones for private cards and shared devices for community cards, designed through extensive user research.</p>
+                    <p class="hero-description">An innovative digital poker game that replaces physical cards and chips with smartphones for private cards and a shared device for community cards.</p>
                 </div>
             </header>
             
             <div class="case-study-content">
                 <section class="context">
-                    <h2>Context & Challenge</h2>
-                    <p>HomeRules Poker brings players back to the table - literally - by blending digital tools with the social essence of in-person poker. Players use their phones to view private cards, while a shared screen displays community cards, eliminating the need for a dealer or physical poker set. It keeps players' phones busy with the game, so everyone stays focused on playing instead of scrolling social media. The challenge was convincing poker players to adopt a digital alternative without losing the traditional experience, while developing entirely new game mechanics for a unique multi-device setup.</p>
+                    <h2>What is it about</h2>
+                    <p>HomeRules Poker brings players back to the table - iterally - by blending digital tools with the social essence of in-person poker. Players use their phones to view player cards, while a shared screen (TV, tablet or a PC) displays community cards, eliminating the need for a dealer or a physical poker set. Plus, it keeps players phones busy with the game, so everyone stays focused on playing instead of scrolling through social media while hanging out with friends.</p>
+                    <p>As my role was UX only, I'm showcasing the work we used to test the game mechanics - this is intentionally not polished for end users.</p>
                 </section>
                 
                 <section class="discovery">
-                    <h2>Discovery & Research</h2>
-                    <p>This was by far the most research-intensive project I've worked on, with nearly two years of continuous exploration. As part of a six-person team (3 UX, 3 UI designers), I led qualitative research to understand poker players' habits and expectations. Key findings revealed that millennials are the last generation actively playing poker - it's not popular with younger generations. This meant designing for users who aren't as tech-savvy. Players always preferred actions that mimic real poker moves, like hiding screens to peek at cards or "throwing" chips toward the table. Surprisingly, players spent significant amounts on non-functional in-game purchases during interviews about gaming behavior.</p>
+                    <h2>What did I do?</h2>
+                    <p>We were a team of six people - 3 UX and 3 UI/Graphic designers. I had a UX role - leading qualitative research and figuring out game mechanics so good that the poker players would be willing to trade chips and a deck of cards for a smartphone.</p>
+                    <h3>User Research</h3>
+                    <p>I conducted interviews and focus groups with poker players to understand their habits and expectations. This research informed key design decisions to align with traditional poker experiences.</p>
+                    <h3>Design-Dev-Business Liaison</h3>
+                    <p>I facilitated communication between designers, developers, and stakeholders to ensure alignment on goals and priorities. This involved translating business requirements into actionable design tasks and providing developers with clear design guidance.</p>
+                    <h3>Usability Testing</h3>
+                    <p>I organized testing sessions to evaluate features like card viewing, betting, and device connections. Insights from these sessions guided improvements to the interactions.</p>
+                    <h3>Interaction Design</h3>
+                    <p>I designed interactions that replicated real-world poker gestures, such as peeking at cards and swiping chips as well as workflows for pairing devices, setting up games, and handling in-game actions.</p>
                 </section>
                 
                 <section class="process">
-                    <h2>Design Process</h2>
-                    <p>We approached the project with an iterative process emphasizing collaboration and testing. At each sprint's beginning, we chose specific problems to research, design, or test. I conducted interviews and focus groups with poker players, then worked with the team to brainstorm solutions and refine game mechanics to closely mimic traditional poker. I facilitated communication between designers, developers, and stakeholders, translating business requirements into actionable design tasks. Prototypes were quickly created and tested with players to validate concepts. I organized testing sessions evaluating card viewing, betting, and device connections, using insights to guide interaction improvements.</p>
+                    <h2>How did it all happen?</h2>
+                    <p>We approached the project with a iterative process that emphasized collaboration and testing. At the beginning of each sprint we chose a specific problem to research, design or test. I led qualitative research to gather insights from poker players, focusing on their habits and expectations. Using this feedback, I worked with the team to brainstorm potential solutions and refine the game mechanics to closely mimic the traditional poker experience. Prototypes were quickly created and tested with players to validate concepts and identify areas for improvement. This approach allowed us to iterate rapidly, fine-tune details like gestures and feedback, and ensure the final design felt intuitive and engaging for the target audience.</p>
+                    <h2>Research</h2>
+                    <p>This was by far the most research-intensive project I've ever worked on, with nearly two years of continuous exploration and iteration. Developing completely new game mechanics required extensive user research and testing to ensure poker players would get a better alternative to physical cards or chips.</p>
+                    <h3>Key Findings</h3>
+                    <h4>Poker players are getting old</h4>
+                    <p>Millennials are the last generation which actively plays poker - it's just not that popular anymore. This meant that we had to design for users who aren't as tech savvy as younger generations.</p>
+                    <h4>Keep it natural</h4>
+                    <p>Although there are more efficient ways to complete a task, players always preferred the actions which would mimic the real moves from a game of poker - like hiding screen to reveal the cards or "throwing" chips towards the table.</p>
+                    <h4>Micro-transactions aren't micro</h4>
+                    <p>While interviewing players about their general gaming behaviour, I was amazed by the amount spent on non-functional in-game purchases.</p>
                 </section>
                 
                 <section class="solution">
-                    <h2>Solution & Design</h2>
-                    <p>I designed natural gestures replicating real-world poker actions and workflows for device pairing, game setup, and in-game actions. The biggest challenge was game setup - connecting multiple devices with aging users and poor TV interfaces. Initial solutions involved typing codes, then QR codes, but both were cumbersome. During interviews, I discovered 60% of users had voice assistants. This sparked developing an Alexa skill that could launch the app and display QR codes instantly, making player joining quick and effortless. The solution integrated voice activation to streamline the traditionally complex setup process while maintaining natural poker-like interactions.</p>
+                    <h2>Problem</h2>
+                    <p>HomeRules Poker requires one table device and several player devices connected to the same server via internet. Game setup is the process of connecting them among themselves. With the aging user-base and often sub-par user experience on most smart TV's this could easily repel potential players - no-one wants to spend ages typing on a TV's remote control. Making the game setup process frictionless was one of biggest priorities.</p>
+                    <h2>Solution</h2>
+                    <p>Our initial idea for game setup involved typing a code from the TV into a phone, but this proved too cumbersome on most TV interfaces. Then a simpler solution came to mind—generating a QR code on the table device for players to scan with their phones. While faster, this still required navigating several layers of the TV's menu just to launch the poker app. During user interviews, I began asking if users had voice assistants at home, and 60% said they did. This sparked the idea to use voice commands to streamline the process. We developed an Alexa skill that could launch the app and display the QR code instantly, making it quick and effortless for players to join the game.</p>
                 </section>
                 
                 <section class="impact">
-                    <h2>Impact & Results</h2>
-                    <p>Successfully solved numerous UX challenges and created a fully operational app running on Android and iOS. Developed completely new game mechanics through extensive user research and testing that poker players found acceptable as alternatives to physical cards and chips. Created natural interaction patterns that preserved the traditional poker experience while leveraging digital advantages. Unfortunately, the product was never launched due to lack of Go-to-Market strategy. Key learnings: mastered comprehensive user research and usability testing methodologies; learned poker gameplay intricacies; developed advanced prototyping skills with complex interactions; and discovered that successful execution doesn't guarantee market launch without proper business strategy.</p>
+                    <h2>What's the outcome?</h2>
+                    <p>We solved so many problems (and found the new ones), developers made a fully operational app ran on both Android and iOS, but unfortunately it was never launched due to lack of Go To Market strategy.</p>
+                    <h3>What did I learn?</h3>
+                    <ul>
+                        <li>How to conduct user research and usability test. This wasn't the first time I've done it, but it was certainly the time I've done it the most.</li>
+                        <li>How to play poker.</li>
+                        <li>How to create prototype with advanced interaction (proto.io).</li>
+                    </ul>
                 </section>
             </div>
         </article>
