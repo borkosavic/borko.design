@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borko Savić - UX Designer</title>
+    <meta name="description" content="Senior UX Designer specializing in product design, user research, and design systems. Available for freelance and full-time opportunities.">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="src/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- TailwindCSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#work" class="nav-link">Work</a>
+            <a href="#about" class="nav-link">About</a>
+            <button class="nav-link" id="resume-toggle" aria-label="Open resume">Resume</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main role="main">
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero" aria-labelledby="hero-title">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <img src="assets/images/borko-profile.jpg" alt="Borko Savić, UX Designer" class="hero-image">
+                    <h1 id="hero-title" class="hero-title">Borko Savić</h1>
+                    <p class="hero-subtitle">UX Designer crafting meaningful digital experiences</p>
+                    <p class="hero-description">
+                        I solve complex user problems through research-driven design, transforming insights into intuitive interfaces that drive business results.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section -->
+        <section class="work-section" id="work" aria-labelledby="work-title">
+            <div class="section-container">
+                <h2 id="work-title" class="section-title">Selected Work</h2>
+                
+                <!-- Project Cards Grid -->
+                <div class="projects-grid" role="list">
+                    <!-- Project 1: SciProfiles -->
+                    <article class="project-card group" role="listitem" data-project="sciprofiles">
+                        <div class="card-content">
+                            <h3 class="card-title">SciProfiles</h3>
+                            <p class="card-metadata">Research Platform · 2024</p>
+                            <div class="card-preview">
+                                <img src="assets/images/sciprofiles-preview.jpg" alt="SciProfiles project preview" class="preview-image">
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: Act2Access -->
+                    <article class="project-card group" role="listitem" data-project="act2access">
+                        <div class="card-content">
+                            <h3 class="card-title">Act2Access</h3>
+                            <p class="card-metadata">Accessibility Platform · 2023</p>
+                            <div class="card-preview">
+                                <img src="assets/images/act2access-preview.jpg" alt="Act2Access project preview" class="preview-image">
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: Belimo -->
+                    <article class="project-card group" role="listitem" data-project="belimo">
+                        <div class="card-content">
+                            <h3 class="card-title">Belimo</h3>
+                            <p class="card-metadata">Industrial IoT · 2023</p>
+                            <div class="card-preview">
+                                <img src="assets/images/belimo-preview.jpg" alt="Belimo project preview" class="preview-image">
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: FX Trading Tool -->
+                    <article class="project-card group" role="listitem" data-project="fxtt">
+                        <div class="card-content">
+                            <h3 class="card-title">FX Trading Tool</h3>
+                            <p class="card-metadata">HSBC · 2022</p>
+                            <div class="card-preview">
+                                <img src="assets/images/fxtt-preview.jpg" alt="FX Trading Tool project preview" class="preview-image">
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 5: Home Rules -->
+                    <article class="project-card group" role="listitem" data-project="homerules">
+                        <div class="card-content">
+                            <h3 class="card-title">Home Rules</h3>
+                            <p class="card-metadata">Smart Home App · 2022</p>
+                            <div class="card-preview">
+                                <img src="assets/images/homerules-preview.jpg" alt="Home Rules project preview" class="preview-image">
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" id="about" aria-labelledby="about-title">
+            <div class="section-container">
+                <h2 id="about-title" class="section-title">About</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="about-paragraph">
+                            I'm a UX designer with 8+ years of experience creating user-centered digital solutions. My approach combines strategic thinking with hands-on design execution, always grounded in user research and data-driven insights.
+                        </p>
+                        <p class="about-paragraph">
+                            I excel in cross-functional collaboration, working closely with product managers, engineers, and stakeholders to deliver experiences that balance user needs with business objectives. My methodology emphasizes iterative design, usability testing, and continuous improvement.
+                        </p>
+                        <div class="about-skills">
+                            <h3 class="skills-title">Core Expertise</h3>
+                            <ul class="skills-list">
+                                <li>User Research & Usability Testing</li>
+                                <li>Information Architecture</li>
+                                <li>Interaction Design & Prototyping</li>
+                                <li>Design Systems & Component Libraries</li>
+                                <li>Cross-functional Team Leadership</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Resume Modal -->
+    <aside class="resume-modal" id="resume-modal" role="dialog" aria-labelledby="resume-title" aria-hidden="true">
+        <div class="modal-overlay" aria-hidden="true"></div>
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2 id="resume-title" class="modal-title">Resume</h2>
+                <button class="modal-close" id="modal-close" aria-label="Close resume">×</button>
+            </header>
+            <div class="modal-body">
+                <!-- Resume content will be populated here -->
+                <p>Resume content coming soon...</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Case Study Expanded Views (Hidden by default) -->
+    <div class="case-studies" aria-hidden="true">
+        <!-- Individual case study sections will be populated here -->
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

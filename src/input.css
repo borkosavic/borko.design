@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Satoshi font */
+@import url('./fonts/satoshi.css');
+
+/* CSS Custom Properties for Theme System */
+:root {
+  /* Default to Theme A: Modern Neutral */
+  --bg-base: #F9FAFB;
+  --bg-alt: #ECEFF1;
+  --text-main: #1F2937;
+  --text-subtle: #6B7280;
+  --accent: #D1D5DB;
+}
+
+[data-theme="theme-b"] {
+  --bg-base: #1E1E1E;
+  --bg-alt: #2D2D2D;
+  --text-main: #FAFAFA;
+  --text-subtle: #9CA3AF;
+  --accent: #F4D35E;
+}
+
+[data-theme="theme-c"] {
+  --bg-base: #0A0F1C;
+  --bg-alt: #0A0F1C;
+  --text-main: #F8FAFC;
+  --text-subtle: #64748B;
+  --accent: #FACC15;
+  --border: #1E293B;
+}
+
+[data-theme="theme-d"] {
+  --bg-base: #FAF9F7;
+  --bg-alt: #EDEAE3;
+  --text-main: #2E2E2E;
+  --text-subtle: #7C7C7C;
+  --accent: #BF360C;
+}
+
+/* Base styles */
+html {
+  font-family: 'Satoshi', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  margin: 0;
+  padding: 0;
+}
