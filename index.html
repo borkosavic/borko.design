@@ -22,7 +22,7 @@
             <div class="nav-links">
                 <button class="nav-link" id="nav-work">Work</button>
                 <button class="nav-link" id="nav-about">About Me</button>
-                <a href="mailto:hello@borko.design" class="nav-link">Contact</a>
+                <button class="nav-link" id="nav-contact">Contact</button>
             </div>
         </div>
     </nav>
@@ -287,6 +287,138 @@
                     <a href="assets/resume.pdf" download class="download-btn">Download PDF Resume</a>
                 </div>
             </section>
+        </div>
+    </div>
+
+    <!-- Epic Contact Page (Hidden by default) -->
+    <div class="contact-page" id="contact-page" style="display: none;" aria-hidden="true">
+        <div class="contact-container">
+            <div class="contact-hero">
+                <div class="contact-hero-content">
+                    <h1 class="contact-hero-title">Let's Create Something <span class="gradient-text">Amazing</span></h1>
+                    <p class="contact-hero-subtitle">Ready to bring your vision to life? I'm here to help.</p>
+                </div>
+                <div class="contact-hero-visual">
+                    <div class="floating-shapes">
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="shape shape-3"></div>
+                        <div class="shape shape-4"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-form-section">
+                    <div class="contact-form-container">
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" id="name" name="name" class="form-input" required>
+                                <div class="form-focus-line"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                                <div class="form-focus-line"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company" class="form-label">Company (Optional)</label>
+                                <input type="text" id="company" name="company" class="form-input">
+                                <div class="form-focus-line"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="project-type" class="form-label">Project Type</label>
+                                <select id="project-type" name="project-type" class="form-select" required>
+                                    <option value="">Select project type</option>
+                                    <option value="website-design">Website Design</option>
+                                    <option value="mobile-app">Mobile App</option>
+                                    <option value="ux-audit">UX Audit</option>
+                                    <option value="design-system">Design System</option>
+                                    <option value="consultation">Consultation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="form-focus-line"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget" class="form-label">Budget Range</label>
+                                <select id="budget" name="budget" class="form-select">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-5k">Under $5k</option>
+                                    <option value="5k-15k">$5k - $15k</option>
+                                    <option value="15k-30k">$15k - $30k</option>
+                                    <option value="30k-plus">$30k+</option>
+                                    <option value="discuss">Let's discuss</option>
+                                </select>
+                                <div class="form-focus-line"></div>
+                            </div>
+
+                            <div class="form-group form-group-large">
+                                <label for="message" class="form-label">Tell me about your project</label>
+                                <textarea id="message" name="message" class="form-textarea" rows="6" required></textarea>
+                                <div class="form-focus-line"></div>
+                            </div>
+
+                            <button type="submit" class="submit-btn">
+                                <span class="btn-text">Send Message</span>
+                                <div class="btn-animation">
+                                    <div class="btn-sparkle"></div>
+                                    <div class="btn-sparkle"></div>
+                                    <div class="btn-sparkle"></div>
+                                </div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="contact-links-section">
+                    <div class="contact-links-container">
+                        <h2 class="contact-links-title">Or reach out directly</h2>
+                        
+                        <div class="contact-links">
+                            <a href="mailto:hello@borko.design" class="contact-link contact-link-email">
+                                <div class="contact-link-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-link-content">
+                                    <h3 class="contact-link-title">Email Me</h3>
+                                    <p class="contact-link-desc">hello@borko.design</p>
+                                </div>
+                                <div class="contact-link-arrow">→</div>
+                            </a>
+
+                            <a href="https://linkedin.com/in/borkosavic" target="_blank" class="contact-link contact-link-linkedin">
+                                <div class="contact-link-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-link-content">
+                                    <h3 class="contact-link-title">LinkedIn</h3>
+                                    <p class="contact-link-desc">Let's connect professionally</p>
+                                </div>
+                                <div class="contact-link-arrow">→</div>
+                            </a>
+
+                            <div class="contact-response-time">
+                                <div class="response-indicator">
+                                    <div class="response-dot"></div>
+                                    <span>Usually responds within 24 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

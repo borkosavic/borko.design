@@ -48,10 +48,104 @@ document.addEventListener('DOMContentLoaded', function() {
     const brandHome = document.getElementById('brand-home');
     const navWork = document.getElementById('nav-work');
     const navAbout = document.getElementById('nav-about');
+    const navContact = document.getElementById('nav-contact');
+    const contactPage = document.getElementById('contact-page');
     const caseStudies = document.querySelector('.case-studies');
     
     // Navigation state tracking
-    let currentView = 'home'; // 'home', 'about', 'case-study'
+    let currentView = 'home'; // 'home', 'about', 'contact', 'case-study'
+    let currentProject = null; // Track current project for case studies
+    
+    // Page view management for SPA experience
+    function updatePageView(view, data = {}) {
+        let url = window.location.origin + window.location.pathname;
+        let title = 'Borko Savić - UX Designer';
+        
+        switch(view) {
+            case 'home':
+                url += '#/';
+                title = 'Borko Savić - UX Designer';
+                break;
+            case 'about':
+                url += '#/about';
+                title = 'About Me - Borko Savić';
+                break;
+            case 'contact':
+                url += '#/contact';
+                title = 'Contact - Borko Savić';
+                break;
+            case 'case-study':
+                url += `#/work/${data.project}`;
+                title = `${data.title} - Borko Savić`;
+                currentProject = data.project;
+                break;
+        }
+        
+        // Update browser history and title
+        window.history.pushState({ view, data }, title, url);
+        document.title = title;
+        currentView = view;
+    }
+    
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', function(event) {
+        if (event.state) {
+            navigateToView(event.state.view, event.state.data, false);
+        } else {
+            // Fallback for initial page load or direct navigation
+            handleDirectNavigation();
+        }
+    });
+    
+    // Handle direct navigation from URL hash
+    function handleDirectNavigation() {
+        const hash = window.location.hash;
+        
+        if (hash.startsWith('#/about')) {
+            navigateToView('about', {}, false);
+        } else if (hash.startsWith('#/contact')) {
+            navigateToView('contact', {}, false);
+        } else if (hash.startsWith('#/work/')) {
+            const project = hash.split('/')[2];
+            const projectTitles = {
+                'sciprofiles': 'SciProfiles',
+                'act2access': 'Act2Access',
+                'belimo': 'Belimo Assistant',
+                'fxtt': 'FX Trading Tool',
+                'homerules': 'HomeRules Poker'
+            };
+            navigateToView('case-study', { project, title: projectTitles[project] || 'Project' }, false);
+        } else {
+            navigateToView('home', {}, false);
+        }
+    }
+    
+    // Navigate to a specific view (with or without history update)
+    function navigateToView(view, data = {}, updateHistory = true) {
+        switch(view) {
+            case 'home':
+                showHome();
+                break;
+            case 'about':
+                showAbout();
+                break;
+            case 'contact':
+                showContact();
+                break;
+            case 'case-study':
+                showCaseStudy(data.project);
+                break;
+        }
+        
+        if (updateHistory) {
+            updatePageView(view, data);
+        } else {
+            currentView = view;
+            if (data.project) currentProject = data.project;
+        }
+        
+        updateNavState(view);
+    }
     
     // Update navigation active states
     function updateNavState(view) {
@@ -65,17 +159,26 @@ document.addEventListener('DOMContentLoaded', function() {
             navWork.classList.add('nav-active');
         } else if (view === 'about') {
             navAbout.classList.add('nav-active');
+        } else if (view === 'contact') {
+            navContact.classList.add('nav-active');
         }
         
         currentView = view;
     }
 
-    // Function to go to home/work section
-    function goToHome() {
+    // View display functions
+    function showHome() {
         // Close about page if open
         if (aboutPage && aboutPage.style.display !== 'none') {
             aboutPage.style.display = 'none';
             aboutPage.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+        
+        // Close contact page if open
+        if (contactPage && contactPage.style.display !== 'none') {
+            contactPage.style.display = 'none';
+            contactPage.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
         }
         
@@ -87,23 +190,29 @@ document.addEventListener('DOMContentLoaded', function() {
             caseStudies.style.display = 'none';
         }
         
+        // Show main content
+        document.querySelector('main').style.display = 'block';
+        
         // Scroll to hero or work section
         const targetSection = document.getElementById('work') || document.getElementById('hero');
         if (targetSection) {
             targetSection.scrollIntoView({ behavior: 'smooth' });
         }
-        
-        updateNavState('home');
     }
 
-    // Function to open about page
-    function openAboutPage() {
+    function showAbout() {
         // Close case studies if open
         document.querySelectorAll('.case-study').forEach(study => {
             study.style.display = 'none';
         });
         if (caseStudies) {
             caseStudies.style.display = 'none';
+        }
+        
+        // Close contact page if open
+        if (contactPage && contactPage.style.display !== 'none') {
+            contactPage.style.display = 'none';
+            contactPage.setAttribute('aria-hidden', 'true');
         }
         
         // Open about page
@@ -112,18 +221,46 @@ document.addEventListener('DOMContentLoaded', function() {
             aboutPage.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
         }
-        
-        updateNavState('about');
     }
 
-    // Function to close about page
-    function closeAboutPage() {
-        if (aboutPage) {
+    function showContact() {
+        // Close case studies if open
+        document.querySelectorAll('.case-study').forEach(study => {
+            study.style.display = 'none';
+        });
+        if (caseStudies) {
+            caseStudies.style.display = 'none';
+        }
+        
+        // Close about page if open
+        if (aboutPage && aboutPage.style.display !== 'none') {
             aboutPage.style.display = 'none';
             aboutPage.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
         }
-        updateNavState('home');
+        
+        // Open contact page
+        if (contactPage) {
+            contactPage.style.display = 'block';
+            contactPage.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    // Legacy function wrappers for existing event handlers
+    function goToHome() {
+        navigateToView('home');
+    }
+
+    function openAboutPage() {
+        navigateToView('about');
+    }
+
+    function closeAboutPage() {
+        navigateToView('home');
+    }
+
+    function openContactPage() {
+        navigateToView('contact');
     }
 
     // Navigation event listeners
@@ -139,6 +276,10 @@ document.addEventListener('DOMContentLoaded', function() {
         navAbout.addEventListener('click', openAboutPage);
     }
     
+    if (navContact) {
+        navContact.addEventListener('click', openContactPage);
+    }
+    
     if (aboutToggle) {
         aboutToggle.addEventListener('click', openAboutPage);
     }
@@ -147,8 +288,57 @@ document.addEventListener('DOMContentLoaded', function() {
         aboutPageClose.addEventListener('click', closeAboutPage);
     }
     
-    // Initialize navigation state
-    updateNavState('home');
+    // Epic Contact Form Functionality
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                company: formData.get('company'),
+                projectType: formData.get('project-type'),
+                budget: formData.get('budget'),
+                message: formData.get('message')
+            };
+            
+            // Create mailto link with all the data
+            const subject = encodeURIComponent(`Project Inquiry from ${data.name}`);
+            let body = encodeURIComponent(
+                `Hi Borko,\n\n` +
+                `I'm ${data.name} and I'd like to discuss a potential project.\n\n` +
+                `${data.company ? `Company: ${data.company}\n` : ''}` +
+                `Project Type: ${data.projectType}\n` +
+                `${data.budget ? `Budget Range: ${data.budget}\n` : ''}` +
+                `\nProject Details:\n${data.message}\n\n` +
+                `Please get back to me at your earliest convenience.\n\n` +
+                `Best regards,\n${data.name}\n${data.email}`
+            );
+            
+            // Open email client
+            window.location.href = `mailto:hello@borko.design?subject=${subject}&body=${body}`;
+            
+            // Show success feedback
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span class="btn-text">Message Sent! 🎉</span>';
+            submitBtn.style.background = 'linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%)';
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = '';
+                contactForm.reset();
+            }, 3000);
+        });
+    }
+
+    // Initialize page based on URL hash
+    handleDirectNavigation();
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
@@ -268,6 +458,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function expandProjectCard(card) {
         const projectId = card.dataset.project;
+        const projectTitles = {
+            'sciprofiles': 'SciProfiles',
+            'act2access': 'Act2Access',
+            'belimo': 'Belimo Assistant',
+            'fxtt': 'FX Trading Tool',
+            'homerules': 'HomeRules Poker'
+        };
         
         // Add expanding class for animation
         card.classList.add('expanding');
@@ -278,9 +475,12 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
         
-        // After scroll animation, show case study
+        // After scroll animation, navigate to case study with history
         setTimeout(() => {
-            showCaseStudy(projectId);
+            navigateToView('case-study', { 
+                project: projectId, 
+                title: projectTitles[projectId] || 'Project'
+            });
             card.classList.remove('expanding');
         }, 600);
     }
@@ -318,8 +518,7 @@ document.addEventListener('DOMContentLoaded', function() {
             button.addEventListener('click', closeCaseStudy);
         });
         
-        // Update navigation state
-        updateNavState('case-study');
+        currentProject = projectId;
     }
 
     function closeCaseStudy() {
