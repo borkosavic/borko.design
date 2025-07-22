@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borko Savić - UX Designer | Layout 2</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Layout 2: Side-by-side text and image */
+        .projects-layout-2 {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .project-item-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            cursor: pointer;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-item-2:hover {
+            background-color: var(--color-bg-alt);
+        }
+
+        .project-item-2:nth-child(even) {
+            direction: rtl;
+        }
+
+        .project-item-2:nth-child(even) .project-content-2,
+        .project-item-2:nth-child(even) .project-visual-2 {
+            direction: ltr;
+        }
+
+        .project-content-2 {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--color-bg-base);
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-item-2:hover .project-content-2 {
+            background-color: var(--color-bg-alt);
+        }
+
+        .project-visual-2 {
+            background-color: var(--color-bg-alt);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-visual-2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-item-2:hover .project-visual-2 img {
+            transform: scale(1.05);
+        }
+
+        .project-number-2 {
+            font-size: 8rem;
+            font-weight: 200;
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+
+        .project-title-2 {
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--color-text-main);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .project-meta-2 {
+            font-size: 1.4rem;
+            color: var(--color-text-subtle);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-description-2 {
+            font-size: 1.3rem;
+            color: var(--color-text-main);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        .project-cta-2 {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.2rem;
+            color: var(--color-accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-cta-2::after {
+            content: '→';
+            font-size: 1.5rem;
+            transform: translateX(0);
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-item-2:hover .project-cta-2::after {
+            transform: translateX(8px);
+        }
+
+        .project-visual-overlay-2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--color-accent), transparent);
+            opacity: 0;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-item-2:hover .project-visual-overlay-2 {
+            opacity: 0.1;
+        }
+
+        @media (max-width: 1024px) {
+            .project-item-2 {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .project-item-2:nth-child(even) {
+                direction: ltr;
+            }
+
+            .project-content-2 {
+                padding: 3rem 2rem;
+            }
+
+            .project-visual-2 {
+                height: 60vh;
+                order: -1;
+            }
+
+            .project-number-2 {
+                font-size: 4rem;
+            }
+
+            .project-title-2 {
+                font-size: 2.5rem;
+            }
+
+            .project-meta-2 {
+                font-size: 1.1rem;
+            }
+
+            .project-description-2 {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Scroll snap for smooth navigation */
+        .projects-layout-2 {
+            scroll-snap-type: y mandatory;
+        }
+
+        .project-item-2 {
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+<body>
+    <!-- Single Global Navigation -->
+    <nav class="nav-bar" id="global-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <button class="brand-link" id="brand-home">borko.design</button>
+            </div>
+            <div class="nav-links">
+                <button class="nav-link" id="nav-work">Work</button>
+                <button class="nav-link" id="nav-about">About Me</button>
+                <button class="nav-link" id="nav-contact">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main role="main">
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero" aria-labelledby="hero-title">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <img src="assets/bd.svg" alt="Borko Savić, UX Designer" class="hero-image">
+                    <h1 id="hero-title" class="hero-title">Borko Savić</h1>
+                    <p class="hero-subtitle">UX Designer crafting meaningful digital experiences</p>
+                    <p class="hero-description">
+                        Side-by-side layout demonstration - each project gets full screen treatment.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section - Layout 2: Side-by-side text and image -->
+        <section class="work-section" id="work" aria-labelledby="work-title">
+            <div class="projects-layout-2">
+                <!-- Project 1: SciProfiles -->
+                <article class="project-item-2" data-project="sciprofiles">
+                    <div class="project-content-2">
+                        <div class="project-number-2">01</div>
+                        <h3 class="project-title-2">SciProfiles</h3>
+                        <p class="project-meta-2">Research Platform • 2024</p>
+                        <p class="project-description-2">
+                            Transforming scientific research discovery and collaboration through redesigned networking platform that achieved 20x growth in monthly active users.
+                        </p>
+                        <div class="project-cta-2">View Case Study</div>
+                    </div>
+                    <div class="project-visual-2">
+                        <img src="https://picsum.photos/800/1000?random=1" alt="SciProfiles project preview">
+                        <div class="project-visual-overlay-2"></div>
+                    </div>
+                </article>
+
+                <!-- Project 2: Act2Access -->
+                <article class="project-item-2" data-project="act2access">
+                    <div class="project-content-2">
+                        <div class="project-number-2">02</div>
+                        <h3 class="project-title-2">Act2Access</h3>
+                        <p class="project-meta-2">Accessibility Platform • 2023</p>
+                        <p class="project-description-2">
+                            Alternative monetization for publishers through interactive surveys and A/B tests, respecting users with ad blockers while providing valuable insights.
+                        </p>
+                        <div class="project-cta-2">View Case Study</div>
+                    </div>
+                    <div class="project-visual-2">
+                        <img src="https://picsum.photos/800/1000?random=2&grayscale" alt="Act2Access project preview">
+                        <div class="project-visual-overlay-2"></div>
+                    </div>
+                </article>
+
+                <!-- Project 3: Belimo -->
+                <article class="project-item-2" data-project="belimo">
+                    <div class="project-content-2">
+                        <div class="project-number-2">03</div>
+                        <h3 class="project-title-2">Belimo Assistant</h3>
+                        <p class="project-meta-2">Industrial IoT • 2023</p>
+                        <p class="project-description-2">
+                            Cross-platform HVAC management app replacing three legacy tools, supporting multiple connection protocols for field technicians.
+                        </p>
+                        <div class="project-cta-2">View Case Study</div>
+                    </div>
+                    <div class="project-visual-2">
+                        <img src="https://picsum.photos/800/1000?random=3" alt="Belimo project preview">
+                        <div class="project-visual-overlay-2"></div>
+                    </div>
+                </article>
+
+                <!-- Project 4: FX Trading Tool -->
+                <article class="project-item-2" data-project="fxtt">
+                    <div class="project-content-2">
+                        <div class="project-number-2">04</div>
+                        <h3 class="project-title-2">FX Trading Tool</h3>
+                        <p class="project-meta-2">HSBC • 2022</p>
+                        <p class="project-description-2">
+                            Secure banking tool for premium clients' currency exchanges, handling complex trading parameters in highly regulated environment.
+                        </p>
+                        <div class="project-cta-2">View Case Study</div>
+                    </div>
+                    <div class="project-visual-2">
+                        <img src="https://picsum.photos/800/1000?random=4&sepia" alt="FX Trading Tool project preview">
+                        <div class="project-visual-overlay-2"></div>
+                    </div>
+                </article>
+
+                <!-- Project 5: HomeRules Poker -->
+                <article class="project-item-2" data-project="homerules">
+                    <div class="project-content-2">
+                        <div class="project-number-2">05</div>
+                        <h3 class="project-title-2">HomeRules Poker</h3>
+                        <p class="project-meta-2">Gaming Startup • 2022</p>
+                        <p class="project-description-2">
+                            Innovative digital poker experience replacing physical cards with smartphones while preserving social essence of in-person gaming.
+                        </p>
+                        <div class="project-cta-2">View Case Study</div>
+                    </div>
+                    <div class="project-visual-2">
+                        <img src="https://picsum.photos/800/1000?random=5" alt="HomeRules Poker project preview">
+                        <div class="project-visual-overlay-2"></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Theme Switcher -->
+    <button class="theme-switcher" id="theme-switcher" aria-label="Switch theme">🎨</button>
+
+    <script>
+        // Basic click handlers for demo
+        document.querySelectorAll('.project-item-2').forEach(item => {
+            item.addEventListener('click', () => {
+                const project = item.dataset.project;
+                alert(`Opening ${project} case study...`);
+            });
+        });
+
+        // Theme switcher
+        const themes = ['theme-a', 'theme-b', 'theme-c', 'theme-d'];
+        let currentThemeIndex = 0;
+        const themeSwitcher = document.getElementById('theme-switcher');
+        const themeEmojis = ['🎨', '🌙', '🌊', '🏛️'];
+
+        if (themeSwitcher) {
+            themeSwitcher.addEventListener('click', function() {
+                currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+                const newTheme = themes[currentThemeIndex];
+                
+                // Remove existing theme classes
+                themes.forEach(t => {
+                    document.documentElement.classList.remove(t);
+                    document.documentElement.removeAttribute('data-theme');
+                });
+                
+                // Apply new theme
+                if (newTheme !== 'theme-a') {
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                }
+                
+                // Update button emoji
+                this.textContent = themeEmojis[currentThemeIndex];
+            });
+        }
+    </script>
+</body>
+</html>

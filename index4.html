@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borko Savić - UX Designer | Layout 4</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Layout 4: Full-width hero with overlay text */
+        .projects-layout-4 {
+            width: 100%;
+        }
+
+        .project-item-4 {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-background-4 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-item-4:hover .project-background-4 {
+            transform: scale(1.05);
+        }
+
+        .project-overlay-4 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(0, 0, 0, 0.6) 0%,
+                rgba(0, 0, 0, 0.3) 50%,
+                rgba(0, 0, 0, 0.8) 100%
+            );
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-item-4:hover .project-overlay-4 {
+            background: linear-gradient(
+                135deg,
+                rgba(0, 0, 0, 0.4) 0%,
+                rgba(0, 0, 0, 0.1) 50%,
+                rgba(0, 0, 0, 0.6) 100%
+            );
+        }
+
+        .project-content-4 {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--padding-mobile);
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .project-content-4 {
+                padding: var(--padding-desktop);
+            }
+        }
+
+        .project-number-4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .project-title-4 {
+            font-size: 5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .project-title-4 {
+                font-size: 3rem;
+            }
+        }
+
+        .project-meta-4 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-description-4 {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-cta-4 {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+            text-decoration: none;
+        }
+
+        .project-cta-4:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-arrow-4 {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: white;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-cta-4:hover .cta-arrow-4 {
+            transform: translateX(5px);
+        }
+
+        /* Project-specific background colors/gradients as fallback */
+        .project-item-4[data-project="sciprofiles"] {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .project-item-4[data-project="act2access"] {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .project-item-4[data-project="belimo"] {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .project-item-4[data-project="fxtt"] {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .project-item-4[data-project="homerules"] {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        /* Scroll progress indicator */
+        .scroll-indicator-4 {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .scroll-dot-4 {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .scroll-dot-4.active {
+            background-color: white;
+            transform: scale(1.5);
+        }
+
+        /* Floating project info */
+        .project-info-floating-4 {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            color: white;
+            max-width: 300px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-item-4:hover .project-info-floating-4 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .floating-title-4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .floating-stats-4 {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .floating-stat-4 {
+            text-align: center;
+        }
+
+        .floating-stat-number-4 {
+            display: block;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .floating-stat-label-4 {
+            opacity: 0.8;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .scroll-indicator-4,
+            .project-info-floating-4 {
+                display: none;
+            }
+
+            .project-meta-4 {
+                font-size: 1.2rem;
+            }
+
+            .project-description-4 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Single Global Navigation -->
+    <nav class="nav-bar" id="global-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <button class="brand-link" id="brand-home">borko.design</button>
+            </div>
+            <div class="nav-links">
+                <button class="nav-link" id="nav-work">Work</button>
+                <button class="nav-link" id="nav-about">About Me</button>
+                <button class="nav-link" id="nav-contact">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator-4">
+        <div class="scroll-dot-4 active" data-project="sciprofiles"></div>
+        <div class="scroll-dot-4" data-project="act2access"></div>
+        <div class="scroll-dot-4" data-project="belimo"></div>
+        <div class="scroll-dot-4" data-project="fxtt"></div>
+        <div class="scroll-dot-4" data-project="homerules"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main role="main">
+        <!-- Work Section - Layout 4: Full-width hero with overlay text -->
+        <section class="work-section" id="work">
+            <div class="projects-layout-4">
+                <!-- Project 1: SciProfiles -->
+                <article class="project-item-4" data-project="sciprofiles">
+                    <div class="project-background-4" style="background-image: url('https://picsum.photos/1920/1080?random=1');"></div>
+                    <div class="project-overlay-4"></div>
+                    <div class="project-content-4">
+                        <span class="project-number-4">Project 01</span>
+                        <h2 class="project-title-4">SciProfiles</h2>
+                        <p class="project-meta-4">MDPI • Research Platform • 2024</p>
+                        <p class="project-description-4">
+                            Transforming scientific research discovery and collaboration through a redesigned networking platform that achieved 20x growth in monthly active users.
+                        </p>
+                        <a href="#" class="project-cta-4">
+                            View Case Study
+                            <div class="cta-arrow-4">→</div>
+                        </a>
+                    </div>
+                    <div class="project-info-floating-4">
+                        <div class="floating-title-4">Key Achievements</div>
+                        <div class="floating-stats-4">
+                            <div class="floating-stat-4">
+                                <span class="floating-stat-number-4">20x</span>
+                                <span class="floating-stat-label-4">Growth</span>
+                            </div>
+                            <div class="floating-stat-4">
+                                <span class="floating-stat-number-4">7</span>
+                                <span class="floating-stat-label-4">Personas</span>
+                            </div>
+                            <div class="floating-stat-4">
+                                <span class="floating-stat-number-4">12</span>
+                                <span class="floating-stat-label-4">Months</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: Act2Access -->
+                <article class="project-item-4" data-project="act2access">
+                    <div class="project-background-4" style="background-image: url('https://picsum.photos/1920/1080?random=2&grayscale');"></div>
+                    <div class="project-overlay-4"></div>
+                    <div class="project-content-4">
+                        <span class="project-number-4">Project 02</span>
+                        <h2 class="project-title-4">Act2Access</h2>
+                        <p class="project-meta-4">Accessibility Platform • 2023</p>
+                        <p class="project-description-4">
+                            Alternative monetization for publishers through interactive surveys and A/B tests, respecting users with ad blockers while providing valuable insights.
+                        </p>
+                        <a href="#" class="project-cta-4">
+                            View Case Study
+                            <div class="cta-arrow-4">→</div>
+                        </a>
+                    </div>
+                    <div class="project-info-floating-4">
+                        <div class="floating-title-4">Innovation Focus</div>
+                        <div class="floating-stats-4">
+                            <div class="floating-stat-4">
+                                <span class="floating-stat-number-4">MVP</span>
+                                <span class="floating-stat-label-4">Stage</span>
+                            </div>
+                            <div class="floating-stat-4">
+                                <span class="floating-stat-number-4">3</span>
+                                <span class="floating-stat-label-4">Surveys</span>
+                            </div>
+                            <div class="floating-stat-4">
+                                <span class="floating-stat-number-4">A/B</span>
+                                <span class="floating-stat-label-4">Testing</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: Belimo -->
+                <article class="project-item-4" data-project="belimo">
+                    <div class="project-background-4" style="background-image: url('https://picsum.photos/1920/1080?random=3');"></div>
+                    <div class="project-overlay-4"></div>
+                    <div class="project-content-4">
+                        <span class="project-number-4">Project 03</span>
+                        <h2 class="project-title-4">Belimo Assistant</h2>
+                        <p class="project-meta-4">Belimo • Industrial IoT • 2023</p>
+                        <p class="project-description-4">
+                            Cross-platform HVAC management app replacing three legacy tools, supporting multiple connection protocols for field technicians worldwide.
+                        </p>
+                        <a href="#" class="project-cta-4">
+                            View Case Study
+                            <div class="cta-arrow-4">→</div>
+                        </a>
+                    </div>
+                    <div class="project-info-floating-4">
+                        <div class="floating-title-4">Technical Impact</div>
+                        <div class="floating-stats-4">
+                            <div class="floating-stat-4">
+                                <span class="floating-stat-number-4">3</span>
+                                <span class="floating-stat-label-4">Apps Merged</span>
+                            </div>
+                            <div class="floating-stat-4">
+                                <span class="floating-stat-number-4">7</span>
+                                <span class="floating-stat-label-4">Protocols</span>
+                            </div>
+                            <div class="floating-stat-4">
+                                <span class="floating-stat-number-4">Global</span>
+                                <span class="floating-stat-label-4">Reach</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4: FX Trading Tool -->
+                <article class="project-item-4" data-project="fxtt">
+                    <div class="project-background-4" style="background-image: url('https://picsum.photos/1920/1080?random=4&sepia');"></div>
+                    <div class="project-overlay-4"></div>
+                    <div class="project-content-4">
+                        <span class="project-number-4">Project 04</span>
+                        <h2 class="project-title-4">FX Trading Tool</h2>
+                        <p class="project-meta-4">HSBC • Financial Services • 2022</p>
+                        <p class="project-description-4">
+                            Secure internal tool for premium banking clients' complex currency exchanges, handling futures, spot, and forward rates in highly regulated environment.
+                        </p>
+                        <a href="#" class="project-cta-4">
+                            View Case Study
+                            <div class="cta-arrow-4">→</div>
+                        </a>
+                    </div>
+                    <div class="project-info-floating-4">
+                        <div class="floating-title-4">Enterprise Scale</div>
+                        <div class="floating-stats-4">
+                            <div class="floating-stat-4">
+                                <span class="floating-stat-number-4">Bank</span>
+                                <span class="floating-stat-label-4">Grade</span>
+                            </div>
+                            <div class="floating-stat-4">
+                                <span class="floating-stat-number-4">Secure</span>
+                                <span class="floating-stat-label-4">Environment</span>
+                            </div>
+                            <div class="floating-stat-4">
+                                <span class="floating-stat-number-4">HNW</span>
+                                <span class="floating-stat-label-4">Clients</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 5: HomeRules Poker -->
+                <article class="project-item-4" data-project="homerules">
+                    <div class="project-background-4" style="background-image: url('https://picsum.photos/1920/1080?random=5');"></div>
+                    <div class="project-overlay-4"></div>
+                    <div class="project-content-4">
+                        <span class="project-number-4">Project 05</span>
+                        <h2 class="project-title-4">HomeRules Poker</h2>
+                        <p class="project-meta-4">Gaming Startup • 2022</p>
+                        <p class="project-description-4">
+                            Innovative digital poker experience replacing physical cards with smartphones while preserving the social essence of in-person gaming.
+                        </p>
+                        <a href="#" class="project-cta-4">
+                            View Case Study
+                            <div class="cta-arrow-4">→</div>
+                        </a>
+                    </div>
+                    <div class="project-info-floating-4">
+                        <div class="floating-title-4">Research Intensive</div>
+                        <div class="floating-stats-4">
+                            <div class="floating-stat-4">
+                                <span class="floating-stat-number-4">2</span>
+                                <span class="floating-stat-label-4">Years R&D</span>
+                            </div>
+                            <div class="floating-stat-4">
+                                <span class="floating-stat-number-4">60%</span>
+                                <span class="floating-stat-label-4">Voice Users</span>
+                            </div>
+                            <div class="floating-stat-4">
+                                <span class="floating-stat-number-4">Social</span>
+                                <span class="floating-stat-label-4">Gaming</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Scroll indicator functionality
+        const projectItems = document.querySelectorAll('.project-item-4');
+        const scrollDots = document.querySelectorAll('.scroll-dot-4');
+
+        // Update active dot on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+            
+            projectItems.forEach((item, index) => {
+                const itemTop = item.offsetTop;
+                const itemBottom = itemTop + item.offsetHeight;
+                
+                if (scrollPosition >= itemTop && scrollPosition < itemBottom) {
+                    scrollDots.forEach(dot => dot.classList.remove('active'));
+                    scrollDots[index].classList.add('active');
+                }
+            });
+        });
+
+        // Click to scroll to project
+        scrollDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                projectItems[index].scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Project click handlers
+        document.querySelectorAll('.project-item-4').forEach(item => {
+            item.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('project-cta-4')) {
+                    const project = item.dataset.project;
+                    alert(`Opening ${project} case study...`);
+                }
+            });
+        });
+
+        // CTA click handlers
+        document.querySelectorAll('.project-cta-4').forEach(cta => {
+            cta.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const project = cta.closest('.project-item-4').dataset.project;
+                alert(`Opening ${project} case study...`);
+            });
+        });
+    </script>
+</body>
+</html>

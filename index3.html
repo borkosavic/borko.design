@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borko Savić - UX Designer | Layout 3</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Layout 3: Masonry/Pinterest-style layout */
+        .projects-layout-3 {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--padding-mobile);
+            columns: 1;
+            column-gap: 2rem;
+            column-fill: balance;
+        }
+
+        @media (min-width: 768px) {
+            .projects-layout-3 {
+                padding: var(--padding-desktop);
+                columns: 2;
+                column-gap: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .projects-layout-3 {
+                columns: 3;
+            }
+        }
+
+        .project-item-3 {
+            break-inside: avoid;
+            margin-bottom: 3rem;
+            cursor: pointer;
+            background-color: var(--color-bg-base);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-item-3:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--color-accent);
+        }
+
+        .project-image-3 {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image-3 img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-item-3:hover .project-image-3 img {
+            transform: scale(1.05);
+        }
+
+        .project-content-3 {
+            padding: 2rem;
+        }
+
+        .project-tag-3 {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-bg-base);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .project-title-3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--color-text-main);
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .project-meta-3 {
+            font-size: 1rem;
+            color: var(--color-text-subtle);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .project-description-3 {
+            font-size: 1rem;
+            color: var(--color-text-main);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech-3 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag-3 {
+            background-color: var(--color-bg-alt);
+            color: var(--color-text-subtle);
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-stats-3 {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-item-3 {
+            text-align: center;
+        }
+
+        .stat-number-3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            display: block;
+        }
+
+        .stat-label-3 {
+            font-size: 0.8rem;
+            color: var(--color-text-subtle);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-cta-3 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--color-accent);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .cta-text-3 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-arrow-3 {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--color-accent);
+            color: var(--color-bg-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-item-3:hover .cta-arrow-3 {
+            transform: translateX(5px);
+        }
+
+        /* Different card heights for variety */
+        .project-item-3:nth-child(1) .project-image-3 { height: 250px; }
+        .project-item-3:nth-child(2) .project-image-3 { height: 300px; }
+        .project-item-3:nth-child(3) .project-image-3 { height: 200px; }
+        .project-item-3:nth-child(4) .project-image-3 { height: 280px; }
+        .project-item-3:nth-child(5) .project-image-3 { height: 220px; }
+
+        .project-image-3 img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Image overlay effect */
+        .project-image-3::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--color-accent), transparent);
+            opacity: 0;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-item-3:hover .project-image-3::after {
+            opacity: 0.2;
+        }
+
+        /* Floating action on hover */
+        .project-floating-action-3 {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-main);
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+            backdrop-filter: blur(10px);
+        }
+
+        .project-item-3:hover .project-floating-action-3 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Single Global Navigation -->
+    <nav class="nav-bar" id="global-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <button class="brand-link" id="brand-home">borko.design</button>
+            </div>
+            <div class="nav-links">
+                <button class="nav-link" id="nav-work">Work</button>
+                <button class="nav-link" id="nav-about">About Me</button>
+                <button class="nav-link" id="nav-contact">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main role="main">
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero" aria-labelledby="hero-title">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <img src="assets/bd.svg" alt="Borko Savić, UX Designer" class="hero-image">
+                    <h1 id="hero-title" class="hero-title">Borko Savić</h1>
+                    <p class="hero-subtitle">UX Designer crafting meaningful digital experiences</p>
+                    <p class="hero-description">
+                        Masonry layout demonstration - Pinterest-style project cards with varied heights.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section - Layout 3: Masonry/Pinterest-style -->
+        <section class="work-section" id="work" aria-labelledby="work-title">
+            <div class="section-container">
+                <h2 id="work-title" class="section-title">Selected Work</h2>
+                
+                <div class="projects-layout-3">
+                    <!-- Project 1: SciProfiles -->
+                    <article class="project-item-3" data-project="sciprofiles">
+                        <div class="project-image-3">
+                            <img src="https://picsum.photos/400/250?random=1" alt="SciProfiles project preview">
+                            <div class="project-floating-action-3">→</div>
+                        </div>
+                        <div class="project-content-3">
+                            <span class="project-tag-3">Research</span>
+                            <h3 class="project-title-3">SciProfiles</h3>
+                            <p class="project-meta-3">MDPI • Research Platform • 2024</p>
+                            <p class="project-description-3">
+                                Networking platform for scientific community redesign achieving 20x growth in monthly active users.
+                            </p>
+                            <div class="project-tech-3">
+                                <span class="tech-tag-3">UX Research</span>
+                                <span class="tech-tag-3">Design System</span>
+                                <span class="tech-tag-3">Figma</span>
+                            </div>
+                            <div class="project-stats-3">
+                                <div class="stat-item-3">
+                                    <span class="stat-number-3">20x</span>
+                                    <span class="stat-label-3">Growth</span>
+                                </div>
+                                <div class="stat-item-3">
+                                    <span class="stat-number-3">7</span>
+                                    <span class="stat-label-3">Personas</span>
+                                </div>
+                            </div>
+                            <div class="project-cta-3">
+                                <span class="cta-text-3">Case Study</span>
+                                <div class="cta-arrow-3">→</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: Act2Access -->
+                    <article class="project-item-3" data-project="act2access">
+                        <div class="project-image-3">
+                            <img src="https://picsum.photos/400/300?random=2&grayscale" alt="Act2Access project preview">
+                            <div class="project-floating-action-3">→</div>
+                        </div>
+                        <div class="project-content-3">
+                            <span class="project-tag-3">Startup</span>
+                            <h3 class="project-title-3">Act2Access</h3>
+                            <p class="project-meta-3">Accessibility Platform • 2023</p>
+                            <p class="project-description-3">
+                                Alternative monetization through interactive surveys and A/B tests for ad-blocked users.
+                            </p>
+                            <div class="project-tech-3">
+                                <span class="tech-tag-3">UI Design</span>
+                                <span class="tech-tag-3">Prototyping</span>
+                            </div>
+                            <div class="project-cta-3">
+                                <span class="cta-text-3">Case Study</span>
+                                <div class="cta-arrow-3">→</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: Belimo -->
+                    <article class="project-item-3" data-project="belimo">
+                        <div class="project-image-3">
+                            <img src="https://picsum.photos/400/200?random=3" alt="Belimo project preview">
+                            <div class="project-floating-action-3">→</div>
+                        </div>
+                        <div class="project-content-3">
+                            <span class="project-tag-3">Industrial</span>
+                            <h3 class="project-title-3">Belimo Assistant</h3>
+                            <p class="project-meta-3">Belimo • Industrial IoT • 2023</p>
+                            <p class="project-description-3">
+                                Cross-platform HVAC app replacing three separate tools with unified experience.
+                            </p>
+                            <div class="project-tech-3">
+                                <span class="tech-tag-3">Mobile Design</span>
+                                <span class="tech-tag-3">Flutter</span>
+                                <span class="tech-tag-3">IoT</span>
+                            </div>
+                            <div class="project-stats-3">
+                                <div class="stat-item-3">
+                                    <span class="stat-number-3">3</span>
+                                    <span class="stat-label-3">Apps Merged</span>
+                                </div>
+                                <div class="stat-item-3">
+                                    <span class="stat-number-3">7</span>
+                                    <span class="stat-label-3">Protocols</span>
+                                </div>
+                            </div>
+                            <div class="project-cta-3">
+                                <span class="cta-text-3">Case Study</span>
+                                <div class="cta-arrow-3">→</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: FX Trading Tool -->
+                    <article class="project-item-3" data-project="fxtt">
+                        <div class="project-image-3">
+                            <img src="https://picsum.photos/400/280?random=4&sepia" alt="FX Trading Tool project preview">
+                            <div class="project-floating-action-3">→</div>
+                        </div>
+                        <div class="project-content-3">
+                            <span class="project-tag-3">Banking</span>
+                            <h3 class="project-title-3">FX Trading Tool</h3>
+                            <p class="project-meta-3">HSBC • Financial Services • 2022</p>
+                            <p class="project-description-3">
+                                Secure internal tool for premium banking clients' complex currency exchanges.
+                            </p>
+                            <div class="project-tech-3">
+                                <span class="tech-tag-3">Enterprise</span>
+                                <span class="tech-tag-3">Security</span>
+                                <span class="tech-tag-3">Trading</span>
+                            </div>
+                            <div class="project-cta-3">
+                                <span class="cta-text-3">Case Study</span>
+                                <div class="cta-arrow-3">→</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 5: HomeRules Poker -->
+                    <article class="project-item-3" data-project="homerules">
+                        <div class="project-image-3">
+                            <img src="https://picsum.photos/400/220?random=5" alt="HomeRules Poker project preview">
+                            <div class="project-floating-action-3">→</div>
+                        </div>
+                        <div class="project-content-3">
+                            <span class="project-tag-3">Gaming</span>
+                            <h3 class="project-title-3">HomeRules Poker</h3>
+                            <p class="project-meta-3">Gaming Startup • 2022</p>
+                            <p class="project-description-3">
+                                Digital poker replacing physical cards with smartphones while preserving social gaming essence.
+                            </p>
+                            <div class="project-tech-3">
+                                <span class="tech-tag-3">Gaming UX</span>
+                                <span class="tech-tag-3">Multi-device</span>
+                                <span class="tech-tag-3">Social</span>
+                            </div>
+                            <div class="project-stats-3">
+                                <div class="stat-item-3">
+                                    <span class="stat-number-3">2</span>
+                                    <span class="stat-label-3">Years R&D</span>
+                                </div>
+                                <div class="stat-item-3">
+                                    <span class="stat-number-3">60%</span>
+                                    <span class="stat-label-3">Voice Users</span>
+                                </div>
+                            </div>
+                            <div class="project-cta-3">
+                                <span class="cta-text-3">Case Study</span>
+                                <div class="cta-arrow-3">→</div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Theme Switcher -->
+    <button class="theme-switcher" id="theme-switcher" aria-label="Switch theme">🎨</button>
+
+    <script>
+        // Basic click handlers for demo
+        document.querySelectorAll('.project-item-3').forEach(item => {
+            item.addEventListener('click', () => {
+                const project = item.dataset.project;
+                alert(`Opening ${project} case study...`);
+            });
+        });
+
+        // Theme switcher
+        const themes = ['theme-a', 'theme-b', 'theme-c', 'theme-d'];
+        let currentThemeIndex = 0;
+        const themeSwitcher = document.getElementById('theme-switcher');
+        const themeEmojis = ['🎨', '🌙', '🌊', '🏛️'];
+
+        if (themeSwitcher) {
+            themeSwitcher.addEventListener('click', function() {
+                currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+                const newTheme = themes[currentThemeIndex];
+                
+                // Remove existing theme classes
+                themes.forEach(t => {
+                    document.documentElement.classList.remove(t);
+                    document.documentElement.removeAttribute('data-theme');
+                });
+                
+                // Apply new theme
+                if (newTheme !== 'theme-a') {
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                }
+                
+                // Update button emoji
+                this.textContent = themeEmojis[currentThemeIndex];
+            });
+        }
+    </script>
+</body>
+</html>

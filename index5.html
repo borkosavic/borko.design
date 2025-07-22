@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borko Savić - UX Designer | Layout 5</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Layout 5: Alternating image-text sections */
+        .projects-layout-5 {
+            width: 100%;
+        }
+
+        .project-item-5 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            cursor: pointer;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .project-item-5:last-child {
+            border-bottom: none;
+        }
+
+        /* Alternating layout - even items have reversed order */
+        .project-item-5:nth-child(even) {
+            direction: rtl;
+        }
+
+        .project-item-5:nth-child(even) .project-content-5,
+        .project-item-5:nth-child(even) .project-visual-5 {
+            direction: ltr;
+        }
+
+        .project-content-5 {
+            padding: 6rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--color-bg-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-content-5::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--color-bg-alt), var(--color-bg-base));
+            opacity: 0;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-item-5:hover .project-content-5::before {
+            opacity: 1;
+        }
+
+        .project-content-5 > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-visual-5 {
+            position: relative;
+            overflow: hidden;
+            background-color: var(--color-bg-alt);
+        }
+
+        .project-visual-5 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-item-5:hover .project-visual-5 img {
+            transform: scale(1.1);
+        }
+
+        .project-category-5 {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--color-accent), #FF6B6B);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-title-5 {
+            font-size: 4.5rem;
+            font-weight: 200;
+            color: var(--color-text-main);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .project-subtitle-5 {
+            font-size: 1.8rem;
+            color: var(--color-accent);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .project-description-5 {
+            font-size: 1.4rem;
+            color: var(--color-text-main);
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            max-width: 500px;
+        }
+
+        .project-details-5 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .detail-item-5 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label-5 {
+            font-size: 0.9rem;
+            color: var(--color-text-subtle);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-value-5 {
+            font-size: 1.3rem;
+            color: var(--color-text-main);
+            font-weight: 600;
+        }
+
+        .project-cta-5 {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background-color: transparent;
+            border: 2px solid var(--color-text-main);
+            color: var(--color-text-main);
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+            text-decoration: none;
+            width: fit-content;
+        }
+
+        .project-cta-5:hover {
+            background-color: var(--color-text-main);
+            color: var(--color-bg-base);
+            transform: translateX(10px);
+        }
+
+        .cta-icon-5 {
+            width: 20px;
+            height: 20px;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-cta-5:hover .cta-icon-5 {
+            transform: translateX(5px);
+        }
+
+        /* Visual overlays and effects */
+        .project-visual-overlay-5 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(0, 0, 0, 0.3) 0%,
+                transparent 50%,
+                rgba(0, 0, 0, 0.1) 100%
+            );
+            opacity: 0;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-item-5:hover .project-visual-overlay-5 {
+            opacity: 1;
+        }
+
+        /* Project number indicator */
+        .project-number-5 {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 8rem;
+            font-weight: 100;
+            color: var(--color-accent);
+            opacity: 0.1;
+            z-index: 1;
+            line-height: 1;
+        }
+
+        /* Floating action indicator */
+        .project-action-indicator-5 {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-item-5:hover .project-action-indicator-5 {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Achievement badges */
+        .project-achievements-5 {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .achievement-badge-5 {
+            background-color: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .achievement-number-5 {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            line-height: 1;
+        }
+
+        .achievement-label-5 {
+            font-size: 0.8rem;
+            color: var(--color-text-subtle);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.3rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .project-item-5 {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .project-item-5:nth-child(even) {
+                direction: ltr;
+            }
+
+            .project-content-5 {
+                padding: 4rem 3rem;
+                order: 2;
+            }
+
+            .project-visual-5 {
+                height: 50vh;
+                order: 1;
+            }
+
+            .project-title-5 {
+                font-size: 3rem;
+            }
+
+            .project-subtitle-5 {
+                font-size: 1.4rem;
+            }
+
+            .project-description-5 {
+                font-size: 1.2rem;
+            }
+
+            .project-number-5 {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-content-5 {
+                padding: 3rem 2rem;
+            }
+
+            .project-details-5 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .project-achievements-5 {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Single Global Navigation -->
+    <nav class="nav-bar" id="global-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <button class="brand-link" id="brand-home">borko.design</button>
+            </div>
+            <div class="nav-links">
+                <button class="nav-link" id="nav-work">Work</button>
+                <button class="nav-link" id="nav-about">About Me</button>
+                <button class="nav-link" id="nav-contact">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main role="main">
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero" aria-labelledby="hero-title">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <img src="assets/bd.svg" alt="Borko Savić, UX Designer" class="hero-image">
+                    <h1 id="hero-title" class="hero-title">Borko Savić</h1>
+                    <p class="hero-subtitle">UX Designer crafting meaningful digital experiences</p>
+                    <p class="hero-description">
+                        Alternating sections layout - each project gets immersive treatment with visual storytelling.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section - Layout 5: Alternating image-text sections -->
+        <section class="work-section" id="work">
+            <div class="projects-layout-5">
+                <!-- Project 1: SciProfiles -->
+                <article class="project-item-5" data-project="sciprofiles">
+                    <div class="project-content-5">
+                        <div class="project-number-5">01</div>
+                        <span class="project-category-5">Research Platform</span>
+                        <h3 class="project-title-5">SciProfiles</h3>
+                        <p class="project-subtitle-5">MDPI • 2024</p>
+                        <p class="project-description-5">
+                            Transforming scientific research discovery and collaboration through a comprehensive platform redesign that achieved unprecedented user growth and engagement.
+                        </p>
+                        <div class="project-achievements-5">
+                            <div class="achievement-badge-5">
+                                <span class="achievement-number-5">20x</span>
+                                <span class="achievement-label-5">Growth</span>
+                            </div>
+                            <div class="achievement-badge-5">
+                                <span class="achievement-number-5">7</span>
+                                <span class="achievement-label-5">Personas</span>
+                            </div>
+                            <div class="achievement-badge-5">
+                                <span class="achievement-number-5">12</span>
+                                <span class="achievement-label-5">Months</span>
+                            </div>
+                        </div>
+                        <div class="project-details-5">
+                            <div class="detail-item-5">
+                                <span class="detail-label-5">My Role</span>
+                                <span class="detail-value-5">Lead UX Designer</span>
+                            </div>
+                            <div class="detail-item-5">
+                                <span class="detail-label-5">Team Size</span>
+                                <span class="detail-value-5">Solo Designer</span>
+                            </div>
+                        </div>
+                        <a href="#" class="project-cta-5">
+                            View Case Study
+                            <span class="cta-icon-5">→</span>
+                        </a>
+                    </div>
+                    <div class="project-visual-5">
+                        <img src="https://picsum.photos/800/1000?random=1" alt="SciProfiles project preview">
+                        <div class="project-visual-overlay-5"></div>
+                        <div class="project-action-indicator-5">↗</div>
+                    </div>
+                </article>
+
+                <!-- Project 2: Act2Access -->
+                <article class="project-item-5" data-project="act2access">
+                    <div class="project-content-5">
+                        <div class="project-number-5">02</div>
+                        <span class="project-category-5">Startup MVP</span>
+                        <h3 class="project-title-5">Act2Access</h3>
+                        <p class="project-subtitle-5">Accessibility Platform • 2023</p>
+                        <p class="project-description-5">
+                            Revolutionary approach to web monetization, replacing traditional advertising with interactive user engagement through surveys and A/B testing.
+                        </p>
+                        <div class="project-achievements-5">
+                            <div class="achievement-badge-5">
+                                <span class="achievement-number-5">MVP</span>
+                                <span class="achievement-label-5">Stage</span>
+                            </div>
+                            <div class="achievement-badge-5">
+                                <span class="achievement-number-5">3</span>
+                                <span class="achievement-label-5">Surveys</span>
+                            </div>
+                            <div class="achievement-badge-5">
+                                <span class="achievement-number-5">A/B</span>
+                                <span class="achievement-label-5">Testing</span>
+                            </div>
+                        </div>
+                        <div class="project-details-5">
+                            <div class="detail-item-5">
+                                <span class="detail-label-5">My Role</span>
+                                <span class="detail-value-5">Solo UX Designer</span>
+                            </div>
+                            <div class="detail-item-5">
+                                <span class="detail-label-5">Focus</span>
+                                <span class="detail-value-5">Innovation & Testing</span>
+                            </div>
+                        </div>
+                        <a href="#" class="project-cta-5">
+                            View Case Study
+                            <span class="cta-icon-5">→</span>
+                        </a>
+                    </div>
+                    <div class="project-visual-5">
+                        <img src="https://picsum.photos/800/1000?random=2&grayscale" alt="Act2Access project preview">
+                        <div class="project-visual-overlay-5"></div>
+                        <div class="project-action-indicator-5">↗</div>
+                    </div>
+                </article>
+
+                <!-- Project 3: Belimo -->
+                <article class="project-item-5" data-project="belimo">
+                    <div class="project-content-5">
+                        <div class="project-number-5">03</div>
+                        <span class="project-category-5">Industrial IoT</span>
+                        <h3 class="project-title-5">Belimo Assistant</h3>
+                        <p class="project-subtitle-5">Belimo • 2023</p>
+                        <p class="project-description-5">
+                            Multi-platform HVAC management solution consolidating three legacy applications into a unified, efficient tool for field technicians worldwide.
+                        </p>
+                        <div class="project-achievements-5">
+                            <div class="achievement-badge-5">
+                                <span class="achievement-number-5">3</span>
+                                <span class="achievement-label-5">Apps Merged</span>
+                            </div>
+                            <div class="achievement-badge-5">
+                                <span class="achievement-number-5">7</span>
+                                <span class="achievement-label-5">Protocols</span>
+                            </div>
+                            <div class="achievement-badge-5">
+                                <span class="achievement-number-5">Global</span>
+                                <span class="achievement-label-5">Reach</span>
+                            </div>
+                        </div>
+                        <div class="project-details-5">
+                            <div class="detail-item-5">
+                                <span class="detail-label-5">My Role</span>
+                                <span class="detail-value-5">Lead Designer</span>
+                            </div>
+                            <div class="detail-item-5">
+                                <span class="detail-label-5">Platform</span>
+                                <span class="detail-value-5">Cross-platform</span>
+                            </div>
+                        </div>
+                        <a href="#" class="project-cta-5">
+                            View Case Study
+                            <span class="cta-icon-5">→</span>
+                        </a>
+                    </div>
+                    <div class="project-visual-5">
+                        <img src="https://picsum.photos/800/1000?random=3" alt="Belimo project preview">
+                        <div class="project-visual-overlay-5"></div>
+                        <div class="project-action-indicator-5">↗</div>
+                    </div>
+                </article>
+
+                <!-- Project 4: FX Trading Tool -->
+                <article class="project-item-5" data-project="fxtt">
+                    <div class="project-content-5">
+                        <div class="project-number-5">04</div>
+                        <span class="project-category-5">Enterprise Banking</span>
+                        <h3 class="project-title-5">FX Trading Tool</h3>
+                        <p class="project-subtitle-5">HSBC • 2022</p>
+                        <p class="project-description-5">
+                            High-security financial trading platform for premium banking clients, handling complex currency exchange operations in a regulated environment.
+                        </p>
+                        <div class="project-achievements-5">
+                            <div class="achievement-badge-5">
+                                <span class="achievement-number-5">Bank</span>
+                                <span class="achievement-label-5">Grade</span>
+                            </div>
+                            <div class="achievement-badge-5">
+                                <span class="achievement-number-5">Secure</span>
+                                <span class="achievement-label-5">Environment</span>
+                            </div>
+                            <div class="achievement-badge-5">
+                                <span class="achievement-number-5">HNW</span>
+                                <span class="achievement-label-5">Clients</span>
+                            </div>
+                        </div>
+                        <div class="project-details-5">
+                            <div class="detail-item-5">
+                                <span class="detail-label-5">My Role</span>
+                                <span class="detail-value-5">Solo Designer</span>
+                            </div>
+                            <div class="detail-item-5">
+                                <span class="detail-label-5">Security</span>
+                                <span class="detail-value-5">Banking Grade</span>
+                            </div>
+                        </div>
+                        <a href="#" class="project-cta-5">
+                            View Case Study
+                            <span class="cta-icon-5">→</span>
+                        </a>
+                    </div>
+                    <div class="project-visual-5">
+                        <img src="https://picsum.photos/800/1000?random=4&sepia" alt="FX Trading Tool project preview">
+                        <div class="project-visual-overlay-5"></div>
+                        <div class="project-action-indicator-5">↗</div>
+                    </div>
+                </article>
+
+                <!-- Project 5: HomeRules Poker -->
+                <article class="project-item-5" data-project="homerules">
+                    <div class="project-content-5">
+                        <div class="project-number-5">05</div>
+                        <span class="project-category-5">Social Gaming</span>
+                        <h3 class="project-title-5">HomeRules Poker</h3>
+                        <p class="project-subtitle-5">Gaming Startup • 2022</p>
+                        <p class="project-description-5">
+                            Innovative digital poker experience bridging physical and digital gaming, replacing traditional cards while preserving social interaction essence.
+                        </p>
+                        <div class="project-achievements-5">
+                            <div class="achievement-badge-5">
+                                <span class="achievement-number-5">2</span>
+                                <span class="achievement-label-5">Years R&D</span>
+                            </div>
+                            <div class="achievement-badge-5">
+                                <span class="achievement-number-5">60%</span>
+                                <span class="achievement-label-5">Voice Users</span>
+                            </div>
+                            <div class="achievement-badge-5">
+                                <span class="achievement-number-5">Social</span>
+                                <span class="achievement-label-5">Gaming</span>
+                            </div>
+                        </div>
+                        <div class="project-details-5">
+                            <div class="detail-item-5">
+                                <span class="detail-label-5">My Role</span>
+                                <span class="detail-value-5">UX Researcher</span>
+                            </div>
+                            <div class="detail-item-5">
+                                <span class="detail-label-5">Focus</span>
+                                <span class="detail-value-5">User Research</span>
+                            </div>
+                        </div>
+                        <a href="#" class="project-cta-5">
+                            View Case Study
+                            <span class="cta-icon-5">→</span>
+                        </a>
+                    </div>
+                    <div class="project-visual-5">
+                        <img src="https://picsum.photos/800/1000?random=5" alt="HomeRules Poker project preview">
+                        <div class="project-visual-overlay-5"></div>
+                        <div class="project-action-indicator-5">↗</div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Project click handlers
+        document.querySelectorAll('.project-item-5').forEach(item => {
+            item.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('project-cta-5')) {
+                    const project = item.dataset.project;
+                    alert(`Opening ${project} case study...`);
+                }
+            });
+        });
+
+        // CTA click handlers
+        document.querySelectorAll('.project-cta-5').forEach(cta => {
+            cta.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const project = cta.closest('.project-item-5').dataset.project;
+                alert(`Opening ${project} case study...`);
+            });
+        });
+
+        // Scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply fade-in animation to project items
+        document.querySelectorAll('.project-item-5').forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(50px)';
+            item.style.transition = `opacity 0.8s ease ${index * 0.2}s, transform 0.8s ease ${index * 0.2}s`;
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
