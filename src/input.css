@@ -28,7 +28,7 @@
   --spacing-xl: 64px;
   
   /* Layout */
-  --max-width-container: 1280px;
+
   --padding-mobile: 1rem;
   --padding-desktop: 2rem;
   
@@ -172,7 +172,7 @@ body {
 }
 
 .container-narrow {
-  @apply w-full max-w-4xl mx-auto;
+  @apply w-full mx-auto;
   padding: var(--padding-mobile);
 }
 
@@ -237,7 +237,16 @@ body {
 }
 
 .nav-container {
-  @apply container flex items-center justify-between py-4;
+  @apply w-full mx-auto flex items-center justify-between py-4;
+  padding-left: var(--padding-mobile);
+  padding-right: var(--padding-mobile);
+}
+
+@media (min-width: 768px) {
+  .nav-container {
+    padding-left: var(--padding-desktop);
+    padding-right: var(--padding-desktop);
+  }
 }
 
 .nav-link {
@@ -273,7 +282,7 @@ body {
 }
 
 .hero-description {
-  @apply text-base text-[var(--color-text-subtle)] mt-4 leading-relaxed max-w-2xl;
+  @apply text-base text-[var(--color-text-subtle)] mt-4 leading-relaxed max-w-2xl mx-auto;
   font-weight: 400;
 }
 
@@ -358,11 +367,18 @@ body {
 }
 
 .hero-container {
-  @apply container;
+  @apply w-full mx-auto;
+  padding: var(--padding-mobile);
+}
+
+@media (min-width: 768px) {
+  .hero-container {
+    padding: var(--padding-desktop);
+  }
 }
 
 .hero-content {
-  @apply max-w-4xl mx-auto;
+  @apply w-full;
 }
 
 .hero-image {
@@ -375,7 +391,14 @@ body {
 }
 
 .section-container {
-  @apply container;
+  @apply w-full mx-auto;
+  padding: var(--padding-mobile);
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding: var(--padding-desktop);
+  }
 }
 
 .projects-grid {
@@ -387,7 +410,7 @@ body {
 }
 
 .about-content {
-  @apply max-w-4xl mx-auto;
+  @apply w-full;
 }
 
 .about-text {
@@ -601,13 +624,19 @@ body {
 }
 
 .case-study-hero {
-  @apply max-w-4xl mx-auto text-center pt-16;
+  @apply w-full text-center pt-16;
+  padding: var(--padding-mobile);
+}
+
+@media (min-width: 768px) {
+  .case-study-hero {
+    padding: var(--padding-desktop);
+  }
 }
 
 .case-study-content {
   padding: var(--padding-mobile);
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
