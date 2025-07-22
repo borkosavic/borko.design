@@ -172,14 +172,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (aboutPage && aboutPage.style.display !== 'none') {
             aboutPage.style.display = 'none';
             aboutPage.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
         }
         
         // Close contact page if open
         if (contactPage && contactPage.style.display !== 'none') {
             contactPage.style.display = 'none';
             contactPage.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
         }
         
         // Close case studies if open
@@ -219,7 +217,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (aboutPage) {
             aboutPage.style.display = 'block';
             aboutPage.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
         }
     }
 
@@ -242,7 +239,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (contactPage) {
             contactPage.style.display = 'block';
             contactPage.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
         }
     }
 
@@ -529,9 +525,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Show main content
         document.querySelector('main').style.display = 'block';
-        
-        // Restore body scrolling
-        document.body.style.overflow = '';
         
         // Update navigation state and scroll to work section
         goToHome();
