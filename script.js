@@ -40,16 +40,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // About page functionality
     const aboutToggle = document.getElementById('about-toggle');
+    const aboutNavToggle = document.getElementById('about-nav-toggle');
+    const aboutNavToggleCs = document.getElementById('about-nav-toggle-cs');
     const aboutPage = document.getElementById('about-page');
     const aboutPageClose = document.getElementById('about-page-close');
 
-    // Open about page
-    if (aboutToggle) {
-        aboutToggle.addEventListener('click', function() {
+    // Function to open about page
+    function openAboutPage() {
+        if (aboutPage) {
             aboutPage.style.display = 'block';
             aboutPage.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        });
+            
+            // Hide case studies if open
+            document.querySelectorAll('.case-study').forEach(study => {
+                study.style.display = 'none';
+            });
+            document.querySelector('.case-studies').style.display = 'none';
+        }
+    }
+
+    // Open about page from main nav
+    if (aboutToggle) {
+        aboutToggle.addEventListener('click', openAboutPage);
+    }
+    
+    // Open about page from navigation
+    if (aboutNavToggle) {
+        aboutNavToggle.addEventListener('click', openAboutPage);
+    }
+    
+    // Open about page from case study navigation
+    if (aboutNavToggleCs) {
+        aboutNavToggleCs.addEventListener('click', openAboutPage);
     }
 
     // Close about page
@@ -64,6 +87,35 @@ document.addEventListener('DOMContentLoaded', function() {
     if (aboutPageClose) {
         aboutPageClose.addEventListener('click', closeAboutPage);
     }
+
+    // Home navigation functionality
+    function goToHome() {
+        // Close about page if open
+        if (aboutPage && aboutPage.style.display !== 'none') {
+            closeAboutPage();
+        }
+        
+        // Close case studies if open
+        document.querySelectorAll('.case-study').forEach(study => {
+            study.style.display = 'none';
+        });
+        document.querySelector('.case-studies').style.display = 'none';
+        
+        // Scroll to hero section
+        const heroSection = document.getElementById('hero');
+        if (heroSection) {
+            heroSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Add event listeners for home navigation
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('case-study-home') || 
+            e.target.classList.contains('about-page-home')) {
+            e.preventDefault();
+            goToHome();
+        }
+    });
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {

@@ -264,8 +264,30 @@ body {
   }
 }
 
+/* Brand */
+.nav-brand {
+  @apply flex items-center;
+}
+
+.brand-link {
+  @apply text-lg font-semibold cursor-pointer;
+  color: var(--color-text-main);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+}
+
+.brand-link:hover {
+  color: var(--color-accent);
+}
+
+/* Navigation Links Container */
+.nav-links {
+  @apply flex items-center space-x-1;
+}
+
 .nav-link {
-  @apply text-sm font-medium cursor-pointer;
+  @apply text-sm font-medium cursor-pointer border-none bg-transparent;
   color: var(--color-text-subtle);
   transition: all var(--transition-duration-default) var(--transition-timing-function-default);
   text-decoration: none;
@@ -279,7 +301,8 @@ body {
   background-color: var(--color-bg-alt);
 }
 
-.nav-link.active {
+.nav-link.active,
+.nav-active {
   color: var(--color-text-main);
   background-color: var(--color-bg-alt);
 }
