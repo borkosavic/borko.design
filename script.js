@@ -28,94 +28,127 @@ document.addEventListener('DOMContentLoaded', function() {
         modalOverlay.addEventListener('click', closeModal);
     }
 
-    // Escape key to close modal
+    // Escape key to close modal and pages
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && resumeModal.classList.contains('open')) {
-            closeModal();
-        }
-        if (e.key === 'Escape' && aboutPage && aboutPage.style.display !== 'none') {
-            closeAboutPage();
+        if (e.key === 'Escape') {
+            if (resumeModal && resumeModal.classList.contains('open')) {
+                closeModal();
+            } else if (aboutPage && aboutPage.style.display !== 'none') {
+                closeAboutPage();
+            } else if (currentView === 'case-study') {
+                goToHome();
+            }
         }
     });
 
-    // About page functionality
+    // Global Navigation State Management
     const aboutToggle = document.getElementById('about-toggle');
-    const aboutNavToggle = document.getElementById('about-nav-toggle');
-    const aboutNavToggleCs = document.getElementById('about-nav-toggle-cs');
     const aboutPage = document.getElementById('about-page');
     const aboutPageClose = document.getElementById('about-page-close');
-
-    // Function to open about page
-    function openAboutPage() {
-        if (aboutPage) {
-            aboutPage.style.display = 'block';
-            aboutPage.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            
-            // Hide case studies if open
-            document.querySelectorAll('.case-study').forEach(study => {
-                study.style.display = 'none';
-            });
-            document.querySelector('.case-studies').style.display = 'none';
-        }
-    }
-
-    // Open about page from main nav
-    if (aboutToggle) {
-        aboutToggle.addEventListener('click', openAboutPage);
-    }
+    const brandHome = document.getElementById('brand-home');
+    const navWork = document.getElementById('nav-work');
+    const navAbout = document.getElementById('nav-about');
+    const caseStudies = document.querySelector('.case-studies');
     
-    // Open about page from navigation
-    if (aboutNavToggle) {
-        aboutNavToggle.addEventListener('click', openAboutPage);
-    }
+    // Navigation state tracking
+    let currentView = 'home'; // 'home', 'about', 'case-study'
     
-    // Open about page from case study navigation
-    if (aboutNavToggleCs) {
-        aboutNavToggleCs.addEventListener('click', openAboutPage);
-    }
-
-    // Close about page
-    function closeAboutPage() {
-        if (aboutPage) {
-            aboutPage.style.display = 'none';
-            aboutPage.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = ''; // Restore scrolling
+    // Update navigation active states
+    function updateNavState(view) {
+        // Remove all active states
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('nav-active');
+        });
+        
+        // Add active state based on current view
+        if (view === 'home') {
+            navWork.classList.add('nav-active');
+        } else if (view === 'about') {
+            navAbout.classList.add('nav-active');
         }
+        
+        currentView = view;
     }
 
-    if (aboutPageClose) {
-        aboutPageClose.addEventListener('click', closeAboutPage);
-    }
-
-    // Home navigation functionality
+    // Function to go to home/work section
     function goToHome() {
         // Close about page if open
         if (aboutPage && aboutPage.style.display !== 'none') {
-            closeAboutPage();
+            aboutPage.style.display = 'none';
+            aboutPage.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
         }
         
         // Close case studies if open
         document.querySelectorAll('.case-study').forEach(study => {
             study.style.display = 'none';
         });
-        document.querySelector('.case-studies').style.display = 'none';
-        
-        // Scroll to hero section
-        const heroSection = document.getElementById('hero');
-        if (heroSection) {
-            heroSection.scrollIntoView({ behavior: 'smooth' });
+        if (caseStudies) {
+            caseStudies.style.display = 'none';
         }
+        
+        // Scroll to hero or work section
+        const targetSection = document.getElementById('work') || document.getElementById('hero');
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        updateNavState('home');
     }
 
-    // Add event listeners for home navigation
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('case-study-home') || 
-            e.target.classList.contains('about-page-home')) {
-            e.preventDefault();
-            goToHome();
+    // Function to open about page
+    function openAboutPage() {
+        // Close case studies if open
+        document.querySelectorAll('.case-study').forEach(study => {
+            study.style.display = 'none';
+        });
+        if (caseStudies) {
+            caseStudies.style.display = 'none';
         }
-    });
+        
+        // Open about page
+        if (aboutPage) {
+            aboutPage.style.display = 'block';
+            aboutPage.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        updateNavState('about');
+    }
+
+    // Function to close about page
+    function closeAboutPage() {
+        if (aboutPage) {
+            aboutPage.style.display = 'none';
+            aboutPage.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+        updateNavState('home');
+    }
+
+    // Navigation event listeners
+    if (brandHome) {
+        brandHome.addEventListener('click', goToHome);
+    }
+    
+    if (navWork) {
+        navWork.addEventListener('click', goToHome);
+    }
+    
+    if (navAbout) {
+        navAbout.addEventListener('click', openAboutPage);
+    }
+    
+    if (aboutToggle) {
+        aboutToggle.addEventListener('click', openAboutPage);
+    }
+
+    if (aboutPageClose) {
+        aboutPageClose.addEventListener('click', closeAboutPage);
+    }
+    
+    // Initialize navigation state
+    updateNavState('home');
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
@@ -256,6 +289,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hide main sections
         document.querySelector('main').style.display = 'none';
         
+        // Hide about page if open
+        if (aboutPage && aboutPage.style.display !== 'none') {
+            aboutPage.style.display = 'none';
+            aboutPage.setAttribute('aria-hidden', 'true');
+        }
+        
         // Show case study container
         const caseStudyContainer = document.querySelector('.case-studies');
         caseStudyContainer.style.display = 'block';
@@ -279,8 +318,8 @@ document.addEventListener('DOMContentLoaded', function() {
             button.addEventListener('click', closeCaseStudy);
         });
         
-        // Update navigation for case study view
-        updateNavForCaseStudy();
+        // Update navigation state
+        updateNavState('case-study');
     }
 
     function closeCaseStudy() {
@@ -292,14 +331,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show main content
         document.querySelector('main').style.display = 'block';
         
-        // Restore navigation
-        restoreNavigation();
+        // Restore body scrolling
+        document.body.style.overflow = '';
         
-        // Scroll to work section
-        const workSection = document.querySelector('#work');
-        if (workSection) {
-            workSection.scrollIntoView({ behavior: 'smooth' });
-        }
+        // Update navigation state and scroll to work section
+        goToHome();
     }
 
     function generateCaseStudyHTML(projectId) {
@@ -379,17 +415,4 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     }
 
-    function updateNavForCaseStudy() {
-        // Hide regular nav links, show close option
-        document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
-            link.style.display = 'none';
-        });
-    }
-
-    function restoreNavigation() {
-        // Show regular nav links
-        document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
-            link.style.display = 'inline-block';
-        });
-    }
 });
