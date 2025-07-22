@@ -1328,33 +1328,69 @@ body {
 
 .case-study-content {
   padding: var(--padding-mobile);
+  max-width: 800px;
+  margin: 0 auto;
   width: 100%;
 }
 
 @media (min-width: 768px) {
   .case-study-content {
     padding: var(--padding-desktop);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
   }
 }
 
 .case-study-content section {
-  @apply mb-12;
+  @apply mb-16;
 }
 
 .case-study-content h2 {
-  @apply text-[2.25rem] font-semibold mb-6;
+  font-size: 2.5rem;
+  font-weight: 300;
   color: var(--color-text-main);
-  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+.case-study-content h3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--color-text-main);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  margin-top: 2.5rem;
 }
 
 .case-study-content p {
-  @apply text-base leading-relaxed mb-4;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
   color: var(--color-text-main);
   font-weight: 400;
+}
+
+.case-study-content ul {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--color-text-main);
+  margin-bottom: 1.5rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.case-study-content li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.case-study-content li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 /* Project Card Animation States */
