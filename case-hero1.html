@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciProfiles Case Study - Borko Savić</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Case Hero Approach 1: Large image with floating metadata overlay */
+        .case-hero-1 {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-background-1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://picsum.photos/1920/1080?random=1');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.4);
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .hero-background-1::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(0, 0, 0, 0.4) 0%,
+                rgba(0, 0, 0, 0.1) 50%,
+                rgba(0, 0, 0, 0.6) 100%
+            );
+        }
+
+        .hero-content-1 {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .project-category-1 {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .project-category-1:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .project-title-1 {
+            font-size: 5rem;
+            font-weight: 200;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            letter-spacing: -2px;
+        }
+
+        .project-subtitle-1 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-description-1 {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            opacity: 0.85;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-metadata-1 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .metadata-item-1 {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .metadata-item-1:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .metadata-label-1 {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .metadata-value-1 {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .hero-cta-1 {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .hero-cta-1:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-arrow-1 {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: white;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .hero-cta-1:hover .cta-arrow-1 {
+            transform: translateX(5px);
+        }
+
+        /* Close button */
+        .case-close-1 {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 100;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .case-close-1:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator-1 {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            opacity: 0.7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        .scroll-text-1 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .scroll-arrow-1 {
+            font-size: 1.5rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .case-hero-1 {
+                min-height: 600px;
+            }
+
+            .project-title-1 {
+                font-size: 3.5rem;
+            }
+
+            .project-subtitle-1 {
+                font-size: 1.4rem;
+            }
+
+            .project-description-1 {
+                font-size: 1.2rem;
+            }
+
+            .project-metadata-1 {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .metadata-item-1 {
+                padding: 1rem;
+            }
+
+            .hero-content-1 {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Content section styling */
+        .case-content-1 {
+            background-color: var(--color-bg-base);
+            position: relative;
+            z-index: 3;
+            margin-top: -100px;
+            border-radius: 40px 40px 0 0;
+            padding-top: 6rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar" id="global-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <button class="brand-link" id="brand-home">borko.design</button>
+            </div>
+            <div class="nav-links">
+                <button class="nav-link" id="nav-work">Work</button>
+                <button class="nav-link" id="nav-about">About Me</button>
+                <button class="nav-link" id="nav-contact">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Hero - Approach 1 -->
+    <section class="case-hero-1">
+        <div class="hero-background-1"></div>
+        
+        <button class="case-close-1" aria-label="Close case study">←</button>
+        
+        <div class="hero-content-1">
+            <span class="project-category-1">Research Platform</span>
+            
+            <h1 class="project-title-1">SciProfiles</h1>
+            
+            <p class="project-subtitle-1">MDPI • 2023-2024</p>
+            
+            <p class="project-description-1">
+                A networking and collaboration platform for the scientific community, redesigned to serve diverse user needs and achieve 20x growth in monthly active users.
+            </p>
+            
+            <div class="project-metadata-1">
+                <div class="metadata-item-1">
+                    <div class="metadata-label-1">My Role</div>
+                    <div class="metadata-value-1">Lead UX Designer</div>
+                </div>
+                <div class="metadata-item-1">
+                    <div class="metadata-label-1">Duration</div>
+                    <div class="metadata-value-1">12 Months</div>
+                </div>
+                <div class="metadata-item-1">
+                    <div class="metadata-label-1">Team</div>
+                    <div class="metadata-value-1">Solo Designer</div>
+                </div>
+                <div class="metadata-item-1">
+                    <div class="metadata-label-1">Impact</div>
+                    <div class="metadata-value-1">20x Growth</div>
+                </div>
+            </div>
+            
+            <a href="#content" class="hero-cta-1">
+                Read Case Study
+                <div class="cta-arrow-1">↓</div>
+            </a>
+        </div>
+        
+        <div class="scroll-indicator-1">
+            <span class="scroll-text-1">Scroll</span>
+            <span class="scroll-arrow-1">↓</span>
+        </div>
+    </section>
+
+    <!-- Case Study Content -->
+    <section class="case-content-1" id="content">
+        <div class="case-study-content">
+            <section class="context">
+                <h2>What is it about</h2>
+                <p>Researchers around the world were trying to navigate the platform which felt more like a maze than a resource. How did this occur? MDPI is an open-access publisher that prides itself on offering fast and transparent publishing services for peer-reviewed journals across various fields like science, technology, and medicine.</p>
+                <p>When I joined, the UX/UI was being handled by developers, with occasional input from graphic designers. The goal for the project was to completely revamp SciProfiles - not just to make it more user-friendly but also to demonstrate the value of UX design as a practice.</p>
+            </section>
+            
+            <section class="discovery">
+                <h2>What did I do?</h2>
+                <p>I was the only designer in a project-based team of developers and managers. I had close collaboration with stakeholders too.</p>
+                <h3>Research</h3>
+                <p>Facilitated all kinds of user research - focus groups, user interviews, card sorting exercises as well as stakeholder interviews.</p>
+                <h3>Design System</h3>
+                <p>SciProfiles was using several UI components from a PHP framework - I completely overhauled it in cooperation with the dev team.</p>
+                <h3>UX/UI Design</h3>
+                <p>As a sole designer, I owned the whole process and all deliverables - from initial sketches to implementation.</p>
+            </section>
+            
+            <section class="impact">
+                <h2>What's the outcome?</h2>
+                <p>The redesign proved to be a great success, achieving a 20x increase in monthly active users - from 5k to 100k.</p>
+                <h3>What did I learn?</h3>
+                <ul>
+                    <li>Solid design system and planning proved beneficial to increased speed and lowered complexity</li>
+                    <li>Expert users don't mind clutter if it increases usability</li>
+                    <li>First time getting user testing results I really hadn't anticipated</li>
+                </ul>
+            </section>
+        </div>
+    </section>
+
+    <!-- Theme Switcher -->
+    <button class="theme-switcher" id="theme-switcher" aria-label="Switch theme">🎨</button>
+
+    <script>
+        // Theme switcher
+        const themes = ['theme-a', 'theme-b', 'theme-c', 'theme-d'];
+        let currentThemeIndex = 0;
+        const themeSwitcher = document.getElementById('theme-switcher');
+        const themeEmojis = ['🎨', '🌙', '🌊', '🏛️'];
+
+        if (themeSwitcher) {
+            themeSwitcher.addEventListener('click', function() {
+                currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+                const newTheme = themes[currentThemeIndex];
+                
+                themes.forEach(t => {
+                    document.documentElement.classList.remove(t);
+                    document.documentElement.removeAttribute('data-theme');
+                });
+                
+                if (newTheme !== 'theme-a') {
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                }
+                
+                this.textContent = themeEmojis[currentThemeIndex];
+            });
+        }
+
+        // Smooth scroll for CTA
+        document.querySelector('.hero-cta-1').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#content').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Close button
+        document.querySelector('.case-close-1').addEventListener('click', function() {
+            window.history.back();
+        });
+    </script>
+</body>
+</html>

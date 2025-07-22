@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciProfiles Case Study - Borko Savić</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Case Hero Approach 3: Full-width image with bottom metadata strip */
+        .case-hero-3 {
+            position: relative;
+            height: 80vh;
+            min-height: 600px;
+            overflow: hidden;
+        }
+
+        .hero-image-3 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://picsum.photos/1920/800?random=1');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .hero-image-3:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-overlay-3 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.2) 0%,
+                rgba(0, 0, 0, 0.1) 60%,
+                rgba(0, 0, 0, 0.8) 100%
+            );
+        }
+
+        .hero-minimal-content-3 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+        }
+
+        .project-badge-3 {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-title-3 {
+            font-size: 6rem;
+            font-weight: 100;
+            line-height: 1;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            letter-spacing: -3px;
+        }
+
+        .hero-subtitle-3 {
+            font-size: 1.6rem;
+            font-weight: 300;
+            opacity: 0.9;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Bottom metadata strip */
+        .metadata-strip-3 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0.95) 0%,
+                rgba(255, 255, 255, 0.98) 50%,
+                rgba(255, 255, 255, 0.95) 100%
+            );
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem 0;
+            z-index: 3;
+        }
+
+        .metadata-container-3 {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 3fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .metadata-left-3 {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .metadata-center-3 {
+            text-align: center;
+        }
+
+        .metadata-right-3 {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-end;
+        }
+
+        .project-description-strip-3 {
+            font-size: 1.2rem;
+            color: var(--color-text-main);
+            line-height: 1.5;
+            max-width: 500px;
+        }
+
+        .metadata-item-strip-3 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .metadata-label-strip-3 {
+            font-size: 0.8rem;
+            color: var(--color-text-subtle);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-width: 80px;
+        }
+
+        .metadata-value-strip-3 {
+            font-size: 1.1rem;
+            color: var(--color-text-main);
+            font-weight: 600;
+        }
+
+        .cta-strip-3 {
+            background-color: var(--color-text-main);
+            color: var(--color-bg-base);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cta-strip-3:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Close button */
+        .case-close-3 {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 100;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .case-close-3:hover {
+            background: rgba(0, 0, 0, 0.7);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.1);
+        }
+
+        /* Project navigation */
+        .project-nav-3 {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .nav-dot-3 {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .nav-dot-3.active {
+            background: white;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-dot-3:hover {
+            transform: scale(1.2);
+        }
+
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .metadata-container-3 {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .metadata-right-3 {
+                align-items: center;
+            }
+
+            .hero-title-3 {
+                font-size: 4rem;
+            }
+
+            .hero-subtitle-3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .case-hero-3 {
+                height: 70vh;
+                min-height: 500px;
+            }
+
+            .hero-title-3 {
+                font-size: 3rem;
+            }
+
+            .metadata-strip-3 {
+                padding: 1.5rem 0;
+            }
+
+            .metadata-container-3 {
+                padding: 0 1rem;
+                gap: 1.5rem;
+            }
+
+            .project-nav-3 {
+                display: none;
+            }
+        }
+
+        /* Content section */
+        .case-content-3 {
+            background-color: var(--color-bg-base);
+            padding-top: 4rem;
+        }
+
+        /* Stats counter animation */
+        .stats-counter-3 {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .counter-item-3 {
+            text-align: center;
+        }
+
+        .counter-number-3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            display: block;
+        }
+
+        .counter-label-3 {
+            font-size: 0.8rem;
+            color: var(--color-text-subtle);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar" id="global-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <button class="brand-link" id="brand-home">borko.design</button>
+            </div>
+            <div class="nav-links">
+                <button class="nav-link" id="nav-work">Work</button>
+                <button class="nav-link" id="nav-about">About Me</button>
+                <button class="nav-link" id="nav-contact">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Hero - Approach 3 -->
+    <section class="case-hero-3">
+        <div class="hero-image-3"></div>
+        <div class="hero-overlay-3"></div>
+        
+        <button class="case-close-3" aria-label="Close case study">←</button>
+        
+        <div class="project-nav-3">
+            <div class="nav-dot-3 active"></div>
+            <div class="nav-dot-3"></div>
+            <div class="nav-dot-3"></div>
+            <div class="nav-dot-3"></div>
+            <div class="nav-dot-3"></div>
+        </div>
+        
+        <div class="hero-minimal-content-3">
+            <span class="project-badge-3">Research Platform</span>
+            <h1 class="hero-title-3">SciProfiles</h1>
+            <p class="hero-subtitle-3">Redesigning Scientific Collaboration</p>
+        </div>
+        
+        <div class="metadata-strip-3">
+            <div class="metadata-container-3">
+                <div class="metadata-left-3">
+                    <div class="metadata-item-strip-3">
+                        <span class="metadata-label-strip-3">Client</span>
+                        <span class="metadata-value-strip-3">MDPI Publishing</span>
+                    </div>
+                    <div class="metadata-item-strip-3">
+                        <span class="metadata-label-strip-3">Year</span>
+                        <span class="metadata-value-strip-3">2023-2024</span>
+                    </div>
+                    <div class="metadata-item-strip-3">
+                        <span class="metadata-label-strip-3">Role</span>
+                        <span class="metadata-value-strip-3">Lead UX Designer</span>
+                    </div>
+                </div>
+                
+                <div class="metadata-center-3">
+                    <p class="project-description-strip-3">
+                        A comprehensive platform redesign that transformed scientific networking and achieved 20x user growth through research-driven UX improvements.
+                    </p>
+                    <div class="stats-counter-3">
+                        <div class="counter-item-3">
+                            <span class="counter-number-3">20x</span>
+                            <span class="counter-label-3">Growth</span>
+                        </div>
+                        <div class="counter-item-3">
+                            <span class="counter-number-3">7</span>
+                            <span class="counter-label-3">Personas</span>
+                        </div>
+                        <div class="counter-item-3">
+                            <span class="counter-number-3">12</span>
+                            <span class="counter-label-3">Months</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="metadata-right-3">
+                    <a href="#content" class="cta-strip-3">
+                        Read Case Study
+                        <span>↓</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Content -->
+    <section class="case-content-3" id="content">
+        <div class="case-study-content">
+            <section class="context">
+                <h2>What is it about</h2>
+                <p>Researchers around the world were trying to navigate the platform which felt more like a maze than a resource. MDPI is an open-access publisher that prides itself on offering fast and transparent publishing services for peer-reviewed journals across various fields like science, technology, and medicine.</p>
+                <p>When I joined, the UX/UI was being handled by developers, with occasional input from graphic designers. The goal for the project was to completely revamp SciProfiles - not just to make it more user-friendly but also to demonstrate the value of UX design as a practice.</p>
+            </section>
+            
+            <section class="discovery">
+                <h2>What did I do?</h2>
+                <p>I was the only designer in a project-based team of developers and managers. I had close collaboration with stakeholders too.</p>
+                <h3>Research</h3>
+                <p>Facilitated all kinds of user research - focus groups, user interviews, card sorting exercises as well as stakeholder interviews.</p>
+                <h3>Design System</h3>
+                <p>SciProfiles was using several UI components from a PHP framework - I completely overhauled it in cooperation with the dev team.</p>
+            </section>
+            
+            <section class="impact">
+                <h2>What's the outcome?</h2>
+                <p>The redesign proved to be a great success, achieving a 20x increase in monthly active users - from 5k to 100k.</p>
+                <ul>
+                    <li>Solid design system and planning proved beneficial to increased speed</li>
+                    <li>Expert users don't mind clutter if it increases usability</li>
+                    <li>First time getting user testing results I really hadn't anticipated</li>
+                </ul>
+            </section>
+        </div>
+    </section>
+
+    <!-- Theme Switcher -->
+    <button class="theme-switcher" id="theme-switcher" aria-label="Switch theme">🎨</button>
+
+    <script>
+        // Theme switcher
+        const themes = ['theme-a', 'theme-b', 'theme-c', 'theme-d'];
+        let currentThemeIndex = 0;
+        const themeSwitcher = document.getElementById('theme-switcher');
+        const themeEmojis = ['🎨', '🌙', '🌊', '🏛️'];
+
+        if (themeSwitcher) {
+            themeSwitcher.addEventListener('click', function() {
+                currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+                const newTheme = themes[currentThemeIndex];
+                
+                themes.forEach(t => {
+                    document.documentElement.classList.remove(t);
+                    document.documentElement.removeAttribute('data-theme');
+                });
+                
+                if (newTheme !== 'theme-a') {
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                }
+                
+                this.textContent = themeEmojis[currentThemeIndex];
+            });
+        }
+
+        // Smooth scroll for CTA
+        document.querySelector('.cta-strip-3').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#content').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Close button
+        document.querySelector('.case-close-3').addEventListener('click', function() {
+            window.history.back();
+        });
+
+        // Project navigation dots
+        document.querySelectorAll('.nav-dot-3').forEach((dot, index) => {
+            dot.addEventListener('click', function() {
+                document.querySelectorAll('.nav-dot-3').forEach(d => d.classList.remove('active'));
+                this.classList.add('active');
+                // Here you could implement navigation to different projects
+                console.log(`Navigate to project ${index + 1}`);
+            });
+        });
+
+        // Counter animation on scroll
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter-number-3');
+            const targets = ['20x', '7', '12'];
+            
+            counters.forEach((counter, index) => {
+                const target = targets[index];
+                counter.textContent = target;
+            });
+        }
+
+        // Trigger counter animation when metadata strip is visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                }
+            });
+        });
+
+        observer.observe(document.querySelector('.metadata-strip-3'));
+    </script>
+</body>
+</html>

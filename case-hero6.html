@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciProfiles Case Study - Borko Savić</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Case Hero Approach 6: Full width horizontal layout */
+        .case-hero-6 {
+            background-color: var(--color-bg-base);
+            padding: 6rem 0 3rem;
+        }
+
+        .hero-container-6 {
+            width: 100%;
+            padding: 0 2rem;
+        }
+
+        /* Header section - full width horizontal */
+        .hero-header-6 {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 4rem;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+
+        .hero-main-6 {
+            flex: 1;
+            max-width: none;
+        }
+
+        .project-category-6 {
+            display: inline-block;
+            background-color: var(--color-bg-alt);
+            color: var(--color-text-main);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--color-border);
+        }
+
+        .project-title-6 {
+            font-size: 4.5rem;
+            font-weight: 300;
+            color: var(--color-text-main);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .project-subtitle-6 {
+            font-size: 1.4rem;
+            color: var(--color-text-subtle);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .project-description-6 {
+            font-size: 1.25rem;
+            color: var(--color-text-main);
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .project-tags-6 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .tag-6 {
+            background-color: var(--color-bg-alt);
+            color: var(--color-text-subtle);
+            padding: 0.4rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--color-border);
+        }
+
+        /* Metadata - horizontal layout */
+        .hero-sidebar-6 {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+            flex-shrink: 0;
+        }
+
+        .sidebar-item-6 {
+            text-align: center;
+        }
+
+        .sidebar-label-6 {
+            font-size: 0.8rem;
+            color: var(--color-text-subtle);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .sidebar-value-6 {
+            font-size: 1rem;
+            color: var(--color-text-main);
+            font-weight: 600;
+            display: block;
+        }
+
+        /* Key metrics highlight */
+        .metrics-highlight-6 {
+            background: linear-gradient(135deg, var(--color-accent), rgba(255, 107, 107, 0.8));
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .metrics-number-6 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+
+        .metrics-label-6 {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Image grid section */
+        .hero-images-6 {
+            margin-bottom: 4rem;
+        }
+
+        .images-title-6 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-text-main);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .images-grid-6 {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .image-card-6 {
+            background-color: var(--color-bg-alt);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+            position: relative;
+        }
+
+        .image-card-6:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--color-accent);
+        }
+
+        .image-main-6 {
+            height: 350px;
+        }
+
+        .image-secondary-6 {
+            height: 170px;
+        }
+
+        .image-card-6 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-caption-6 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem 1rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .image-card-6:hover .image-caption-6 {
+            opacity: 1;
+        }
+
+        /* Action buttons */
+        .hero-actions-6 {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .primary-btn-6 {
+            background-color: var(--color-text-main);
+            color: var(--color-bg-base);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .primary-btn-6:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .secondary-btn-6 {
+            background: transparent;
+            color: var(--color-text-main);
+            border: 2px solid var(--color-border);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .secondary-btn-6:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        /* Close button */
+        .case-close-6 {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background-color: var(--color-bg-base);
+            border: 2px solid var(--color-border);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 100;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .case-close-6:hover {
+            background-color: var(--color-accent);
+            color: var(--color-bg-base);
+            border-color: var(--color-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-header-6 {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-sidebar-6 {
+                order: -1;
+            }
+
+            .images-grid-6 {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .image-main-6,
+            .image-secondary-6 {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .case-hero-6 {
+                padding: 4rem 0 3rem;
+            }
+
+            .hero-container-6 {
+                padding: 0 1rem;
+            }
+
+            .project-title-6 {
+                font-size: 3rem;
+            }
+
+            .images-grid-6 {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions-6 {
+                flex-direction: column;
+            }
+
+            .project-tags-6 {
+                gap: 0.5rem;
+            }
+        }
+
+        /* Content section */
+        .case-content-6 {
+            background-color: var(--color-bg-base);
+            border-top: 1px solid var(--color-border);
+            padding-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar" id="global-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <button class="brand-link" id="brand-home">borko.design</button>
+            </div>
+            <div class="nav-links">
+                <button class="nav-link" id="nav-work">Work</button>
+                <button class="nav-link" id="nav-about">About Me</button>
+                <button class="nav-link" id="nav-contact">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Hero - Approach 6 -->
+    <section class="case-hero-6">
+        <button class="case-close-6" aria-label="Close case study">←</button>
+        
+        <div class="hero-container-6">
+            <!-- Header with main content and sidebar -->
+            <div class="hero-header-6">
+                <div class="hero-main-6">
+                    <span class="project-category-6">Research Platform</span>
+                    <h1 class="project-title-6">SciProfiles</h1>
+                    <p class="project-subtitle-6">Redesigning scientific collaboration and networking for the academic community</p>
+                    <p class="project-description-6">
+                        A comprehensive platform redesign that transformed how researchers connect, collaborate, and share knowledge, resulting in unprecedented user growth and engagement through systematic UX research and iterative design improvements.
+                    </p>
+                    
+                    <div class="project-tags-6">
+                        <span class="tag-6">User Research</span>
+                        <span class="tag-6">Design System</span>
+                        <span class="tag-6">Prototyping</span>
+                        <span class="tag-6">Usability Testing</span>
+                        <span class="tag-6">Information Architecture</span>
+                    </div>
+                    
+                    <div class="hero-actions-6">
+                        <a href="#content" class="primary-btn-6">
+                            Read Full Case Study
+                            <span>↓</span>
+                        </a>
+                        <a href="#" class="secondary-btn-6">Visit Live Site</a>
+                    </div>
+                </div>
+                
+                <!-- Project metadata - horizontal layout -->
+                <div class="hero-sidebar-6">
+                    <div class="sidebar-item-6">
+                        <span class="sidebar-label-6">Company</span>
+                        <span class="sidebar-value-6">MDPI Publishing</span>
+                    </div>
+                    <div class="sidebar-item-6">
+                        <span class="sidebar-label-6">Year</span>
+                        <span class="sidebar-value-6">2024</span>
+                    </div>
+                    <div class="sidebar-item-6">
+                        <span class="sidebar-label-6">URL</span>
+                        <span class="sidebar-value-6">sciprofiles.com</span>
+                    </div>
+                    <div class="sidebar-item-6">
+                        <span class="sidebar-label-6">My Work</span>
+                        <span class="sidebar-value-6">Lead UX Designer</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image grid section -->
+            <div class="hero-images-6">
+                <h3 class="images-title-6">Project Showcase</h3>
+                <div class="images-grid-6">
+                    <div class="image-card-6 image-main-6">
+                        <img src="https://picsum.photos/600/350?random=1" alt="SciProfiles main dashboard interface">
+                        <div class="image-caption-6">Main dashboard with improved navigation and user research insights</div>
+                    </div>
+                    <div class="image-card-6 image-secondary-6">
+                        <img src="https://picsum.photos/300/170?random=2" alt="Mobile responsive design">
+                        <div class="image-caption-6">Mobile-responsive design</div>
+                    </div>
+                    <div class="image-card-6 image-secondary-6">
+                        <img src="https://picsum.photos/300/170?random=3" alt="User research process">
+                        <div class="image-caption-6">User research and testing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Content -->
+    <section class="case-content-6" id="content">
+        <div class="case-study-content">
+            <section class="context">
+                <h2>What is it about</h2>
+                <p>Researchers around the world were trying to navigate the platform which felt more like a maze than a resource. MDPI is an open-access publisher that prides itself on offering fast and transparent publishing services for peer-reviewed journals across various fields like science, technology, and medicine.</p>
+                <p>When I joined, the UX/UI was being handled by developers, with occasional input from graphic designers. The goal for the project was to completely revamp SciProfiles - not just to make it more user-friendly but also to demonstrate the value of UX design as a practice.</p>
+            </section>
+            
+            <section class="discovery">
+                <h2>What did I do?</h2>
+                <p>I was the only designer in a project-based team of developers and managers. I had close collaboration with stakeholders too.</p>
+                <h3>Research</h3>
+                <p>Facilitated all kinds of user research - focus groups, user interviews, card sorting exercises as well as stakeholder interviews.</p>
+            </section>
+        </div>
+    </section>
+
+    <!-- Theme Switcher -->
+    <button class="theme-switcher" id="theme-switcher" aria-label="Switch theme">🎨</button>
+
+    <script>
+        // Theme switcher
+        const themes = ['theme-a', 'theme-b', 'theme-c', 'theme-d'];
+        let currentThemeIndex = 0;
+        const themeSwitcher = document.getElementById('theme-switcher');
+        const themeEmojis = ['🎨', '🌙', '🌊', '🏛️'];
+
+        if (themeSwitcher) {
+            themeSwitcher.addEventListener('click', function() {
+                currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+                const newTheme = themes[currentThemeIndex];
+                
+                themes.forEach(t => {
+                    document.documentElement.classList.remove(t);
+                    document.documentElement.removeAttribute('data-theme');
+                });
+                
+                if (newTheme !== 'theme-a') {
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                }
+                
+                this.textContent = themeEmojis[currentThemeIndex];
+            });
+        }
+
+        // Smooth scroll
+        document.querySelector('.primary-btn-6').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#content').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Close button
+        document.querySelector('.case-close-6').addEventListener('click', function() {
+            window.history.back();
+        });
+    </script>
+</body>
+</html>

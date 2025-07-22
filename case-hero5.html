@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciProfiles Case Study - Borko Savić</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Case Hero Approach 5: Gallery grid with stacked metadata */
+        .case-hero-5 {
+            min-height: 100vh;
+            background-color: var(--color-bg-base);
+            padding: 6rem 2rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 4rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        /* Left side - Image gallery */
+        .hero-gallery-5 {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 1rem;
+            height: fit-content;
+        }
+
+        .gallery-main-5 {
+            grid-row: 1 / 3;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: var(--color-bg-alt);
+            min-height: 600px;
+        }
+
+        .gallery-main-5 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .gallery-main-5:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-secondary-5 {
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: var(--color-bg-alt);
+            position: relative;
+            height: 200px;
+        }
+
+        .gallery-secondary-5 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .gallery-secondary-5:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay-5 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                45deg,
+                rgba(0, 0, 0, 0.1) 0%,
+                transparent 70%
+            );
+        }
+
+        /* Image counter */
+        .image-counter-5 {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Right side - Stacked metadata */
+        .hero-metadata-5 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .project-badge-5 {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--color-accent), #FF6B6B);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: fit-content;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-title-5 {
+            font-size: 4rem;
+            font-weight: 200;
+            color: var(--color-text-main);
+            line-height: 1.1;
+            margin: 1rem 0;
+            letter-spacing: -2px;
+        }
+
+        .project-client-5 {
+            font-size: 1.6rem;
+            color: var(--color-text-subtle);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-description-5 {
+            font-size: 1.3rem;
+            color: var(--color-text-main);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        /* Stacked metadata sections */
+        .metadata-section-5 {
+            border-left: 3px solid var(--color-accent);
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-section-title-5 {
+            font-size: 0.9rem;
+            color: var(--color-text-subtle);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .metadata-items-5 {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .metadata-item-5 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .metadata-key-5 {
+            color: var(--color-text-main);
+            font-weight: 500;
+        }
+
+        .metadata-value-5 {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        /* Achievement highlights */
+        .achievements-5 {
+            background: linear-gradient(135deg, var(--color-bg-alt), rgba(255, 255, 255, 0.05));
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--color-border);
+            margin: 2rem 0;
+        }
+
+        .achievements-title-5 {
+            font-size: 1.1rem;
+            color: var(--color-text-main);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .achievement-grid-5 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .achievement-item-5 {
+            text-align: center;
+        }
+
+        .achievement-number-5 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            display: block;
+            line-height: 1;
+        }
+
+        .achievement-label-5 {
+            font-size: 0.8rem;
+            color: var(--color-text-subtle);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.5rem;
+        }
+
+        /* Action buttons */
+        .hero-actions-5 {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .primary-action-5 {
+            background-color: var(--color-text-main);
+            color: var(--color-bg-base);
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .primary-action-5:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .secondary-action-5 {
+            color: var(--color-text-main);
+            background: transparent;
+            border: 2px solid var(--color-border);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .secondary-action-5:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        /* Close button */
+        .case-close-5 {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-bg-base);
+            border: 2px solid var(--color-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 100;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-close-5:hover {
+            background-color: var(--color-accent);
+            color: var(--color-bg-base);
+            border-color: var(--color-accent);
+            transform: scale(1.1);
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .case-hero-5 {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 4rem 2rem;
+            }
+
+            .hero-gallery-5 {
+                order: 2;
+                grid-template-columns: 1fr 1fr;
+                max-height: 400px;
+            }
+
+            .gallery-main-5 {
+                grid-row: 1 / 2;
+                min-height: 300px;
+            }
+
+            .gallery-secondary-5 {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .case-hero-5 {
+                padding: 3rem 1rem;
+                gap: 2rem;
+            }
+
+            .project-title-5 {
+                font-size: 3rem;
+            }
+
+            .project-client-5 {
+                font-size: 1.3rem;
+            }
+
+            .project-description-5 {
+                font-size: 1.1rem;
+            }
+
+            .hero-gallery-5 {
+                grid-template-columns: 1fr;
+                grid-template-rows: 300px 150px 150px;
+            }
+
+            .gallery-main-5 {
+                grid-row: 1 / 2;
+            }
+
+            .achievement-grid-5 {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions-5 {
+                gap: 0.8rem;
+            }
+        }
+
+        /* Content section */
+        .case-content-5 {
+            background-color: var(--color-bg-base);
+            padding-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar" id="global-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <button class="brand-link" id="brand-home">borko.design</button>
+            </div>
+            <div class="nav-links">
+                <button class="nav-link" id="nav-work">Work</button>
+                <button class="nav-link" id="nav-about">About Me</button>
+                <button class="nav-link" id="nav-contact">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Hero - Approach 5 -->
+    <section class="case-hero-5">
+        <button class="case-close-5" aria-label="Close case study">←</button>
+        
+        <!-- Gallery Section -->
+        <div class="hero-gallery-5">
+            <div class="gallery-main-5">
+                <img src="https://picsum.photos/800/600?random=1" alt="SciProfiles main interface">
+                <div class="gallery-overlay-5"></div>
+                <div class="image-counter-5">1 of 3</div>
+            </div>
+            <div class="gallery-secondary-5">
+                <img src="https://picsum.photos/400/200?random=2" alt="SciProfiles mobile view">
+                <div class="gallery-overlay-5"></div>
+            </div>
+            <div class="gallery-secondary-5">
+                <img src="https://picsum.photos/400/200?random=3" alt="SciProfiles dashboard">
+                <div class="gallery-overlay-5"></div>
+            </div>
+        </div>
+        
+        <!-- Stacked Metadata Section -->
+        <div class="hero-metadata-5">
+            <div>
+                <span class="project-badge-5">Research Platform</span>
+                <h1 class="project-title-5">SciProfiles</h1>
+                <p class="project-client-5">MDPI • 2023-2024</p>
+                <p class="project-description-5">
+                    A comprehensive platform redesign that transformed scientific networking and collaboration, achieving unprecedented growth through systematic UX research and design methodology.
+                </p>
+            </div>
+            
+            <!-- Project Details -->
+            <div class="metadata-section-5">
+                <h3 class="metadata-section-title-5">Project Overview</h3>
+                <div class="metadata-items-5">
+                    <div class="metadata-item-5">
+                        <span class="metadata-key-5">My Role</span>
+                        <span class="metadata-value-5">Lead UX Designer</span>
+                    </div>
+                    <div class="metadata-item-5">
+                        <span class="metadata-key-5">Duration</span>
+                        <span class="metadata-value-5">12 Months</span>
+                    </div>
+                    <div class="metadata-item-5">
+                        <span class="metadata-key-5">Team Size</span>
+                        <span class="metadata-value-5">Solo Designer</span>
+                    </div>
+                    <div class="metadata-item-5">
+                        <span class="metadata-key-5">Industry</span>
+                        <span class="metadata-value-5">Academic Publishing</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scope of Work -->
+            <div class="metadata-section-5">
+                <h3 class="metadata-section-title-5">Scope of Work</h3>
+                <div class="metadata-items-5">
+                    <div class="metadata-item-5">
+                        <span class="metadata-key-5">User Research</span>
+                        <span class="metadata-value-5">✓</span>
+                    </div>
+                    <div class="metadata-item-5">
+                        <span class="metadata-key-5">Design System</span>
+                        <span class="metadata-value-5">✓</span>
+                    </div>
+                    <div class="metadata-item-5">
+                        <span class="metadata-key-5">Prototyping</span>
+                        <span class="metadata-value-5">✓</span>
+                    </div>
+                    <div class="metadata-item-5">
+                        <span class="metadata-key-5">Testing & QA</span>
+                        <span class="metadata-value-5">✓</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Achievements -->
+            <div class="achievements-5">
+                <h3 class="achievements-title-5">Key Results</h3>
+                <div class="achievement-grid-5">
+                    <div class="achievement-item-5">
+                        <span class="achievement-number-5">20x</span>
+                        <span class="achievement-label-5">User Growth</span>
+                    </div>
+                    <div class="achievement-item-5">
+                        <span class="achievement-number-5">7</span>
+                        <span class="achievement-label-5">User Personas</span>
+                    </div>
+                    <div class="achievement-item-5">
+                        <span class="achievement-number-5">100k+</span>
+                        <span class="achievement-label-5">Active Users</span>
+                    </div>
+                    <div class="achievement-item-5">
+                        <span class="achievement-number-5">95%</span>
+                        <span class="achievement-label-5">Usability Score</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Actions -->
+            <div class="hero-actions-5">
+                <a href="#content" class="primary-action-5">
+                    Read Full Case Study
+                    <span>↓</span>
+                </a>
+                <a href="#" class="secondary-action-5">
+                    Visit Live Site
+                    <span>↗</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Content -->
+    <section class="case-content-5" id="content">
+        <div class="case-study-content">
+            <section class="context">
+                <h2>What is it about</h2>
+                <p>Researchers around the world were trying to navigate the platform which felt more like a maze than a resource. MDPI is an open-access publisher that prides itself on offering fast and transparent publishing services for peer-reviewed journals across various fields like science, technology, and medicine.</p>
+                <p>When I joined, the UX/UI was being handled by developers, with occasional input from graphic designers. The goal for the project was to completely revamp SciProfiles - not just to make it more user-friendly but also to demonstrate the value of UX design as a practice.</p>
+            </section>
+            
+            <section class="discovery">
+                <h2>What did I do?</h2>
+                <p>I was the only designer in a project-based team of developers and managers. I had close collaboration with stakeholders too.</p>
+                <h3>Research</h3>
+                <p>Facilitated all kinds of user research - focus groups, user interviews, card sorting exercises as well as stakeholder interviews.</p>
+                <h3>Design System</h3>
+                <p>SciProfiles was using several UI components from a PHP framework - I completely overhauled it in cooperation with the dev team.</p>
+            </section>
+            
+            <section class="impact">
+                <h2>What's the outcome?</h2>
+                <p>The redesign proved to be a great success, achieving a 20x increase in monthly active users - from 5k to 100k.</p>
+                <ul>
+                    <li>Solid design system and planning proved beneficial to increased speed</li>
+                    <li>Expert users don't mind clutter if it increases usability</li>
+                    <li>First time getting user testing results I really hadn't anticipated</li>
+                </ul>
+            </section>
+        </div>
+    </section>
+
+    <!-- Theme Switcher -->
+    <button class="theme-switcher" id="theme-switcher" aria-label="Switch theme">🎨</button>
+
+    <script>
+        // Theme switcher
+        const themes = ['theme-a', 'theme-b', 'theme-c', 'theme-d'];
+        let currentThemeIndex = 0;
+        const themeSwitcher = document.getElementById('theme-switcher');
+        const themeEmojis = ['🎨', '🌙', '🌊', '🏛️'];
+
+        if (themeSwitcher) {
+            themeSwitcher.addEventListener('click', function() {
+                currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+                const newTheme = themes[currentThemeIndex];
+                
+                themes.forEach(t => {
+                    document.documentElement.classList.remove(t);
+                    document.documentElement.removeAttribute('data-theme');
+                });
+                
+                if (newTheme !== 'theme-a') {
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                }
+                
+                this.textContent = themeEmojis[currentThemeIndex];
+            });
+        }
+
+        // Smooth scroll for CTA
+        document.querySelector('.primary-action-5').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#content').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Close button
+        document.querySelector('.case-close-5').addEventListener('click', function() {
+            window.history.back();
+        });
+
+        // Gallery interaction
+        const galleryImages = document.querySelectorAll('.hero-gallery-5 img');
+        const counter = document.querySelector('.image-counter-5');
+        let currentImageIndex = 0;
+
+        galleryImages.forEach((img, index) => {
+            img.addEventListener('click', function() {
+                currentImageIndex = index;
+                counter.textContent = `${currentImageIndex + 1} of ${galleryImages.length}`;
+                // Here you could implement a lightbox or image viewer
+            });
+        });
+
+        // Animate achievements on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numbers = entry.target.querySelectorAll('.achievement-number-5');
+                    numbers.forEach(number => {
+                        number.style.transform = 'scale(1.1)';
+                        setTimeout(() => {
+                            number.style.transform = 'scale(1)';
+                        }, 200);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(document.querySelector('.achievements-5'));
+    </script>
+</body>
+</html>
