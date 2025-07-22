@@ -246,7 +246,7 @@ body {
 /* Navigation Components */
 .nav-bar {
   @apply sticky top-0 backdrop-blur-sm;
-  z-index: 100;
+  z-index: 10;
   background-color: var(--color-bg-base);
   border-bottom: 1px solid var(--color-border);
   transition: all var(--transition-duration-default) var(--transition-timing-function-default);
@@ -634,17 +634,22 @@ body {
 /* About Page Styles */
 .about-page {
   position: fixed;
-  inset: 0;
-  z-index: 50;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
   background-color: var(--color-bg-base);
   overflow-y: auto;
   min-height: 100vh;
+  padding-top: 80px; /* Space for navbar */
 }
 
 .about-page-header {
   position: relative;
   padding: var(--padding-mobile);
   background-color: var(--color-bg-alt);
+  margin-top: 0;
 }
 
 @media (min-width: 768px) {
@@ -670,15 +675,15 @@ body {
 }
 
 .about-page-hero {
-  @apply w-full text-center pt-16;
-  padding-left: var(--padding-mobile);
-  padding-right: var(--padding-mobile);
+  @apply w-full text-center;
+  padding: var(--padding-mobile);
+  padding-top: 2rem;
 }
 
 @media (min-width: 768px) {
   .about-page-hero {
-    padding-left: var(--padding-desktop);
-    padding-right: var(--padding-desktop);
+    padding: var(--padding-desktop);
+    padding-top: 2rem;
   }
 }
 
