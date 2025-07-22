@@ -33,7 +33,37 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'Escape' && resumeModal.classList.contains('open')) {
             closeModal();
         }
+        if (e.key === 'Escape' && aboutPage && aboutPage.style.display !== 'none') {
+            closeAboutPage();
+        }
     });
+
+    // About page functionality
+    const aboutToggle = document.getElementById('about-toggle');
+    const aboutPage = document.getElementById('about-page');
+    const aboutPageClose = document.getElementById('about-page-close');
+
+    // Open about page
+    if (aboutToggle) {
+        aboutToggle.addEventListener('click', function() {
+            aboutPage.style.display = 'block';
+            aboutPage.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+    }
+
+    // Close about page
+    function closeAboutPage() {
+        if (aboutPage) {
+            aboutPage.style.display = 'none';
+            aboutPage.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+    }
+
+    if (aboutPageClose) {
+        aboutPageClose.addEventListener('click', closeAboutPage);
+    }
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {

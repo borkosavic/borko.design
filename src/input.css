@@ -102,11 +102,23 @@
   transform: scale(1.1);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
-
+:root {
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+h1, h2 { font-weight: 300; }
+h3, h4 { font-weight: 500; }
+h5, h6 { font-weight: 400; }
+.text-large { font-weight: 300; }
 /* Base Styles */
 html {
   font-family: var(--font-family-satoshi);
   scroll-behavior: smooth;
+  font-optical-sizing: none;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -120,6 +132,9 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-kerning: auto;
+  font-variation-settings: 'wght' 400, 'opsz' 16;
   transition: background-color var(--transition-duration-default) var(--transition-timing-function-default),
               color var(--transition-duration-default) var(--transition-timing-function-default);
 }
@@ -570,6 +585,198 @@ body {
 .download-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* About CTA Button */
+.about-cta {
+  @apply mt-6;
+}
+
+.about-btn {
+  @apply inline-block px-6 py-3 rounded-lg font-medium;
+  @apply cursor-pointer border-none;
+  background-color: var(--color-accent);
+  color: var(--color-bg-base);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+}
+
+.about-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* About Page Styles */
+.about-page {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: var(--color-bg-base);
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+.about-page-header {
+  position: relative;
+  padding: var(--padding-mobile);
+  background-color: var(--color-bg-alt);
+}
+
+@media (min-width: 768px) {
+  .about-page-header {
+    padding: var(--padding-desktop);
+  }
+}
+
+.about-page-close {
+  @apply absolute top-4 left-4 w-12 h-12 rounded-full;
+  @apply flex items-center justify-center cursor-pointer;
+  @apply text-2xl font-medium border-none;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+}
+
+.about-page-close:hover {
+  background-color: var(--color-accent);
+  color: var(--color-bg-base);
+  transform: scale(1.1);
+}
+
+.about-page-hero {
+  @apply w-full text-center pt-16;
+  padding-left: var(--padding-mobile);
+  padding-right: var(--padding-mobile);
+}
+
+@media (min-width: 768px) {
+  .about-page-hero {
+    padding-left: var(--padding-desktop);
+    padding-right: var(--padding-desktop);
+  }
+}
+
+.about-page-content {
+  padding: var(--padding-mobile);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .about-page-content {
+    padding: var(--padding-desktop);
+  }
+}
+
+.about-page-content section {
+  @apply mb-12;
+}
+
+.about-page-content h2 {
+  @apply text-[1.875rem] font-semibold mb-6;
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+.about-page-content h3 {
+  @apply text-[1.25rem] font-medium mb-4;
+  color: var(--color-text-main);
+  font-weight: 500;
+}
+
+.about-page-content p {
+  @apply text-base leading-relaxed mb-4;
+  color: var(--color-text-main);
+  font-weight: 400;
+}
+
+/* Experience Section */
+.experience-item {
+  @apply mb-6;
+}
+
+.experience-meta {
+  @apply text-sm mt-1 mb-2;
+  color: var(--color-text-subtle);
+}
+
+.achievement-list {
+  @apply list-none space-y-2;
+}
+
+.achievement-list li {
+  @apply text-base;
+  color: var(--color-text-main);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.achievement-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* Skills Grid Detailed */
+.skills-grid-detailed {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+
+.skills-grid-detailed .skill-category h3 {
+  @apply text-[1.125rem] font-medium mb-4;
+  color: var(--color-text-main);
+  font-weight: 500;
+}
+
+.skills-grid-detailed .skill-category ul {
+  @apply list-none space-y-2;
+}
+
+.skills-grid-detailed .skill-category li {
+  @apply text-base;
+  color: var(--color-text-subtle);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.skills-grid-detailed .skill-category li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* Approach Section */
+.approach-items {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+
+.approach-item {
+  @apply p-6 rounded-lg;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+}
+
+.approach-item h3 {
+  @apply text-[1.125rem] font-medium mb-3;
+  color: var(--color-text-main);
+  font-weight: 500;
+}
+
+.approach-item p {
+  @apply text-base leading-relaxed;
+  color: var(--color-text-subtle);
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+/* About Resume Section */
+.about-resume {
+  @apply border-t pt-12 mt-12;
+  border-color: var(--color-border);
 }
 
 /* Utility Classes */
