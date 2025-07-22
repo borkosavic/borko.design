@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Grid Layout | Borko Savić</title>
+    <link rel="stylesheet" href="./src/fonts/satoshi.css">
+    <link rel="stylesheet" href="./src/input.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="theme-a">
+    <main>
+        <!-- Navigation -->
+        <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-gray-100 z-50">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="#" class="text-lg font-medium text-gray-900">borko.design</a>
+                <div class="flex gap-8">
+                    <a href="#work" class="text-gray-600 hover:text-gray-900 transition-colors">Work</a>
+                    <a href="#about" class="text-gray-900 font-medium">About</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- About Section - Grid Layout -->
+        <section class="pt-24 pb-16">
+            <div class="w-full px-6">
+                <!-- Header -->
+                <div class="mb-16">
+                    <h1 class="text-4xl lg:text-5xl font-light text-gray-900 leading-tight mb-8">
+                        Work Experience
+                    </h1>
+                    <div class="max-w-6xl">
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            With over 10 years of experience designing <strong>highly usable</strong> and <strong>accessible products</strong> and <strong>design systems</strong>, I specialize in bridging the gap between business and development teams. My <strong>business education</strong> and foundational <strong>development knowledge</strong> enable me to communicate effectively across disciplines. While much of my work has been in <strong>fintech, social networks, and publishing</strong>, my expertise spans a variety of industries.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Experience Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                    
+                    <!-- Rho -->
+                    <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm text-blue-600 font-medium bg-blue-50 px-3 py-1 rounded-full">2025–present</span>
+                                <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            </div>
+                            <h3 class="text-xl font-medium text-gray-900">Product Designer</h3>
+                            <p class="text-gray-600 font-medium">Rho</p>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            Rho is a modern financial platform built to help businesses manage their finances, combining corporate cards, banking, expense management, and more into one unified product.
+                        </p>
+                        <p class="text-gray-700 text-sm">
+                            At Rho, I collaborate with cross-functional teams to improve the reimbursement flow and deliver seamless experiences across web and mobile platforms. My focus is on simplifying complex financial processes for startups and SMBs by applying UX best practices, streamlining user flows, and aligning design with product strategy.
+                        </p>
+                    </div>
+
+                    <!-- Zühlke -->
+                    <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full">2022–2025</span>
+                                <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                            </div>
+                            <h3 class="text-xl font-medium text-gray-900">UX Consultant</h3>
+                            <p class="text-gray-600 font-medium">Zühlke</p>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            Zühlke is a global innovation service provider headquartered in Switzerland, with over 1,600 employees across Europe and Asia, specialized in software engineering, product design, and digital transformation.
+                        </p>
+                        <p class="text-gray-700 text-sm">
+                            At Zühlke, I collaborated closely with developers and project managers to bridge the gap between client needs and the final product for several well-known companies. My role involved <strong>designing several web, mobile, and desktop applications</strong>, as well as <strong>crafting scalable design systems</strong> to ensure consistency and usability across projects. By working with multiple clients, I honed my ability to adapt to diverse industries and <strong>deliver user-centered solutions</strong> that meet <strong>both business and user goals</strong>.
+                        </p>
+                    </div>
+
+                    <!-- MDPI -->
+                    <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm text-purple-600 font-medium bg-purple-50 px-3 py-1 rounded-full">2019–2022</span>
+                                <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                            </div>
+                            <h3 class="text-xl font-medium text-gray-900">UX/UI Designer</h3>
+                            <p class="text-gray-600 font-medium">MDPI</p>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            MDPI is a Swiss-based academic publisher with a global team of over 6,000 employees and editors. It offers open-access journals across various scientific disciplines, supporting researchers and institutions worldwide in advancing cutting-edge discoveries.
+                        </p>
+                        <p class="text-gray-700 text-sm">
+                            As the first UX designer at MDPI, I introduced and demonstrated the value of user experience across the organization. I led the <strong>redesign of SciProfiles</strong>, resulting in a remarkable <strong>20x increase in monthly active users</strong>. Additionally, <strong>I established a company-wide design system</strong> adopted by all platforms, ensuring consistency, efficiency, and scalability. My work laid the <strong>foundation for a user-centered culture</strong> that continues to shape product development and innovation at MDPI.
+                        </p>
+                    </div>
+
+                    <!-- RedLark -->
+                    <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm text-orange-600 font-medium bg-orange-50 px-3 py-1 rounded-full">2017–2019</span>
+                                <span class="w-2 h-2 bg-orange-500 rounded-full"></span>
+                            </div>
+                            <h3 class="text-xl font-medium text-gray-900">UX Designer</h3>
+                            <p class="text-gray-600 font-medium">RedLark</p>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            Redlark is a gaming studio startup focused on creating immersive and innovative gaming experiences. The team collaborates on both indie and large-scale projects, combining creative storytelling with state-of-the-art game design technologies.
+                        </p>
+                        <p class="text-gray-700 text-sm">
+                            At RedLark, I <strong>designed an innovative poker game</strong> through <strong>extensive research and game design expertise</strong>. I also <strong>designed the industry's first-ever HTML5 online casino</strong>, setting new standards in a competitive market. Additionally, I streamlined operations by combining three different backend applications into a unified system, <strong>significantly increasing productivity</strong> and <strong>reducing maintenance costs</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Gowi -->
+                    <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm text-red-600 font-medium bg-red-50 px-3 py-1 rounded-full">2014–2017</span>
+                                <span class="w-2 h-2 bg-red-500 rounded-full"></span>
+                            </div>
+                            <h3 class="text-xl font-medium text-gray-900">UX/UI Designer</h3>
+                            <p class="text-gray-600 font-medium">Gowi</p>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            Gowi is a Serbian software development and consulting company with 80+ employees, specializing in web and mobile applications. Gowi serves clients primarily from the UK, delivering solutions for industries such as finance, legal and infrastructure.
+                        </p>
+                        <p class="text-gray-700 text-sm">
+                            At Gowi, I focused on designing <strong>highly complex web applications</strong> for corporate clients from UK. <strong>I initiated a transition to a SPA</strong> (Single Page Application) approach, which improved application speed by 30%, significantly enhancing user experience.
+                        </p>
+                    </div>
+
+                    <!-- Nikon -->
+                    <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm text-gray-600 font-medium bg-gray-50 px-3 py-1 rounded-full">2012–2014</span>
+                                <span class="w-2 h-2 bg-gray-500 rounded-full"></span>
+                            </div>
+                            <h3 class="text-xl font-medium text-gray-900">Web Designer</h3>
+                            <p class="text-gray-600 font-medium">Nikon</p>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            The Serbian branch of Nikon, a global leader in imaging and optical products headquartered in Japan. Nikon Serbia operates within the consumer electronics industry, providing cutting-edge cameras, lenses, and photography solutions for professionals and hobbyists.
+                        </p>
+                        <p class="text-gray-700 text-sm">
+                            At Nikon, <strong>I designed and maintained multiple e-commerce stores</strong> and the company's main website, ensuring a seamless user experience and consistent branding. I also <strong>led the development of Nikon Club</strong>, a platform created to <strong>engage customers and provide exclusive benefits</strong>, fostering a loyal community. My work combined technical expertise and user-centered design to drive both customer satisfaction and business growth.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
