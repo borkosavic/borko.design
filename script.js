@@ -193,10 +193,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show main content
         document.querySelector('main').style.display = 'block';
         
-        // Scroll to hero or work section
-        const targetSection = document.getElementById('work') || document.getElementById('hero');
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
+        // Always scroll to hero section (top of page)
+        const heroSection = document.getElementById('hero');
+        if (heroSection) {
+            heroSection.scrollIntoView({ behavior: 'smooth' });
         }
     }
 
