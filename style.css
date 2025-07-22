@@ -88,11 +88,9 @@
     --tracking-wide: 0.025em;
     --leading-tight: 1.25;
     --leading-relaxed: 1.625;
-    --radius-sm: 0.25rem;
     --radius-md: 0.375rem;
     --radius-lg: 0.5rem;
     --radius-xl: 0.75rem;
-    --radius-2xl: 1rem;
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --blur-sm: 8px;
     --blur-md: 12px;
@@ -345,9 +343,6 @@
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
   }
-  .mt-3 {
-    margin-top: calc(var(--spacing) * 3);
-  }
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
   }
@@ -402,9 +397,6 @@
   .aspect-video {
     aspect-ratio: var(--aspect-video);
   }
-  .h-1 {
-    height: calc(var(--spacing) * 1);
-  }
   .h-1\.5 {
     height: calc(var(--spacing) * 1.5);
   }
@@ -437,9 +429,6 @@
   }
   .w-10 {
     width: calc(var(--spacing) * 10);
-  }
-  .w-24 {
-    width: calc(var(--spacing) * 24);
   }
   .w-full {
     width: 100%;
@@ -654,14 +643,8 @@
   .bg-gray-50 {
     background-color: var(--color-gray-50);
   }
-  .bg-gray-100 {
-    background-color: var(--color-gray-100);
-  }
   .bg-gray-200 {
     background-color: var(--color-gray-200);
-  }
-  .bg-gray-400 {
-    background-color: var(--color-gray-400);
   }
   .bg-gray-500 {
     background-color: var(--color-gray-500);
@@ -808,9 +791,6 @@
   .px-3 {
     padding-inline: calc(var(--spacing) * 3);
   }
-  .px-4 {
-    padding-inline: calc(var(--spacing) * 4);
-  }
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
   }
@@ -819,9 +799,6 @@
   }
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
-  }
-  .py-2 {
-    padding-block: calc(var(--spacing) * 2);
   }
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
@@ -872,14 +849,6 @@
     font-size: var(--text-5xl);
     line-height: var(--tw-leading, var(--text-5xl--line-height));
   }
-  .text-6xl {
-    font-size: var(--text-6xl);
-    line-height: var(--tw-leading, var(--text-6xl--line-height));
-  }
-  .text-8xl {
-    font-size: var(--text-8xl);
-    line-height: var(--tw-leading, var(--text-8xl--line-height));
-  }
   .text-lg {
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
@@ -895,10 +864,6 @@
   .text-xs {
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
-  }
-  .leading-none {
-    --tw-leading: 1;
-    line-height: 1;
   }
   .leading-relaxed {
     --tw-leading: var(--leading-relaxed);
@@ -1126,12 +1091,6 @@
       line-height: var(--tw-leading, var(--text-6xl--line-height));
     }
   }
-  .lg\:text-9xl {
-    @media (width >= 64rem) {
-      font-size: var(--text-9xl);
-      line-height: var(--tw-leading, var(--text-9xl--line-height));
-    }
-  }
   .xl\:grid-cols-3 {
     @media (width >= 80rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1140,35 +1099,35 @@
 }
 @font-face {
   font-family: 'Satoshi';
-  src: url('./src/fonts/Satoshi-Light.woff2') format('woff2'), url('./src/fonts/Satoshi-Light.woff') format('woff');
+  src: url('src/fonts/Satoshi-Light.woff2') format('woff2'), url('src/fonts/Satoshi-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Satoshi';
-  src: url('./src/fonts/Satoshi-Regular.woff2') format('woff2'), url('./src/fonts/Satoshi-Regular.woff') format('woff');
+  src: url('src/fonts/Satoshi-Regular.woff2') format('woff2'), url('src/fonts/Satoshi-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Satoshi';
-  src: url('./src/fonts/Satoshi-Medium.woff2') format('woff2'), url('./src/fonts/Satoshi-Medium.woff') format('woff');
+  src: url('src/fonts/Satoshi-Medium.woff2') format('woff2'), url('src/fonts/Satoshi-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Satoshi';
-  src: url('./src/fonts/Satoshi-Bold.woff2') format('woff2'), url('./src/fonts/Satoshi-Bold.woff') format('woff');
+  src: url('src/fonts/Satoshi-Bold.woff2') format('woff2'), url('src/fonts/Satoshi-Bold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Satoshi';
-  src: url('./src/fonts/Satoshi-Bold.woff2') format('woff2'), url('./src/fonts/Satoshi-Bold.woff') format('woff');
+  src: url('src/fonts/Satoshi-Bold.woff2') format('woff2'), url('src/fonts/Satoshi-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -2612,6 +2571,157 @@ body {
   transition-duration: 500ms;
   --tw-ease: var(--ease-in-out);
   transition-timing-function: var(--ease-in-out);
+}
+h1 {
+  font-size: var(--text-4xl);
+  line-height: var(--tw-leading, var(--text-4xl--line-height));
+  --tw-leading: var(--leading-tight);
+  line-height: var(--leading-tight);
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+}
+h2 {
+  font-size: var(--text-3xl);
+  line-height: var(--tw-leading, var(--text-3xl--line-height));
+  --tw-font-weight: var(--font-weight-light);
+  font-weight: var(--font-weight-light);
+  color: var(--color-gray-900);
+}
+h3 {
+  font-size: var(--text-2xl);
+  line-height: var(--tw-leading, var(--text-2xl--line-height));
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+}
+p {
+  font-size: var(--text-xl);
+  line-height: var(--tw-leading, var(--text-xl--line-height));
+  --tw-leading: var(--leading-relaxed);
+  line-height: var(--leading-relaxed);
+  color: var(--color-gray-700);
+}
+.about-clean h1 {
+  margin-bottom: calc(var(--spacing) * 4);
+  font-size: var(--text-8xl);
+  line-height: var(--tw-leading, var(--text-8xl--line-height));
+  --tw-leading: 1;
+  line-height: 1;
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+  @media (width >= 64rem) {
+    font-size: var(--text-9xl);
+    line-height: var(--tw-leading, var(--text-9xl--line-height));
+  }
+}
+.about-clean .name-title {
+  font-size: var(--text-4xl);
+  line-height: var(--tw-leading, var(--text-4xl--line-height));
+  --tw-font-weight: var(--font-weight-light);
+  font-weight: var(--font-weight-light);
+  color: var(--color-gray-500);
+  @media (width >= 64rem) {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+}
+.about-clean .stats-number {
+  font-size: var(--text-6xl);
+  line-height: var(--tw-leading, var(--text-6xl--line-height));
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+}
+.about-clean .stats-label {
+  margin-top: calc(var(--spacing) * 2);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+  --tw-tracking: var(--tracking-wide);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-gray-500);
+  text-transform: uppercase;
+}
+.about-clean .intro-text {
+  margin-bottom: calc(var(--spacing) * 8);
+  font-size: var(--text-xl);
+  line-height: var(--tw-leading, var(--text-xl--line-height));
+  --tw-leading: var(--leading-relaxed);
+  line-height: var(--leading-relaxed);
+  color: var(--color-gray-700);
+}
+.about-clean .industry-tag {
+  background-color: var(--color-gray-100);
+  padding-inline: calc(var(--spacing) * 4);
+  padding-block: calc(var(--spacing) * 2);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+  color: var(--color-gray-700);
+}
+.about-clean h2.section-title {
+  margin-bottom: calc(var(--spacing) * 12);
+  font-size: var(--text-4xl);
+  line-height: var(--tw-leading, var(--text-4xl--line-height));
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+}
+.about-clean .year-label {
+  font-size: var(--text-2xl);
+  line-height: var(--tw-leading, var(--text-2xl--line-height));
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+}
+.about-clean .year-sub {
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+  --tw-tracking: var(--tracking-wide);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-gray-500);
+  text-transform: uppercase;
+}
+.about-clean .job-title {
+  margin-bottom: calc(var(--spacing) * 2);
+  font-size: var(--text-2xl);
+  line-height: var(--tw-leading, var(--text-2xl--line-height));
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+}
+.about-clean .company-name {
+  margin-bottom: calc(var(--spacing) * 3);
+  font-size: var(--text-lg);
+  line-height: var(--tw-leading, var(--text-lg--line-height));
+  color: var(--color-gray-600);
+}
+.about-clean .company-type {
+  margin-bottom: calc(var(--spacing) * 4);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+  color: var(--color-gray-500);
+}
+.about-clean .job-description {
+  color: var(--color-gray-700);
+}
+.about-clean .timeline-dot {
+  margin-top: calc(var(--spacing) * 3);
+  height: calc(var(--spacing) * 4);
+  width: calc(var(--spacing) * 4);
+  flex-shrink: 0;
+  border-radius: calc(infinity * 1px);
+}
+.about-clean .timeline-dot.current {
+  background-color: var(--color-gray-900);
+}
+.about-clean .timeline-dot.past {
+  background-color: var(--color-gray-400);
+}
+.about-clean .underline-accent {
+  height: calc(var(--spacing) * 1);
+  width: calc(var(--spacing) * 24);
+  background-color: var(--color-gray-900);
 }
 .sr-only {
   position: absolute;

@@ -1405,6 +1405,94 @@ body {
   @apply transition-all duration-500 ease-in-out;
 }
 
+/* HTML Element-Based Styling */
+
+/* Default Typography */
+h1 {
+  @apply text-4xl font-bold text-gray-900 leading-tight;
+}
+
+h2 {
+  @apply text-3xl font-light text-gray-900;
+}
+
+h3 {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+p {
+  @apply text-xl text-gray-700 leading-relaxed;
+}
+
+/* About Clean Page Specific */
+.about-clean h1 {
+  @apply text-8xl lg:text-9xl font-bold text-gray-900 leading-none mb-4;
+}
+
+.about-clean .name-title {
+  @apply text-4xl lg:text-5xl font-light text-gray-500;
+}
+
+.about-clean .stats-number {
+  @apply text-6xl font-bold text-gray-900;
+}
+
+.about-clean .stats-label {
+  @apply text-sm text-gray-500 uppercase tracking-wide mt-2;
+}
+
+.about-clean .intro-text {
+  @apply text-xl text-gray-700 leading-relaxed mb-8;
+}
+
+.about-clean .industry-tag {
+  @apply px-4 py-2 bg-gray-100 text-gray-700 text-sm;
+}
+
+.about-clean h2.section-title {
+  @apply text-4xl font-bold text-gray-900 mb-12;
+}
+
+.about-clean .year-label {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.about-clean .year-sub {
+  @apply text-sm text-gray-500 uppercase tracking-wide;
+}
+
+.about-clean .job-title {
+  @apply text-2xl font-bold text-gray-900 mb-2;
+}
+
+.about-clean .company-name {
+  @apply text-lg text-gray-600 mb-3;
+}
+
+.about-clean .company-type {
+  @apply text-sm text-gray-500 mb-4;
+}
+
+.about-clean .job-description {
+  @apply text-gray-700;
+}
+
+.about-clean .timeline-dot {
+  @apply w-4 h-4 rounded-full mt-3 flex-shrink-0;
+}
+
+.about-clean .timeline-dot.current {
+  @apply bg-gray-900;
+}
+
+.about-clean .timeline-dot.past {
+  @apply bg-gray-400;
+}
+
+.about-clean .underline-accent {
+  @apply w-24 h-1 bg-gray-900;
+}
+
 /* Accessibility */
 .sr-only {
   position: absolute;
