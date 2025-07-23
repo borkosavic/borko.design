@@ -395,49 +395,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial call to set active state
     highlightCurrentSection();
 
-    // Theme switching functionality
-    const themes = ['theme-a', 'theme-b', 'theme-c', 'theme-d'];
-    let currentThemeIndex = 0;
-    
-    const themeSwitcher = document.getElementById('theme-switcher');
-    const themeEmojis = ['🎨', '🌙', '🌊', '🏛️'];
-    
-    // Load saved theme from localStorage
-    const savedTheme = localStorage.getItem('portfolio-theme');
-    if (savedTheme && themes.includes(savedTheme)) {
-        currentThemeIndex = themes.indexOf(savedTheme);
-        applyTheme(savedTheme);
-    }
-    
-    if (themeSwitcher) {
-        themeSwitcher.addEventListener('click', function() {
-            currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-            const newTheme = themes[currentThemeIndex];
-            applyTheme(newTheme);
-            
-            // Save theme preference
-            localStorage.setItem('portfolio-theme', newTheme);
-            
-            // Update button emoji
-            this.textContent = themeEmojis[currentThemeIndex];
-        });
-        
-        // Set initial emoji
-        themeSwitcher.textContent = themeEmojis[currentThemeIndex];
-    }
-    
-    function applyTheme(theme) {
-        // Remove existing theme classes
-        themes.forEach(t => {
-            document.documentElement.classList.remove(t);
-            document.documentElement.removeAttribute('data-theme');
-        });
-        
-        // Apply new theme
-        if (theme !== 'theme-a') { // theme-a is the default, no class needed
-            document.documentElement.setAttribute('data-theme', theme);
-        }
-    }
 
     // Project card interactions and expansion
     document.querySelectorAll('.project-card').forEach(card => {

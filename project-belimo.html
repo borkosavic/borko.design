@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belimo Assistant Case Study - Borko Savić</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Project hero layout - 50/50 split with vertical metadata */
+        .project-hero {
+            background-color: var(--color-bg-base);
+            padding: 6rem 0 3rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            width: 100%;
+            padding: 0 2rem;
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        /* Left side - main content */
+        .hero-main {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .project-category {
+            display: inline-block;
+            background-color: var(--color-bg-alt);
+            color: var(--color-text-main);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--color-border);
+        }
+
+        .project-title {
+            font-size: 4.5rem;
+            font-weight: 300;
+            color: var(--color-text-main);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .project-subtitle {
+            font-size: 1.4rem;
+            color: var(--color-text-subtle);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .project-description {
+            font-size: 1.25rem;
+            color: var(--color-text-main);
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .tag {
+            background-color: var(--color-bg-alt);
+            color: var(--color-text-subtle);
+            padding: 0.4rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--color-border);
+        }
+
+        /* Right side - metadata vertical layout */
+        .hero-sidebar {
+            flex: 1;
+            max-width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-left: 2rem;
+        }
+
+        .sidebar-item {
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 1.5rem;
+        }
+
+        .sidebar-item:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-label {
+            font-size: 0.8rem;
+            color: var(--color-text-subtle);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .sidebar-value {
+            font-size: 1.2rem;
+            color: var(--color-text-main);
+            font-weight: 600;
+            display: block;
+        }
+
+        /* Action buttons */
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .primary-btn {
+            background-color: var(--color-text-main);
+            color: var(--color-bg-base);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .primary-btn:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: var(--color-text-main);
+            border: 2px solid var(--color-border);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .secondary-btn:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        /* Close button */
+        .case-close {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background-color: var(--color-bg-base);
+            border: 2px solid var(--color-border);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 100;
+            transition: all var(--transition-duration-default) var(--transition-timing-function-default);
+        }
+
+        .case-close:hover {
+            background-color: var(--color-accent);
+            color: var(--color-bg-base);
+            border-color: var(--color-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                flex-direction: column;
+                gap: 3rem;
+            }
+
+            .hero-main,
+            .hero-sidebar {
+                max-width: 100%;
+            }
+
+            .hero-sidebar {
+                padding-left: 0;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .sidebar-item {
+                flex: 1;
+                min-width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-hero {
+                padding: 4rem 0 3rem;
+            }
+
+            .hero-container {
+                padding: 0 1rem;
+            }
+
+            .project-title {
+                font-size: 3rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-sidebar {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar" id="global-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <button class="brand-link" id="brand-home">borko.design</button>
+            </div>
+            <div class="nav-links">
+                <button class="nav-link" id="nav-work">Work</button>
+                <button class="nav-link" id="nav-about">About Me</button>
+                <button class="nav-link" id="nav-contact">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <button class="case-close" aria-label="Close case study">←</button>
+        
+        <div class="hero-container">
+            <!-- Left side - main content -->
+            <div class="hero-main">
+                <span class="project-category">Industrial IoT</span>
+                <h1 class="project-title">Belimo Assistant</h1>
+                <p class="project-subtitle">Cross-platform app for HVAC setup, diagnostics, and management</p>
+                <p class="project-description">
+                    A multi-platform application that replaced three separate apps, enabling technicians to configure and monitor HVAC devices via cable, internet, Bluetooth, or NFC across PC, smartphone, and tablet devices.
+                </p>
+                
+                <div class="project-tags">
+                    <span class="tag">Figma Migration</span>
+                    <span class="tag">Design System</span>
+                    <span class="tag">Flutter Development</span>
+                    <span class="tag">Multi-platform Design</span>
+                    <span class="tag">Environmental UX</span>
+                </div>
+                
+                <div class="hero-actions">
+                    <a href="#content" class="primary-btn">
+                        Read Full Case Study
+                        <span>↓</span>
+                    </a>
+                    <a href="#" class="secondary-btn">Visit Live Site</a>
+                </div>
+            </div>
+            
+            <!-- Right side - metadata vertical layout -->
+            <div class="hero-sidebar">
+                <div class="sidebar-item">
+                    <span class="sidebar-label">Company</span>
+                    <span class="sidebar-value">Belimo</span>
+                </div>
+                <div class="sidebar-item">
+                    <span class="sidebar-label">Year</span>
+                    <span class="sidebar-value">2022-2023</span>
+                </div>
+                <div class="sidebar-item">
+                    <span class="sidebar-label">My Work</span>
+                    <span class="sidebar-value">Lead UX Designer</span>
+                </div>
+                <div class="sidebar-item">
+                    <span class="sidebar-label">URL</span>
+                    <span class="sidebar-value">belimo.com</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theme Switcher -->
+    <button class="theme-switcher" id="theme-switcher" aria-label="Switch theme">🎨</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
