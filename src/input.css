@@ -45,6 +45,7 @@ html {
   scroll-behavior: smooth;
   font-optical-sizing: none;
   text-rendering: optimizeLegibility;
+  font-size: 140%;
 }
 
 body {
@@ -148,11 +149,7 @@ body {
 }
 
 /* Typography Components */
-.hero-title {
-  @apply text-[3.3rem] font-bold leading-tight tracking-tight;
-  @apply text-[var(--color-text-main)];
-  font-weight: 700;
-}
+/* Removed hero-title - using global h1 styling instead */
 
 .hero-subtitle {
   @apply text-[2.25rem] font-semibold text-[var(--color-text-subtle)] mt-2;
@@ -161,8 +158,7 @@ body {
 
 .hero-description {
   @apply text-base text-[var(--color-text-subtle)] mt-4 leading-relaxed max-w-2xl mx-auto;
-  font-weight: 400;
-  font-size: 1.4rem;
+
 }
 
 .section-title {
@@ -656,19 +652,7 @@ body {
   z-index: 2;
 }
 
-.contact-hero-title {
-  font-size: 3rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  color: var(--color-text-main);
-}
-
-@media (min-width: 768px) {
-  .contact-hero-title {
-    font-size: 4.5rem;
-  }
-}
+/* Removed contact-hero-title - using global h1 styling instead */
 
 .gradient-text {
   background: linear-gradient(135deg, var(--color-accent) 0%, #FF6B6B 50%, #4ECDC4 100%);
@@ -1166,16 +1150,14 @@ body {
   @apply inline-block bg-gray-100 text-gray-900 px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide mb-8 border border-gray-200;
 }
 
-.case-study-hero-split .hero-title {
-  @apply mb-6 text-left;
-}
+/* Removed .case-study-hero-split .hero-title - using global h1 styling instead */
 
 .case-study-hero-split .hero-subtitle {
   @apply text-xl text-gray-600 font-normal mb-8 leading-relaxed text-left;
 }
 
 .case-study-hero-split .hero-description {
-  @apply text-lg text-gray-900 leading-relaxed mb-12 font-light text-left;
+  @apply text-lg text-gray-900 leading-relaxed mb-12 font-normal text-left;
   margin-inline: 0 !important;
   max-width: none !important;
 }
@@ -1210,7 +1192,7 @@ body {
 
 /* Uniform Global Typography */
 h1 {
-  @apply text-xl font-medium text-gray-900 leading-none -tracking-wide;
+  @apply text-6xl font-bold text-gray-900 leading-none -tracking-wide;
 }
 
 h2 {
