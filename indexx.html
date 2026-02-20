@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borko Savić - UX Designer</title>
+    <meta name="description" content="Senior UX Designer specializing in product design, user research, and design systems. Available for freelance and full-time opportunities.">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="src/fonts/Satoshi-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="src/fonts/Satoshi-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- TailwindCSS + favicons -->
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Single Global Navigation -->
+    <nav class="nav-bar" id="global-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <button class="brand-link" id="brand-home">borko.design</button>
+            </div>
+            <div class="nav-links">
+                <button class="nav-link" id="nav-work">Work</button>
+                <button class="nav-link" id="nav-about">About Me</button>
+                <button class="nav-link" id="nav-contact">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main role="main">
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero" aria-labelledby="hero-title">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <img src="assets/bd.svg" alt="Borko Savić, UX Designer" class="hero-image">
+                    <h1 id="hero-title"> Hello there!</h1>
+                    <p class="hero-subtitle">My name is Borko</p>
+                    <p class="hero-description">
+                        I’m a senior UX Designer with more than 10 years of experience creating <strong class="font-medium">highly usable</strong> and accessible <strong class="font-medium">products and design systems</strong>, often bridging the gap between business and development.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section -->
+        <section class="work-section" id="work" aria-labelledby="work-title">
+            <div class="section-container">
+                <h2 id="work-title" class="section-title">Selected Work</h2>
+                
+                <!-- Project Cards Grid -->
+                <div class="projects-grid" role="list">
+                    <!-- Project 1: SciProfiles -->
+                    <article class="project-card group" role="listitem" data-project="sciprofiles">
+                        <div class="card-content">
+                            <h3 class="card-title">SciProfiles</h3>
+                            <p class="card-metadata">Research Platform · 2024</p>
+                            <div class="card-preview">
+                                <img src="assets/images/sciprofiles-preview.jpg" alt="SciProfiles project preview" class="preview-image">
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: Act2Access -->
+                    <article class="project-card group" role="listitem" data-project="act2access">
+                        <div class="card-content">
+                            <h3 class="card-title">Act2Access</h3>
+                            <p class="card-metadata">Accessibility Platform · 2023</p>
+                            <div class="card-preview">
+                                <img src="assets/images/act2access-preview.jpg" alt="Act2Access project preview" class="preview-image">
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: Belimo -->
+                    <article class="project-card group" role="listitem" data-project="belimo">
+                        <div class="card-content">
+                            <h3 class="card-title">Belimo</h3>
+                            <p class="card-metadata">Industrial IoT · 2023</p>
+                            <div class="card-preview">
+                                <img src="assets/images/belimo-preview.jpg" alt="Belimo project preview" class="preview-image">
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: FX Trading Tool -->
+                    <article class="project-card group" role="listitem" data-project="fxtt">
+                        <div class="card-content">
+                            <h3 class="card-title">FX Trading Tool</h3>
+                            <p class="card-metadata">HSBC · 2022</p>
+                            <div class="card-preview">
+                                <img src="assets/images/fxtt-preview.jpg" alt="FX Trading Tool project preview" class="preview-image">
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 5: Home Rules -->
+                    <article class="project-card group" role="listitem" data-project="homerules">
+                        <div class="card-content">
+                            <h3 class="card-title">Home Rules</h3>
+                            <p class="card-metadata">Smart Home App · 2022</p>
+                            <div class="card-preview">
+                                <img src="assets/images/homerules-preview.jpg" alt="Home Rules project preview" class="preview-image">
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" id="about" aria-labelledby="about-title">
+            <div class="section-container">
+                <h2 id="about-title" class="section-title">About</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="about-paragraph">
+                            I'm a UX designer with 8+ years of experience creating user-centered digital solutions. My approach combines strategic thinking with hands-on design execution, always grounded in user research and data-driven insights.
+                        </p>
+                        <p class="about-paragraph">
+                            Currently available for freelance and full-time opportunities worldwide.
+                        </p>
+                        <div class="about-cta">
+                            <button class="about-btn" id="about-toggle">Learn More About Me</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Detailed About Page (Hidden by default) -->
+    <div class="about-page" id="about-page" style="display: none;" aria-hidden="true">
+        
+        <header class="about-page-header">
+            <button class="about-page-close" id="about-page-close" aria-label="Close about page">←</button>
+            <div class="about-page-hero">
+                <img src="assets/bd.svg" alt="Borko Savić, UX Designer" class="hero-image">
+                <h1>About Me</h1>
+                <p class="hero-subtitle">Senior UX Designer & Problem Solver</p>
+            </div>
+        </header>
+        
+        <div class="about-page-content">
+            <section class="about-intro">
+                <h2>Who I Am</h2>
+                <p>I'm a UX designer with 8+ years of experience creating user-centered digital solutions. My approach combines strategic thinking with hands-on design execution, always grounded in user research and data-driven insights.</p>
+                <p>I excel in cross-functional collaboration, working closely with product managers, engineers, and stakeholders to deliver experiences that balance user needs with business objectives. My methodology emphasizes iterative design, usability testing, and continuous improvement.</p>
+            </section>
+            
+            <section class="about-experience">
+                <h2>Experience & Background</h2>
+                <div class="experience-item">
+                    <h3>Senior UX Designer</h3>
+                    <p class="experience-meta">Various Companies • 2016-Present</p>
+                    <p>Led design initiatives across multiple industries including scientific publishing, accessibility platforms, industrial IoT, and financial services. Specialized in complex B2B applications and design system development.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>Key Achievements</h3>
+                    <ul class="achievement-list">
+                        <li>Increased monthly active users by 20x through complete platform redesign</li>
+                        <li>Successfully merged functionality of 3 separate apps into one unified experience</li>
+                        <li>Established design systems that improved team efficiency and product consistency</li>
+                        <li>Led user research initiatives resulting in validated product improvements</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="about-skills-detailed">
+                <h2>Core Expertise</h2>
+                <div class="skills-grid-detailed">
+                    <div class="skill-category">
+                        <h3>Research & Strategy</h3>
+                        <ul>
+                            <li>User Research & Interviews</li>
+                            <li>Usability Testing</li>
+                            <li>Information Architecture</li>
+                            <li>Card Sorting & Tree Testing</li>
+                            <li>Journey Mapping</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Design & Prototyping</h3>
+                        <ul>
+                            <li>Interaction Design</li>
+                            <li>Visual Design</li>
+                            <li>Design Systems</li>
+                            <li>Prototyping</li>
+                            <li>Accessibility Design</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Tools & Technologies</h3>
+                        <ul>
+                            <li>Figma (Advanced)</li>
+                            <li>Sketch</li>
+                            <li>Adobe Creative Suite</li>
+                            <li>HTML/CSS</li>
+                            <li>JavaScript (Basic)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="about-approach">
+                <h2>My Approach</h2>
+                <div class="approach-items">
+                    <div class="approach-item">
+                        <h3>Research-Driven</h3>
+                        <p>Every design decision is backed by user research and data. I believe in understanding the problem before jumping to solutions.</p>
+                    </div>
+                    
+                    <div class="approach-item">
+                        <h3>Collaborative</h3>
+                        <p>I work closely with cross-functional teams to ensure designs are feasible, valuable, and aligned with business goals.</p>
+                    </div>
+                    
+                    <div class="approach-item">
+                        <h3>Iterative</h3>
+                        <p>Design is a continuous process. I embrace testing, feedback, and iteration to refine solutions and maximize impact.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Resume Section Integrated -->
+            <section class="about-resume">
+                <h2>Resume</h2>
+                
+                <div class="resume-section">
+                    <h3>Education</h3>
+                    <div class="resume-item">
+                        <h4>Master of Design in UX/UI</h4>
+                        <p class="resume-meta">University of Design • 2016</p>
+                    </div>
+                    <div class="resume-item">
+                        <h4>Bachelor of Computer Science</h4>
+                        <p class="resume-meta">Technical University • 2014</p>
+                    </div>
+                </div>
+                
+                <div class="resume-section">
+                    <h3>Core Tools & Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Design</h4>
+                            <ul>
+                                <li>Figma</li>
+                                <li>Sketch</li>
+                                <li>Adobe Creative Suite</li>
+                                <li>Principle</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Research</h4>
+                            <ul>
+                                <li>User Interviews</li>
+                                <li>Usability Testing</li>
+                                <li>Analytics</li>
+                                <li>A/B Testing</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Development</h4>
+                            <ul>
+                                <li>HTML/CSS</li>
+                                <li>JavaScript</li>
+                                <li>React</li>
+                                <li>Design Systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resume-section">
+                    <h3>Contact Information</h3>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> <a href="mailto:hello@borko.design">hello@borko.design</a></p>
+                        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/borkosavic" target="_blank">linkedin.com/in/borkosavic</a></p>
+                        <p><strong>Location:</strong> Available for remote work worldwide</p>
+                    </div>
+                </div>
+                
+                <div class="resume-actions">
+                    <a href="assets/resume.pdf" download class="download-btn">Download PDF Resume</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Epic Contact Page (Hidden by default) -->
+    <div class="contact-page" id="contact-page" style="display: none;" aria-hidden="true">
+        <div class="contact-container">
+            <div class="contact-hero">
+                <div class="contact-hero-content">
+                    <h1>Let's Create Something <span class="gradient-text">Amazing</span></h1>
+                    <p class="contact-hero-subtitle">Ready to bring your vision to life? I'm here to help.</p>
+                </div>
+                <div class="contact-hero-visual">
+                    <div class="floating-shapes">
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="shape shape-3"></div>
+                        <div class="shape shape-4"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-form-section">
+                    <div class="contact-form-container">
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" id="name" name="name" class="form-input" required>
+                                <div class="form-focus-line"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                                <div class="form-focus-line"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company" class="form-label">Company (Optional)</label>
+                                <input type="text" id="company" name="company" class="form-input">
+                                <div class="form-focus-line"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="project-type" class="form-label">Project Type</label>
+                                <select id="project-type" name="project-type" class="form-select" required>
+                                    <option value="">Select project type</option>
+                                    <option value="website-design">Website Design</option>
+                                    <option value="mobile-app">Mobile App</option>
+                                    <option value="ux-audit">UX Audit</option>
+                                    <option value="design-system">Design System</option>
+                                    <option value="consultation">Consultation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="form-focus-line"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget" class="form-label">Budget Range</label>
+                                <select id="budget" name="budget" class="form-select">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-5k">Under $5k</option>
+                                    <option value="5k-15k">$5k - $15k</option>
+                                    <option value="15k-30k">$15k - $30k</option>
+                                    <option value="30k-plus">$30k+</option>
+                                    <option value="discuss">Let's discuss</option>
+                                </select>
+                                <div class="form-focus-line"></div>
+                            </div>
+
+                            <div class="form-group form-group-large">
+                                <label for="message" class="form-label">Tell me about your project</label>
+                                <textarea id="message" name="message" class="form-textarea" rows="6" required></textarea>
+                                <div class="form-focus-line"></div>
+                            </div>
+
+                            <button type="submit" class="submit-btn">
+                                <span class="btn-text">Send Message</span>
+                                <div class="btn-animation">
+                                    <div class="btn-sparkle"></div>
+                                    <div class="btn-sparkle"></div>
+                                    <div class="btn-sparkle"></div>
+                                </div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="contact-links-section">
+                    <div class="contact-links-container">
+                        <h2 class="contact-links-title">Or reach out directly</h2>
+                        
+                        <div class="contact-links">
+                            <a href="mailto:hello@borko.design" class="contact-link contact-link-email">
+                                <div class="contact-link-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-link-content">
+                                    <h3 class="contact-link-title">Email Me</h3>
+                                    <p class="contact-link-desc">hello@borko.design</p>
+                                </div>
+                                <div class="contact-link-arrow">→</div>
+                            </a>
+
+                            <a href="https://linkedin.com/in/borkosavic" target="_blank" class="contact-link contact-link-linkedin">
+                                <div class="contact-link-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-link-content">
+                                    <h3 class="contact-link-title">LinkedIn</h3>
+                                    <p class="contact-link-desc">Let's connect professionally</p>
+                                </div>
+                                <div class="contact-link-arrow">→</div>
+                            </a>
+
+                            <div class="contact-response-time">
+                                <div class="response-indicator">
+                                    <div class="response-dot"></div>
+                                    <span>Usually responds within 24 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Modal -->
+    <aside class="resume-modal" id="resume-modal" role="dialog" aria-labelledby="resume-title" aria-hidden="true">
+        <div class="modal-overlay" aria-hidden="true"></div>
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2 id="resume-title" class="modal-title">Resume</h2>
+                <button class="modal-close" id="modal-close" aria-label="Close resume">×</button>
+            </header>
+            <div class="modal-body">
+                <section class="resume-section">
+                    <h3>Education</h3>
+                    <div class="resume-item">
+                        <h4>Master of Design in UX/UI</h4>
+                        <p class="resume-meta">University of Design • 2016</p>
+                    </div>
+                    <div class="resume-item">
+                        <h4>Bachelor of Computer Science</h4>
+                        <p class="resume-meta">Technical University • 2014</p>
+                    </div>
+                </section>
+                
+                <section class="resume-section">
+                    <h3>Core Tools & Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Design</h4>
+                            <ul>
+                                <li>Figma</li>
+                                <li>Sketch</li>
+                                <li>Adobe Creative Suite</li>
+                                <li>Principle</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Research</h4>
+                            <ul>
+                                <li>User Interviews</li>
+                                <li>Usability Testing</li>
+                                <li>Analytics</li>
+                                <li>A/B Testing</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Development</h4>
+                            <ul>
+                                <li>HTML/CSS</li>
+                                <li>JavaScript</li>
+                                <li>React</li>
+                                <li>Design Systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="resume-section">
+                    <h3>Contact Information</h3>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> <a href="mailto:hello@borko.design">hello@borko.design</a></p>
+                        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/borkosavic" target="_blank">linkedin.com/in/borkosavic</a></p>
+                        <p><strong>Location:</strong> Available for remote work worldwide</p>
+                    </div>
+                </section>
+                
+                <div class="resume-actions">
+                    <a href="assets/resume.pdf" download class="download-btn">Download PDF Resume</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Case Study Expanded Views (Hidden by default) -->
+    <div class="case-studies" aria-hidden="true">
+        <!-- SciProfiles Case Study -->
+        <article class="case-study" data-project="sciprofiles" style="display: none;">
+            
+            <header class="case-study-header">
+                <button class="case-study-close" aria-label="Close case study">←</button>
+                
+                <!-- 50/50 Hero Layout -->
+                <div class="case-study-hero-split">
+                    <!-- Left Side - Main Content -->
+                    <div class="hero-main">
+                        <span class="project-category">Research Platform</span>
+                        <h1>SciProfiles</h1>
+                        <p class="hero-subtitle">Redesigning scientific collaboration and networking for the academic community</p>
+                        <p class="hero-description">
+                            A comprehensive platform redesign that transformed how researchers connect, collaborate, and share knowledge, resulting in unprecedented user growth and engagement through systematic UX research and iterative design improvements.
+                        </p>
+                        
+                        <div class="project-tags">
+                            <span class="tag">User Research</span>
+                            <span class="tag">Design System</span>
+                            <span class="tag">Prototyping</span>
+                            <span class="tag">Usability Testing</span>
+                            <span class="tag">Information Architecture</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side - Metadata Vertical Layout -->
+                    <div class="hero-sidebar">
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Company</span>
+                            <span class="sidebar-value">MDPI Publishing</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Year</span>
+                            <span class="sidebar-value">2023-2024</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">My Work</span>
+                            <span class="sidebar-value">Lead UX Designer</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">URL</span>
+                            <span class="sidebar-value">sciprofiles.com</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="case-study-content">
+                <section class="context">
+                    <h2>What is it about</h2>
+                    <p>Researchers around the world were trying to navigate the platform which felt more like a maze than a resource. How did this occur? MDPI is an open-access publisher that prides itself on offering fast and transparent publishing services for peer-reviewed journals across various fields like science, technology, and medicine. One of their initiatives, SciProfiles, was created as an online space for the scientific community to connect, exchange ideas and cooperate. Platform is not profitable itself, but the idea is to keep the users within MDPI ecosystem.</p>
+                    <p>When I joined, the UX/UI was being handled by developers, with occasional input from graphic designers. The goal for the project was to completely revamp SciProfiles - not just to make it more user-friendly but also to demonstrate the value of UX design as a practice by showing how much of a difference it could make.</p>
+                </section>
+                
+                <section class="discovery">
+                    <h2>What did I do?</h2>
+                    <p>I was the only designer in a project-based team of developers and managers. I had a close collaboration with stakeholders too.</p>
+                    <h3>Research</h3>
+                    <p>Fascilitated all the kinds of user research - focus groups, user interviews, card sorting exercise as well as a lot of stakeholder interviews.</p>
+                    <h3>Design System</h3>
+                    <p>SciProfiles was using several UI components from a PHP framework it's built on - I've completely rehauled it in cooperation with dev team.</p>
+                    <h3>UX/UI Design</h3>
+                    <p>As a sole designer, I owned the whole process and all the deliverables - from initial sketches, wireframes and user flows to the implementation</p>
+                    <h3>Testing</h3>
+                    <p>I facilitated user testing (on prototypes and after implementation) and helped with the QA process</p>
+                </section>
+                
+                <section class="process">
+                    <h2>How did it all happen?</h2>
+                    <p>I started by diving into the project and running research activities. The biggest gripe was the messy Information Architecture - one developer joked, "I can't even find a feature I coded last week!" So, I kicked things off with a card sorting exercise. With no clear timeline in place, I juggled research and began laying the groundwork for a design system to provide developers with material they could start implementing.</p>
+                    <p>Once I had a solid understanding of the platform, users, and business needs, I worked with stakeholders to set tactical goals and define a timeline. We adopted design sprints to quickly test ideas and deliver the successful ones. With so many features to tackle, this cycle of brainstorming, testing, and iterating kept us busy for almost a year.</p>
+                    <h3>Research</h3>
+                    <p>SciProfiles has a highly diverse user base, encompassing seven distinct personas, each with unique ways of using the platform. Regular users focused on casual networking, some authors searched for co-authors, others were searching for research papers they could cite, and editors sought out peer reviewers. This variety resulted in a wide range of user paths to accommodate.</p>
+                    <p><strong>Diverse User Base:</strong> There were a lot of different user flows we identified, however with good information architecture and careful planning we managed to merge some of them without much disruption.</p>
+                    <p><strong>Cultural Differences:</strong> Testing with users from various geographical and cultural groups yielded interesting findings. Even though some trends suggest removing colours from UI, majority of users preferred colour-coding for different elements.</p>
+                    <p><strong>Information Architecture:</strong> Card sorting exercise with three different groups resulted in a homogeneous information architecture that was vastly different from the one we started with.</p>
+                </section>
+                
+                <section class="solution">
+                    <h2>Problem</h2>
+                    <p>First version of the SciProfiles was desktop-only and as we had to gradually swap modules during the redesign it was decided to create fully redesigned desktop version first and then adapt it for mobile and tablet breakpoint. I did suggest the mobile-first approach, but it would take more development resources and due to "survivor bias" some stakeholders claimed that mobile version is not that important as there weren't many users browsing from their mobile devices. This was, of course, true as we the minimal supported width was 768px.</p>
+                    <h2>Solution</h2>
+                    <p>The work on mobile version of platform started only after the whole redesign was released. This is in contrast with the best practices, but we managed to mitigate most of the drawbacks. With careful planning and utilisation of atomic design principles in the design system alongside with auto-layout features in Figma, design and development for smaller screens turned out to be easier than anticipated - after a year-long work on the desktop version, mobile and tablet version were ready in less than a month.</p>
+                    <h2>Problem</h2>
+                    <p>Information overload posed a significant challenge for many of SciProfiles' features. The scientific community adheres to strict set of rules regarding what information must be displayed and the order in which it should appear. As a result, both user and publication pages and modules often felt overcrowded with mandatory details. After all, since MDPI's core business is publishing, ensuring legibility was top priority. Balancing sufficient white space with optimal screen utilization was a major design challenge.</p>
+                    <h2>Solution</h2>
+                    <p>To address the issue, we invested significant effort into ideation and experimentation, exploring layouts that balanced information density with usability. While the solution wasn't entirely aesthetic, careful adjustments allowed us to present the necessary information more effectively. User testing played a crucial role, confirming that users didn't mind the increased density as they prioritized access to detailed data over visual minimalism and . By focusing on functionality and legibility, we mitigated the problem and delivered a design that met user and business needs.</p>
+                </section>
+                
+                <section class="impact">
+                    <h2>What's the outcome?</h2>
+                    <p>The redesign proved to be a great success, boosting 20x increase in monthly active users - from 5k to 20k.</p>
+                    <h3>What did I learn?</h3>
+                    <ul>
+                        <li>Solid design system and planning proved to be beneficial to increased speed and lowered complexity of deliveries</li>
+                        <li>Expert users don't mind clutter if it increases the usability</li>
+                        <li>For the first time ever I was getting user testing results that I really haven't anticipated at all</li>
+                    </ul>
+                </section>
+            </div>
+        </article>
+
+        <!-- Act2Access Case Study -->
+        <article class="case-study" data-project="act2access" style="display: none;">
+            
+            <header class="case-study-header">
+                <button class="case-study-close" aria-label="Close case study">←</button>
+                
+                <!-- 50/50 Hero Layout -->
+                <div class="case-study-hero-split">
+                    <!-- Left Side - Main Content -->
+                    <div class="hero-main">
+                        <span class="project-category">Accessibility Platform</span>
+                        <h1>Act2Access</h1>
+                        <p class="hero-subtitle">Alternative advertising solution for ad-blocked content</p>
+                        <p class="hero-description">
+                            A startup platform aimed at helping publishers monetize content by providing premium access to users who block ads through surveys and A/B tests, creating valuable advertiser insights while maintaining user experience.
+                        </p>
+                        
+                        <div class="project-tags">
+                            <span class="tag">UI Components</span>
+                            <span class="tag">Stakeholder Interviews</span>
+                            <span class="tag">User Testing</span>
+                            <span class="tag">Survey Design</span>
+                            <span class="tag">Backend Systems</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side - Metadata Vertical Layout -->
+                    <div class="hero-sidebar">
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Company</span>
+                            <span class="sidebar-value">Act2Access Startup</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Year</span>
+                            <span class="sidebar-value">2023</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">My Work</span>
+                            <span class="sidebar-value">Solo UX/UI Designer</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">URL</span>
+                            <span class="sidebar-value">act2access.com</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="case-study-content">
+                <section class="context">
+                    <h2>What is it about</h2>
+                    <p>Act2Access is an replacement for internet advertising which would offer users possibility to view the premium content even when they use ad blocker. The platform offers alternatives like completing surveys or participating in A/B tests, providing valuable insights to publishers while granting users access to the content . As this was an MVP, I worked closely with stakeholders to design and test prototypes that seamlessly integrated interactive content into various publishing platforms. By validating features with internal users through focus groups and user testing, we delivered a solution that balanced user engagement with revenue generation.</p>
+                </section>
+                
+                <section class="discovery">
+                    <h2>What did I do?</h2>
+                    <p>I was the only designer on the project. We had to create several types of surveys and A/B test which would fit into a standard ad space, and the backend system used for creating the campaigns.</p>
+                    <h3>UI Components</h3>
+                    <p>It was only few styles and components, so I wouldn't call it a "design system", but nevertheless - I've done it before I moved to the design.</p>
+                    <h3>Stakeholder interviews</h3>
+                    <p>Surveys were pretty straight forward, but I had a lot to learn abut the back-office system - how the campaigns were created, run and reported.</p>
+                    <h3>UI/UX Design</h3>
+                    <p>As a sole designer, I owned the whole process and all the deliverables - from initial sketches, wireframes and user flows to the implementation</p>
+                    <h3>Testing</h3>
+                    <p>I facilitated user testing (on prototypes and after implementation) and helped with the QA process</p>
+                </section>
+                
+                <section class="process">
+                    <h2>How did it all happen?</h2>
+                    <p>This was a small project so there was not much planning involved - it was straight up to execution. All the potential users of the system were internal customers which meant that I could reach them any time, so even the research and user testing were not a huge challenge. After I got acquainted with the product and the goals, I quickly drafted the UI elements I needed and started ideating both the surveys and back-office. In collaboration with stakeholders we quickly had a first version running, so the only thing remaining was to improve it to a satisfactory level.</p>
+                </section>
+                
+                <section class="solution">
+                    <h2>What's the outcome?</h2>
+                    <p>The whole system was successfully created and tested, but unfortunately it was not released (yet). This was one of "proof of concept" experiments which didn't find the way to the market. It's not one of the projects that I'm most proud of either by the quality either by the amount of work I've put into, but I nevertheless decided to include it in portfolio to showcase variety of work I've done in my career.</p>
+                    <h3>What did I learn?</h3>
+                    <ul>
+                        <li>Even though the project is successfully executed, it doesn't mean that it will go live :)</li>
+                    </ul>
+                </section>
+                
+                <section class="impact">
+                    
+                </section>
+            </div>
+        </article>
+
+        <!-- Belimo Case Study -->
+        <article class="case-study" data-project="belimo" style="display: none;">
+            
+            <header class="case-study-header">
+                <button class="case-study-close" aria-label="Close case study">←</button>
+                
+                <!-- 50/50 Hero Layout -->
+                <div class="case-study-hero-split">
+                    <!-- Left Side - Main Content -->
+                    <div class="hero-main">
+                        <span class="project-category">Industrial IoT</span>
+                        <h1>Belimo Assistant</h1>
+                        <p class="hero-subtitle">Cross-platform app for HVAC setup, diagnostics, and management</p>
+                        <p class="hero-description">
+                            A multi-platform application that replaced three separate apps, enabling technicians to configure and monitor HVAC devices via cable, internet, Bluetooth, or NFC across PC, smartphone, and tablet devices.
+                        </p>
+                        
+                        <div class="project-tags">
+                            <span class="tag">Figma Migration</span>
+                            <span class="tag">Design System</span>
+                            <span class="tag">Flutter Development</span>
+                            <span class="tag">Multi-platform Design</span>
+                            <span class="tag">Environmental UX</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side - Metadata Vertical Layout -->
+                    <div class="hero-sidebar">
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Company</span>
+                            <span class="sidebar-value">Belimo</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Year</span>
+                            <span class="sidebar-value">2022-2023</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">My Work</span>
+                            <span class="sidebar-value">Lead UX Designer</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">URL</span>
+                            <span class="sidebar-value">belimo.com</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="case-study-content">
+                <section class="context">
+                    <h2>What is it about</h2>
+                    <p>Imagine a technician in a service corridor, trying to configure a HVAC valve via smartphone. Belimo Assistant was made to solve these exact challenges - bringing efficiency to the hands of professionals around the world It replaced three separate apps that were used for the same purpose. By connecting to Belimo devices via cable, internet, Bluetooth, or NFC, the app enables users to configure and monitor performance parameters, diagnose issues, and adjust settings directly from their PC, smartphone, or tablet. Main objective was to quickly design and develop a multi-platform app that would enable commissioning and maintenance of Belimo products around the world, as the preceding apps have reached the end of life (and support).</p>
+                </section>
+                
+                <section class="discovery">
+                    <h2>What did I do?</h2>
+                    <p>In the first half of the project I served as the sole designer, overseeing the entire design process and setting the foundation for a scalable design system. In the second half, two additional UX/UI designers joined the project.</p>
+                    <h3>Migration to figma</h3>
+                    <p>Belimo used several different tools for design, handoff and documentation. In order to streamline process, we chose Figma as the single source of truth.</p>
+                    <h3>Design System</h3>
+                    <p>Created a robust design system using brand guidelines and several existing components as a starting point. Also, assisted developers with implementation in Flutter.</p>
+                    <h3>UX/UI Design</h3>
+                    <p>The whole "Design Thinking" process - research the users needs, define them, create ideas, prototype and finally test them.</p>
+                    <h3>Cooperation with developers and QA</h3>
+                    <p>Adopting the new development framework while ensuring compatibility across a wide range of devices and connection types presented various challenges, which required close collaboration to successfully overcome.</p>
+                </section>
+                
+                <section class="process">
+                    <h2>How did it all happen?</h2>
+                    <p>I started by understanding the project's goals and audience. While there was plenty of documentation, stakeholder interviews proved to be the most insightful.</p>
+                    <p>Early on, I noticed inefficiencies in design, handoff, and communication tools, so I streamlined them during the defining stage. Though we couldn't track improvement as this team didn't use the old approach, the job was done on time and everyone agreed that it was much faster way to cooperate.</p>
+                    <p>In the ideation phase, we brainstormed app features, tackling challenges like complex connection methods and lengthy workflows on mobile. I simultaneously built a robust design system, enabling quick Figma prototypes with production-ready components. These examples eliminated guesswork during stakeholder meetings.</p>
+                    <h2>Research</h2>
+                    <p>The primary users were Belimo employees and subcontractors, including HVAC setup, commissioning, and maintenance professionals. They were expert users, accustomed to technical workflows but often limited by environmental challenges. Given that stakeholders were highly knowledgeable about the product and its context, basic user flows were already outlined. I supplemented this with real-device testing to identify pain points and environmental challenges faced by users.</p>
+                    <h3>Key Findings</h3>
+                    <h4>Environmental constraints</h4>
+                    <p>HVAC professionals often operate in less-than-ideal environments (e.g., limited visibility, restricted physical access to devices).</p>
+                    <h4>Need for rapid iteration</h4>
+                    <p>Existing tools and processes were slowing down prototyping, testing and communication with stakeholders.</p>
+                    <h4>Interaction differences</h4>
+                    <p>Users had varying experiences depending on whether they were working with wired, Bluetooth, or NFC-connected devices.</p>
+                </section>
+                
+                <section class="solution">
+                    <h2>Problem</h2>
+                    <p>At the beginning of the project, the design toolkit was fragmented, with a handful of UI elements distributed across Adobe XD, Photoshop, and Illustrator files. Documentation was maintained in Confluence, and developer handoff was done in Zeplin while the comments were given in Jira. There was no prototyping during the design phase - UAT version of the app was used as a prototype. To achieve the desired speed and efficiency, we needed to streamline the workflow.</p>
+                    <h2>Solution</h2>
+                    <p>I proposed Figma as the primary design tool and single source of truth, a suggestion quickly adopted not only for the Belimo Assistant but for all seven ongoing projects across three software vendors.</p>
+                    <p>Leveraging design tokens and atomic design principles, I completed the remaining components and migrated the entire system to Figma. By utilising features like auto layout, nested components, component properties, and variables, I significantly improved design speed and efficiency. Close collaboration with the development team ensured consistent naming conventions, properties, and element hierarchy, streamlining implementation.</p>
+                    <p>Centralising visuals, comments, and developer handoff in Figma enabled faster iterations and leaner communication while interactive prototypes on real devices reduced unnecessary development effort and improved the quality of UX work.</p>
+                    <h2>Problem</h2>
+                    <p>With support for three operating systems across mobile, tablet, and PC, and seven different connection methods, users faced a range of potential errors during the connection process. While we aimed to minimize differences in user flows across platforms, this wasn't always feasible. The primary challenge was the connection process itself - whether via internet, Bluetooth, USB cable, UTP cable, powered or unpowered NFC, or Bluetooth adapters. Each method had its own potential for failure or glitches during communication. Our goal was to reduce user frustration by ensuring seamless automatic reconnections and reliable data readout/write processes.</p>
+                    <h2>Solution</h2>
+                    <p>Design for the "unhappy paths" during connection time was a challenge. However with careful planing and separation of errors into few categories based on the level of disruption, user actions were required for only 20% of connection errors compared to the initial state, significantly improving the user experience.</p>
+                    <p>Users had particular problem with aligning the NFC chip on their phone with the one in the Belimo device so I used the shape of the device as a top bar in order to give them a visual hint how to position the phone. Also, research has shown that in most cases users are not able see the screen while holding phone next to device so we used different haptic feedback patterns to notify them about any changes in the app.</p>
+                </section>
+                
+                <section class="impact">
+                    <h2>What's the outcome?</h2>
+                    <p>Our team managed to successfully deliver the project on schedule successfully merging functionalities of three apps into one and introducing new connection methods. This timely delivery was a significant achievement for us.</p>
+                    <h3>What did I learn?</h3>
+                    <ul>
+                        <li>Transitioning a design system to a new platform requires strategic planning but can significantly enhance efficiency and scalability.</li>
+                        <li>Real-world testing is invaluable for identifying design improvements in complex working environments.</li>
+                        <li>Environment in which the application is used can have dramatic impact on the overall usability</li>
+                    </ul>
+                </section>
+            </div>
+        </article>
+
+        <!-- FXTT Case Study -->
+        <article class="case-study" data-project="fxtt" style="display: none;">
+            
+            <header class="case-study-header">
+                <button class="case-study-close" aria-label="Close case study">←</button>
+                
+                <!-- 50/50 Hero Layout -->
+                <div class="case-study-hero-split">
+                    <!-- Left Side - Main Content -->
+                    <div class="hero-main">
+                        <span class="project-category">Financial Technology</span>
+                        <h1>FX Trading Tool</h1>
+                        <p class="hero-subtitle">Internal tool for private bankers to facilitate currency exchange</p>
+                        <p class="hero-description">
+                            An internal trading platform used by Singapore and Hong Kong HSBC branches, enabling private bankers to execute complex foreign currency exchanges for high-ranking clients, including futures, spot, forward rates, and bullion purchases.
+                        </p>
+                        
+                        <div class="project-tags">
+                            <span class="tag">Banking UX</span>
+                            <span class="tag">Stakeholder Research</span>
+                            <span class="tag">Internal Tools</span>
+                            <span class="tag">Financial Workflows</span>
+                            <span class="tag">Sketch Design</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side - Metadata Vertical Layout -->
+                    <div class="hero-sidebar">
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Company</span>
+                            <span class="sidebar-value">HSBC Bank</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Year</span>
+                            <span class="sidebar-value">2022</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">My Work</span>
+                            <span class="sidebar-value">Solo UX Designer</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">URL</span>
+                            <span class="sidebar-value">Internal Tool</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="case-study-content">
+                <section class="context">
+                    <h2>What is it about</h2>
+                    <p>HSBC Bank's premium clients have dedicated private bankers who use this tool to execute currency exchanges upon request. These transactions go beyond standard exchanges, involving complex parameters like futures, spot, and forward rates, with an additional option for ultra-high-net-worth clients to purchase bullion. While I can't share visuals due to confidentiality, I included this project in my portfolio because of the unique challenges it posed. Working in a highly secure banking environment, with limited UI components and no direct access to real users, made the UX process both demanding and intriguing.</p>
+                </section>
+                
+                <section class="discovery">
+                    <h2>What did I do?</h2>
+                    <p>I was the only designer on the project. I was communicating exclusively with stakeholders who were very knowledgeable about the product and it's usage.</p>
+                    <h3>Research</h3>
+                    <p>I got a pretty good idea about who are the users and in which environment are they using the product from stakeholder interviews, but I also had to learn a lot about the product itself.</p>
+                    <h3>Collaboration</h3>
+                    <p>As I was the only person from the development team with some background in economics, I was often the one who was "translating" the business requirements to the colleagues.</p>
+                    <h3>Sketching</h3>
+                    <p>Before the UI design, we were using an HSBC's internal sketching tool for quick drafts.</p>
+                    <h3>UI Design</h3>
+                    <p>Using the HSBC's UI elements, I designed the approved screens in Sketch. Figma or any other cloud-based tool was not allowed.</p>
+                </section>
+                
+                <section class="process">
+                    <h2>How did it all happen?</h2>
+                    <p>When I was onboarded, I got a super-secure laptop without internet connection from which all the work was done. After I got a grasp of the product, I started the design in micro increments - I presented the yesterday's work in daily meetings and where I also got assigned what to do next. We did have two week sprints, but most of the design work was done on a daily basis, solving one small problem after another and incrementally building up the sketches and later visual design for implementation.</p>
+                </section>
+                
+                <section class="solution">
+                    <h2>What's the outcome?</h2>
+                    <p>The app was successfully developed and delivered on schedule. As with all internal HSBC tools, it adhered to strict guidelines and used pre-approved UI components from their design system, leaving little room for UI experimentation. This made it one of the most unusual projects I've ever worked on.</p>
+                    <h3>What did I learn?</h3>
+                    <ul>
+                        <li>A lot about the banking sector - both about the products and different development procedures.</li>
+                        <li>Strict adherence to guidelines limits the innovation but by taking the guesswork out it vastly improves the speed of development</li>
+                    </ul>
+                </section>
+                
+                <section class="impact">
+                    
+                </section>
+            </div>
+        </article>
+
+        <!-- HomeRules Case Study -->
+        <article class="case-study" data-project="homerules" style="display: none;">
+            
+            <header class="case-study-header">
+                <button class="case-study-close" aria-label="Close case study">←</button>
+                
+                <!-- 50/50 Hero Layout -->
+                <div class="case-study-hero-split">
+                    <!-- Left Side - Main Content -->
+                    <div class="hero-main">
+                        <span class="project-category">Gaming Application</span>
+                        <h1>HomeRules Poker</h1>
+                        <p class="hero-subtitle">Digital poker game using smartphones for private cards and shared screens</p>
+                        <p class="hero-description">
+                            An innovative digital poker solution that replaces physical cards and chips with smartphones for private cards and a shared device for community cards, bringing players back to the table while keeping them engaged and focused.
+                        </p>
+                        
+                        <div class="project-tags">
+                            <span class="tag">User Research</span>
+                            <span class="tag">Game Mechanics</span>
+                            <span class="tag">Usability Testing</span>
+                            <span class="tag">Interaction Design</span>
+                            <span class="tag">Voice Integration</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side - Metadata Vertical Layout -->
+                    <div class="hero-sidebar">
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Company</span>
+                            <span class="sidebar-value">Gaming Startup</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">Year</span>
+                            <span class="sidebar-value">2021-2022</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">My Work</span>
+                            <span class="sidebar-value">Lead UX Researcher</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-label">URL</span>
+                            <span class="sidebar-value">homerules.poker</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="case-study-content">
+                <section class="context">
+                    <h2>What is it about</h2>
+                    <p>HomeRules Poker brings players back to the table - iterally - by blending digital tools with the social essence of in-person poker. Players use their phones to view player cards, while a shared screen (TV, tablet or a PC) displays community cards, eliminating the need for a dealer or a physical poker set. Plus, it keeps players phones busy with the game, so everyone stays focused on playing instead of scrolling through social media while hanging out with friends.</p>
+                    <p>As my role was UX only, I'm showcasing the work we used to test the game mechanics - this is intentionally not polished for end users.</p>
+                </section>
+                
+                <section class="discovery">
+                    <h2>What did I do?</h2>
+                    <p>We were a team of six people - 3 UX and 3 UI/Graphic designers. I had a UX role - leading qualitative research and figuring out game mechanics so good that the poker players would be willing to trade chips and a deck of cards for a smartphone.</p>
+                    <h3>User Research</h3>
+                    <p>I conducted interviews and focus groups with poker players to understand their habits and expectations. This research informed key design decisions to align with traditional poker experiences.</p>
+                    <h3>Design-Dev-Business Liaison</h3>
+                    <p>I facilitated communication between designers, developers, and stakeholders to ensure alignment on goals and priorities. This involved translating business requirements into actionable design tasks and providing developers with clear design guidance.</p>
+                    <h3>Usability Testing</h3>
+                    <p>I organized testing sessions to evaluate features like card viewing, betting, and device connections. Insights from these sessions guided improvements to the interactions.</p>
+                    <h3>Interaction Design</h3>
+                    <p>I designed interactions that replicated real-world poker gestures, such as peeking at cards and swiping chips as well as workflows for pairing devices, setting up games, and handling in-game actions.</p>
+                </section>
+                
+                <section class="process">
+                    <h2>How did it all happen?</h2>
+                    <p>We approached the project with a iterative process that emphasized collaboration and testing. At the beginning of each sprint we chose a specific problem to research, design or test. I led qualitative research to gather insights from poker players, focusing on their habits and expectations. Using this feedback, I worked with the team to brainstorm potential solutions and refine the game mechanics to closely mimic the traditional poker experience. Prototypes were quickly created and tested with players to validate concepts and identify areas for improvement. This approach allowed us to iterate rapidly, fine-tune details like gestures and feedback, and ensure the final design felt intuitive and engaging for the target audience.</p>
+                    <h2>Research</h2>
+                    <p>This was by far the most research-intensive project I've ever worked on, with nearly two years of continuous exploration and iteration. Developing completely new game mechanics required extensive user research and testing to ensure poker players would get a better alternative to physical cards or chips.</p>
+                    <h3>Key Findings</h3>
+                    <h4>Poker players are getting old</h4>
+                    <p>Millennials are the last generation which actively plays poker - it's just not that popular anymore. This meant that we had to design for users who aren't as tech savvy as younger generations.</p>
+                    <h4>Keep it natural</h4>
+                    <p>Although there are more efficient ways to complete a task, players always preferred the actions which would mimic the real moves from a game of poker - like hiding screen to reveal the cards or "throwing" chips towards the table.</p>
+                    <h4>Micro-transactions aren't micro</h4>
+                    <p>While interviewing players about their general gaming behaviour, I was amazed by the amount spent on non-functional in-game purchases.</p>
+                </section>
+                
+                <section class="solution">
+                    <h2>Problem</h2>
+                    <p>HomeRules Poker requires one table device and several player devices connected to the same server via internet. Game setup is the process of connecting them among themselves. With the aging user-base and often sub-par user experience on most smart TV's this could easily repel potential players - no-one wants to spend ages typing on a TV's remote control. Making the game setup process frictionless was one of biggest priorities.</p>
+                    <h2>Solution</h2>
+                    <p>Our initial idea for game setup involved typing a code from the TV into a phone, but this proved too cumbersome on most TV interfaces. Then a simpler solution came to mind—generating a QR code on the table device for players to scan with their phones. While faster, this still required navigating several layers of the TV's menu just to launch the poker app. During user interviews, I began asking if users had voice assistants at home, and 60% said they did. This sparked the idea to use voice commands to streamline the process. We developed an Alexa skill that could launch the app and display the QR code instantly, making it quick and effortless for players to join the game.</p>
+                </section>
+                
+                <section class="impact">
+                    <h2>What's the outcome?</h2>
+                    <p>We solved so many problems (and found the new ones), developers made a fully operational app ran on both Android and iOS, but unfortunately it was never launched due to lack of Go To Market strategy.</p>
+                    <h3>What did I learn?</h3>
+                    <ul>
+                        <li>How to conduct user research and usability test. This wasn't the first time I've done it, but it was certainly the time I've done it the most.</li>
+                        <li>How to play poker.</li>
+                        <li>How to create prototype with advanced interaction (proto.io).</li>
+                    </ul>
+                </section>
+            </div>
+        </article>
+    </div>
+
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
