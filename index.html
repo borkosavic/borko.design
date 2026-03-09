@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>borko.design</title>
-  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
@@ -12,13 +12,14 @@
     <div class="container-page py-4 flex items-center justify-between">
       <a href="#top" class="inline-flex items-center" aria-label="borko.design">
         <span class="logoSlot" data-logo-slot>
-          <span class="logoAnchor" data-logo-anchor aria-hidden="true"></span>
-          <span class="wordWrap" data-word-wrap>
-            <img class="logoWord" src="../public/assets/logo-wordmark.svg" alt="borko.design">
+          <span class="logoAnchor" data-logo-anchor aria-hidden="true">
+            <span class="brandLine" data-header-core>
+              <span>b</span><span class="brandChunk" data-word-chunk>orko</span><span>.</span><span>d</span><span class="brandChunk" data-word-chunk>esign</span>
+            </span>
           </span>
         </span>
       </a>
-      <nav class="flex gap-6 text-[14px]">
+      <nav class="text-ui flex gap-6">
         <a class="link" href="#work">Work</a>
         <a class="link" href="#about">About</a>
         <a class="link" href="#cv">CV</a>
@@ -32,7 +33,10 @@
       <div class="min-h-[60vh] flex items-end pb-16 pt-10">
         <div class="w-full">
           <div class="mb-10">
-            <div class="logoMark" data-hero-mark aria-label="b.d"></div>
+            <div class="logoMark" data-hero-mark aria-hidden="true">
+              <span class="markCore">b.d</span>
+              <span class="markSmile" data-hero-smile>)</span>
+            </div>
           </div>
 
           <p class="p-lead">
@@ -41,7 +45,7 @@
             While most of my work is in fintech, social networks and publishing, my expertise spans other domains too.
           </p>
 
-          <div class="mt-8 flex gap-4 text-[14px]">
+          <div class="text-ui mt-8 flex gap-4">
             <a class="link" href="#work">View work</a>
             <a class="link" href="#about">About</a>
             <a class="link" href="#cv">Download CV</a>
@@ -62,7 +66,7 @@
             </p>
           </div>
           <div class="col-span-12 lg:col-span-7">
-            <div class="frame aspect-[16/10]"></div>
+            <div class="frame aspect-16/10"></div>
           </div>
         </div>
       </article>
@@ -79,10 +83,10 @@
     <footer class="container-page pb-20">
       <div class="hairline mb-10"></div>
       <div class="text-[32px] tracking-[-0.04em] leading-none">b.d</div>
-      <div class="mt-2 h-[14px] w-[90px] border-b-4 border-zinc-950 rounded-b-[999px]"></div>
+      <div class="mt-2 h-3.5 w-22.5 border-b-4 border-zinc-950 rounded-b-[999px]"></div>
     </footer>
   </main>
 
-  <script type="module" src="./app.js"></script>
+  <script type="module" src="./src/app.js"></script>
 </body>
 </html>

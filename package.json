@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./style.css --watch",
+    "dev": "node ./scripts/watch-css.mjs",
+    "dev:css": "node ./scripts/watch-css.mjs",
+    "dev:serve": "node ./scripts/dev-server.mjs",
     "build": "npx @tailwindcss/cli -i ./src/input.css -o ./style.css --minify",
+    "build:dev": "npx @tailwindcss/cli -i ./src/input.css -o ./style.css",
     "build-css": "npx @tailwindcss/cli -i ./src/input.css -o ./style.css"
   },
   "dependencies": {
