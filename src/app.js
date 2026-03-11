@@ -1,6 +1,10 @@
 const nav = document.querySelector("[data-floating-nav]");
 const highlight = document.querySelector("[data-nav-highlight]");
 const links = Array.from(document.querySelectorAll("[data-nav-link]"));
+const heroMark = document.querySelector("[data-hero-mark]");
+const logoSlot = document.querySelector("[data-logo-slot]");
+const logoAnchor = document.querySelector("[data-logo-anchor]");
+const wordChunks = Array.from(document.querySelectorAll("[data-word-chunk]"));
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 if (!nav || !highlight || links.length === 0) {
@@ -15,12 +19,23 @@ const state = {
   targetX: 0,
   targetWidth: 0,
   activeIndex: 0,
+  phaseOneDistance: 180,
+  phaseTwoDistance: 150,
+  startRect: null,
   rafId: null,
   ticking: false,
 };
 
 function isReady() {
-  return nav && highlight && links.length > 0;
+  return (
+    nav &&
+    highlight &&
+    links.length > 0 &&
+    heroMark &&
+    logoSlot &&
+    logoAnchor &&
+    wordChunks.length > 0
+  );
 }
 
 function clamp(value, min, max) {
@@ -29,6 +44,40 @@ function clamp(value, min, max) {
 
 function lerp(from, to, amount) {
   return from + (to - from) * amount;
+}
+
+function createMotionLayer() {
+  const layer = document.createElement("div");
+  layer.className = "motionLayer";
+  layer.hidden = true;
+
+  const flight = document.createElement("div");
+  flight.className = "flightMark";
+  flight.innerHTML = '<span class="markCore">b.d</span><span class="markSmile">)</span>';
+  layer.appendChild(flight);
+
+  document.body.appendChild(layer);
+
+  return { layer, flight, smile: flight.querySelector(".markSmile") };
+}
+
+function updatePhaseDistances() {
+  state.phaseOneDistance = clamp(window.innerHeight * 0.22, 120, 240);
+  state.phaseTwoDistance = clamp(window.innerHeight * 0.16, 90, 180);
+}
+
+function hideHeroMark(hidden) {
+  heroMark.classList.toggle("is-hidden", hidden);
+}
+
+function setDocked(docked) {
+  logoSlot.classList.toggle("is-docked", docked);
+}
+
+function setChunkState(count) {
+  wordChunks.forEach((chunk, index) => {
+    chunk.classList.toggle("is-on", index < count);
+  });
 }
 
 function readMetrics() {
@@ -119,6 +168,57 @@ function updateTargets() {
 function paint() {
   if (!isReady()) return;
 
+  const y = Math.max(window.scrollY || window.pageYOffset || 0, 0);
+  const phaseOne = clamp(y / state.phaseOneDistance, 0, 1);
+  const phaseTwo = clamp((y - state.phaseOneDistance) / state.phaseTwoDistance, 0, 1);
+
+  if (reduceMotion.matches) {
+    motion.layer.hidden = true;
+    hideHeroMark(y > 0);
+    setDocked(y > 0);
+    setChunkState(y > state.phaseOneDistance ? wordChunks.length : 0);
+  } else if (y <= 0.5) {
+    motion.layer.hidden = true;
+    state.startRect = null;
+    hideHeroMark(false);
+    setDocked(false);
+    setChunkState(0);
+    if (motion.smile) motion.smile.style.opacity = "1";
+  } else {
+    if (!state.startRect) {
+      state.startRect = heroMark.getBoundingClientRect();
+    }
+
+    if (phaseOne < 1) {
+      const from = state.startRect;
+      const to = logoAnchor.getBoundingClientRect();
+      const dx = to.left - from.left;
+      const dy = to.top - from.top;
+      const scale = lerp(1, to.width / Math.max(from.width, 1), phaseOne);
+
+      const tx = from.left + dx * phaseOne;
+      const ty = from.top + dy * phaseOne;
+
+      motion.flight.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+
+      if (motion.smile) {
+        const smileFade = clamp((phaseOne - 0.55) / 0.45, 0, 1);
+        motion.smile.style.opacity = `${1 - smileFade}`;
+      }
+
+      motion.layer.hidden = false;
+      hideHeroMark(true);
+      setDocked(false);
+      setChunkState(0);
+    } else {
+      motion.layer.hidden = true;
+      hideHeroMark(true);
+      setDocked(true);
+      const visibleCount = clamp(Math.floor(phaseTwo * wordChunks.length), 0, wordChunks.length);
+      setChunkState(visibleCount);
+    }
+  }
+
   const ease = reduceMotion.matches ? 1 : 0.18;
   state.currentX = lerp(state.currentX, state.targetX, ease);
   state.currentWidth = lerp(state.currentWidth, state.targetWidth, ease);
@@ -164,6 +264,8 @@ function onScroll() {
 
 function onResize() {
   readMetrics();
+  updatePhaseDistances();
+  if (window.scrollY <= 0.5) state.startRect = null;
   updateTargets();
 
   if (state.metrics[0]) {
@@ -174,10 +276,13 @@ function onResize() {
   requestPaint();
 }
 
+const motion = createMotionLayer();
+
 window.addEventListener("load", () => {
   if (!isReady()) return;
 
   readMetrics();
+  updatePhaseDistances();
   updateTargets();
 
   if (state.metrics[0]) {

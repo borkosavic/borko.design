@@ -9,30 +9,42 @@
 
 <body>
   <header class="siteHeader">
-    <nav class="siteNav text-ui" data-floating-nav aria-label="Primary navigation">
-      <div class="navHighlight" data-nav-highlight aria-hidden="true"></div>
-      <a class="navLink" data-nav-link href="#home">Home</a>
-      <a class="navLink" data-nav-link href="#work">
-        <span class="navLinkInner">
-          <span class="navBadge">6</span>
-          <span>Work</span>
+    <div class="siteHeaderStack">
+      <a href="#top" class="siteBrand" aria-label="borko.design">
+        <span class="logoSlot" data-logo-slot>
+          <span class="logoAnchor" data-logo-anchor aria-hidden="true">
+            <span class="brandLine" data-header-core>
+              <span>b</span><span class="brandChunk" data-word-chunk>orko</span><span>.</span><span>d</span><span class="brandChunk" data-word-chunk>esign</span>
+            </span>
+          </span>
         </span>
       </a>
-      <a class="navLink" data-nav-link href="#about">About</a>
-      <a class="navLink" data-nav-link href="#cv">CV</a>
-      <a class="navLink" data-nav-link href="#contact">Contact</a>
-    </nav>
+
+      <nav class="siteNav text-ui" data-floating-nav aria-label="Primary navigation">
+        <div class="navHighlight" data-nav-highlight aria-hidden="true"></div>
+        <a class="navLink" data-nav-link href="#home">Home</a>
+        <a class="navLink" data-nav-link href="#work">
+          <span class="navLinkInner">
+            <span class="navBadge">6</span>
+            <span>Work</span>
+          </span>
+        </a>
+        <a class="navLink" data-nav-link href="#about">About</a>
+        <a class="navLink" data-nav-link href="#cv">CV</a>
+        <a class="navLink" data-nav-link href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main id="top" class="pt-32">
+  <main id="top" class="pt-52">
     <section id="home" class="container-page" data-hero>
       <div class="min-h-[60vh] flex items-center py-16">
         <div class="w-full">
           <div class="flex flex-col gap-8 lg:grid lg:grid-cols-12 lg:items-end lg:gap-0">
             <div class="lg:col-span-3">
-              <div class="logoMark" aria-hidden="true">
+              <div class="logoMark" data-hero-mark aria-hidden="true">
                 <span class="markCore">b.d</span>
-                <span class="markSmile">)</span>
+                <span class="markSmile" data-hero-smile>)</span>
               </div>
             </div>
 
