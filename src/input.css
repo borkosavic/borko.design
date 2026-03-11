@@ -14,7 +14,7 @@
     --type-ui: 1rem;
     --type-h1-min: 3.2rem;
     --type-h1-max: 5rem;
-    --type-h2: 2rem;
+    --type-h2: 4rem;
     --type-h3-min: 2.2rem;
     --type-h3-max: 3rem;
     --type-lead-min: 1.2rem;
@@ -27,7 +27,7 @@
   }
 
   body {
-    @apply bg-white text-zinc-950 antialiased;
+    @apply bg-white text-zinc-800 antialiased;
     font-family: "Satoshi", ui-sans-serif, system-ui, sans-serif;
   }
 
@@ -37,18 +37,27 @@
 @layer components {
   .siteHeader {
     @apply fixed left-1/2 z-50 -translate-x-1/2 px-4;
-    top: 24px;
+    top: 0;
     width: min(100%, 72rem);
   }
 
   .siteHeaderStack {
     @apply flex flex-col items-center;
+    width: 362px;
+    max-width: calc(100vw - 1rem);
+    margin-inline: auto;
+    padding: 0;
     gap: 24px;
+    border-radius: 0 0 28px 28px;
+    background: rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   .siteBrand {
     @apply inline-flex items-center justify-center;
     min-height: 32px;
+    margin-top: 24px;
   }
 
   .siteMain {
@@ -64,7 +73,7 @@
     gap: 0;
     width: 362px;
     height: var(--nav-height);
-    max-width: calc(100vw - 2rem);
+    max-width: 100%;
     margin-inline: auto;
     padding: var(--nav-inset);
     border-radius: 999px;
@@ -249,7 +258,7 @@
   }
 
   .h2 {
-    @apply tracking-[-0.01em] text-zinc-700;
+    @apply tracking-[-0.01em] text-zinc-950;
     font-size: var(--type-h2);
     line-height: 1.2;
     font-weight: 600;
@@ -280,7 +289,12 @@
 
 @media (max-width: 900px) {
   .siteHeader {
-    top: 24px;
+    top: 0;
+  }
+
+  .siteHeaderStack {
+    width: min(362px, calc(100vw - 1rem));
+    margin-inline: auto;
   }
 
   .siteNav {
