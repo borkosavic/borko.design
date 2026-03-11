@@ -10,11 +10,11 @@
 @layer base {
   :root {
     color-scheme: light;
-    --type-base: 36px;
+    --type-base: 18px;
     --type-ui: 1rem;
     --type-h1-min: 3.2rem;
     --type-h1-max: 5rem;
-    --type-h2: 1.25rem;
+    --type-h2: 2rem;
     --type-h3-min: 2.2rem;
     --type-h3-max: 3rem;
     --type-lead-min: 1.2rem;
@@ -35,6 +35,113 @@
 }
 
 @layer components {
+  .siteHeader {
+    @apply fixed top-5 left-1/2 z-50 -translate-x-1/2 px-4;
+    width: min(100%, 72rem);
+  }
+
+  .siteNav {
+    --nav-inset: 5px;
+    --nav-height: 40px;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    gap: 0;
+    width: 424px;
+    height: var(--nav-height);
+    max-width: calc(100vw - 2rem);
+    margin-inline: auto;
+    padding: var(--nav-inset);
+    border-radius: 999px;
+    background: #050505;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  }
+
+  .navHighlight {
+    position: absolute;
+    top: var(--nav-inset);
+    left: var(--nav-inset);
+    height: calc(var(--nav-height) - (var(--nav-inset) * 2));
+    border-radius: 999px;
+    background:
+      radial-gradient(circle at 22% 30%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92) 52%, rgba(238, 238, 238, 0.95) 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      0 10px 20px rgba(0, 0, 0, 0.14);
+    transform: translate3d(0, 0, 0);
+    will-change: transform, width;
+  }
+
+  .navHighlight::after {
+    content: "";
+    position: absolute;
+    inset: 18% 12%;
+    border-radius: inherit;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+    opacity: 0.8;
+  }
+
+  .navLink {
+    @apply relative z-10 inline-flex items-center justify-center;
+    flex: 0 0 auto;
+    height: calc(var(--nav-height) - (var(--nav-inset) * 2));
+    padding-inline: 0;
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    transition: color 180ms ease;
+  }
+
+  .navLink.is-current {
+    color: #050505;
+  }
+
+  .navLinkInner {
+    @apply inline-flex items-center gap-2;
+  }
+
+  .navLink:first-of-type {
+    width: 74px;
+  }
+
+  .navLink:nth-of-type(2) {
+    width: 93px;
+    margin-left: 8px;
+  }
+
+  .navLink:nth-of-type(3) {
+    width: 74px;
+    margin-left: 8px;
+  }
+
+  .navLink:nth-of-type(4) {
+    width: 54px;
+    margin-left: 8px;
+  }
+
+  .navLink:nth-of-type(5) {
+    width: 87px;
+    margin-left: 8px;
+  }
+
+  .navBadge {
+    @apply inline-flex items-center justify-center rounded-full;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.86);
+    color: #050505;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .navLink.is-current .navBadge {
+    background: #050505;
+    color: rgba(255, 255, 255, 0.96);
+  }
+
   .logoSlot {
     @apply relative inline-flex items-center;
     --header-mark-size: clamp(34px, 2.8vw, 52px);
@@ -44,7 +151,7 @@
     @apply inline-flex items-start;
     letter-spacing: -0.05em;
     line-height: 0.86;
-    font-weight: 800;
+    font-weight: 600;
     opacity: 0;
     transition: opacity 120ms linear;
   }
@@ -58,7 +165,7 @@
     white-space: nowrap;
     font-size: var(--header-mark-size);
     line-height: 0.86;
-    font-weight: 800;
+    font-weight: 600;
     white-space: nowrap;
   }
 
@@ -76,7 +183,7 @@
     --hero-mark-size: clamp(86px, 11vw, 140px);
     line-height: 0.86;
     letter-spacing: -0.05em;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--color-zinc-950);
   }
 
@@ -97,27 +204,7 @@
     transform: rotate(90deg);
   }
 
-  .logoMark.is-hidden {
-    visibility: hidden;
-  }
-
-  .motionLayer {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 60;
-  }
-
-  .flightMark {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform-origin: top left;
-    will-change: transform;
-    pointer-events: none;
-  }
-
-  .container-page { @apply mx-auto max-w-310 px-6; }
+  .container-page { @apply mx-auto max-w-310 px-18; }
 
   .hairline { @apply h-px bg-zinc-200/70; }
 
@@ -156,5 +243,36 @@
 
   .card { @apply rounded-2xl p-8 sm:p-10; }
 
+  .contactSection {
+    min-height: 45vh;
+  }
+
   .frame { @apply rounded-xl border border-zinc-200 bg-white/70 overflow-hidden; }
+}
+
+@media (max-width: 900px) {
+  .siteHeader {
+    @apply top-3;
+  }
+
+  .siteNav {
+    width: min(424px, calc(100vw - 1rem));
+    overflow-x: auto;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+
+  .siteNav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navLink {
+    height: calc(var(--nav-height) - (var(--nav-inset) * 2));
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  .container-page {
+    @apply px-6;
+  }
 }

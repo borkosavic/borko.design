@@ -8,47 +8,49 @@
 </head>
 
 <body>
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur">
-    <div class="container-page py-4 flex items-center justify-between">
-      <a href="#top" class="inline-flex items-center" aria-label="borko.design">
-        <span class="logoSlot" data-logo-slot>
-          <span class="logoAnchor" data-logo-anchor aria-hidden="true">
-            <span class="brandLine" data-header-core>
-              <span>b</span><span class="brandChunk" data-word-chunk>orko</span><span>.</span><span>d</span><span class="brandChunk" data-word-chunk>esign</span>
-            </span>
-          </span>
+  <header class="siteHeader">
+    <nav class="siteNav text-ui" data-floating-nav aria-label="Primary navigation">
+      <div class="navHighlight" data-nav-highlight aria-hidden="true"></div>
+      <a class="navLink" data-nav-link href="#home">Home</a>
+      <a class="navLink" data-nav-link href="#work">
+        <span class="navLinkInner">
+          <span class="navBadge">6</span>
+          <span>Work</span>
         </span>
       </a>
-      <nav class="text-ui flex gap-6">
-        <a class="link" href="#work">Work</a>
-        <a class="link" href="#about">About</a>
-        <a class="link" href="#cv">CV</a>
-      </nav>
-    </div>
-    <div class="hairline"></div>
+      <a class="navLink" data-nav-link href="#about">About</a>
+      <a class="navLink" data-nav-link href="#cv">CV</a>
+      <a class="navLink" data-nav-link href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <main id="top">
-    <section class="container-page" data-hero>
-      <div class="min-h-[60vh] flex items-end pb-16 pt-10">
+  <main id="top" class="pt-32">
+    <section id="home" class="container-page" data-hero>
+      <div class="min-h-[60vh] flex items-center py-16">
         <div class="w-full">
-          <div class="mb-10">
-            <div class="logoMark" data-hero-mark aria-hidden="true">
-              <span class="markCore">b.d</span>
-              <span class="markSmile" data-hero-smile>)</span>
+          <div class="flex flex-col gap-8 lg:grid lg:grid-cols-12 lg:items-end lg:gap-0">
+            <div class="lg:col-span-3">
+              <div class="logoMark" aria-hidden="true">
+                <span class="markCore">b.d</span>
+                <span class="markSmile">)</span>
+              </div>
             </div>
-          </div>
 
-          <p class="p-lead">
-            I’m a senior UX Designer with more than 10 years of experience creating <span class="font-bold">highly usable</span> and accessible products and design systems, often bridging the gap between business and development.
+            <div class="hidden lg:block lg:col-span-1" aria-hidden="true"></div>
 
-            While most of my work is in fintech, social networks and publishing, my expertise spans other domains too.
-          </p>
+            <div class="lg:col-span-8">
+              <p class="p-lead">
+                I’m a senior UX Designer with more than 10 years of experience creating <span class="font-bold">highly usable</span> and accessible products and design systems, often bridging the gap between business and development.
 
-          <div class="text-ui mt-8 flex gap-4">
-            <a class="link" href="#work">View work</a>
-            <a class="link" href="#about">About</a>
-            <a class="link" href="#cv">Download CV</a>
+                While most of my work is in fintech, social networks and publishing, my expertise spans other domains too.
+              </p>
+
+              <div class="text-ui mt-8 flex gap-4">
+                <a class="link" href="#work">View work</a>
+                <a class="link" href="#about">About</a>
+                <a class="link" href="#cv">Download CV</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -79,7 +81,23 @@
         i sistemima koji ostaju upotrebljivi i kada postanu kompleksni.
       </p>
     </section>
-      <div style="height: 200vh;"></div>
+
+    <section id="cv" class="container-page pb-24">
+      <h2 class="h2 mb-8">CV</h2>
+      <p class="p-lead">
+        Senior UX Designer fokusiran na kompleksne proizvode, design sisteme i
+        saradnju između product, business i development timova.
+      </p>
+    </section>
+
+    <section id="contact" class="container-page contactSection pb-32">
+      <h2 class="h2 mb-8">Contact</h2>
+      <p class="p-lead">
+        Ako želiš da pričamo o projektu, timu ili produktu koji treba da se
+        pojednostavi, javi se.
+      </p>
+    </section>
+
     <footer class="container-page pb-20">
       <div class="hairline mb-10"></div>
       <div class="text-[32px] tracking-[-0.04em] leading-none">b.d</div>
