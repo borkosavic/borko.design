@@ -6,6 +6,7 @@ const logoSlot = document.querySelector("[data-logo-slot]");
 const logoAnchor = document.querySelector("[data-logo-anchor]");
 const wordChunks = Array.from(document.querySelectorAll("[data-word-chunk]"));
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const workSection = document.querySelector("#work");
 
 if (!nav || !highlight || links.length === 0) {
   console.warn("Floating nav: missing required nodes");
@@ -22,6 +23,11 @@ const state = {
   phaseOneDistance: 180,
   phaseTwoDistance: 150,
   startRect: null,
+  introTriggered: false,
+  introCompleted: false,
+  introStartTime: 0,
+  introDuration: 1150,
+  touchStartY: 0,
   rafId: null,
   ticking: false,
 };
@@ -78,6 +84,45 @@ function setChunkState(count) {
   wordChunks.forEach((chunk, index) => {
     chunk.classList.toggle("is-on", index < count);
   });
+}
+
+function getLogoPhases() {
+  if (state.introTriggered && !state.introCompleted) {
+    const elapsed = performance.now() - state.introStartTime;
+    const progress = clamp(elapsed / state.introDuration, 0, 1);
+    return {
+      phaseOne: clamp(progress / 0.68, 0, 1),
+      phaseTwo: clamp((progress - 0.68) / 0.32, 0, 1),
+      completed: progress >= 1,
+    };
+  }
+
+  const y = Math.max(window.scrollY || window.pageYOffset || 0, 0);
+  return {
+    phaseOne: clamp(y / state.phaseOneDistance, 0, 1),
+    phaseTwo: clamp((y - state.phaseOneDistance) / state.phaseTwoDistance, 0, 1),
+    completed: y > state.phaseOneDistance + state.phaseTwoDistance,
+  };
+}
+
+function startIntro() {
+  if (state.introTriggered || !workSection) return;
+
+  state.introTriggered = true;
+  state.introCompleted = false;
+  state.introStartTime = performance.now();
+  state.startRect = heroMark.getBoundingClientRect();
+
+  if (reduceMotion.matches) {
+    hideHeroMark(true);
+    setDocked(true);
+    setChunkState(wordChunks.length);
+    state.introCompleted = true;
+  } else {
+    requestPaint();
+  }
+
+  workSection.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function readMetrics() {
@@ -169,15 +214,14 @@ function paint() {
   if (!isReady()) return;
 
   const y = Math.max(window.scrollY || window.pageYOffset || 0, 0);
-  const phaseOne = clamp(y / state.phaseOneDistance, 0, 1);
-  const phaseTwo = clamp((y - state.phaseOneDistance) / state.phaseTwoDistance, 0, 1);
+  const { phaseOne, phaseTwo, completed } = getLogoPhases();
 
   if (reduceMotion.matches) {
     motion.layer.hidden = true;
     hideHeroMark(y > 0);
     setDocked(y > 0);
     setChunkState(y > state.phaseOneDistance ? wordChunks.length : 0);
-  } else if (y <= 0.5) {
+  } else if (y <= 0.5 && !state.introTriggered) {
     motion.layer.hidden = true;
     state.startRect = null;
     hideHeroMark(false);
@@ -219,6 +263,10 @@ function paint() {
     }
   }
 
+  if (completed) {
+    state.introCompleted = true;
+  }
+
   const ease = reduceMotion.matches ? 1 : 0.18;
   state.currentX = lerp(state.currentX, state.targetX, ease);
   state.currentWidth = lerp(state.currentWidth, state.targetWidth, ease);
@@ -228,7 +276,8 @@ function paint() {
 
   if (
     Math.abs(state.currentX - state.targetX) > 0.2 ||
-    Math.abs(state.currentWidth - state.targetWidth) > 0.2
+    Math.abs(state.currentWidth - state.targetWidth) > 0.2 ||
+    (state.introTriggered && !state.introCompleted && !reduceMotion.matches)
   ) {
     state.rafId = window.requestAnimationFrame(paint);
     return;
@@ -260,6 +309,33 @@ function onScroll() {
     state.ticking = false;
     sync();
   });
+}
+
+function onWheel(event) {
+  if (window.scrollY > 2 || state.introTriggered) return;
+  if (event.deltaY <= 0) return;
+  event.preventDefault();
+  startIntro();
+}
+
+function onKeydown(event) {
+  if (window.scrollY > 2 || state.introTriggered) return;
+  const triggers = ["ArrowDown", "PageDown", " ", "Spacebar"];
+  if (!triggers.includes(event.key)) return;
+  event.preventDefault();
+  startIntro();
+}
+
+function onTouchStart(event) {
+  state.touchStartY = event.touches[0]?.clientY ?? 0;
+}
+
+function onTouchMove(event) {
+  if (window.scrollY > 2 || state.introTriggered) return;
+  const currentY = event.touches[0]?.clientY ?? 0;
+  if (state.touchStartY - currentY < 10) return;
+  event.preventDefault();
+  startIntro();
 }
 
 function onResize() {
@@ -298,6 +374,10 @@ window.addEventListener("load", () => {
 
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onResize);
+  window.addEventListener("wheel", onWheel, { passive: false });
+  window.addEventListener("keydown", onKeydown);
+  window.addEventListener("touchstart", onTouchStart, { passive: true });
+  window.addEventListener("touchmove", onTouchMove, { passive: false });
 
   if (typeof reduceMotion.addEventListener === "function") {
     reduceMotion.addEventListener("change", sync);
